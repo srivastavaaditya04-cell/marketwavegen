@@ -12,8 +12,12 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Market Wavegen",
-  description: "Transform your marketing strategy and achieve long-term success",
+  title: "Market Wavegen | Precision B2B Demand Gen",
+  description: "We use real-time intent, buyer behavior, and tech stack intelligence to plan demand programs that engage the right audience before competitors do.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

@@ -29,7 +29,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
                 animationDelay: `${index * 50}ms`,
             }}
         >
-            <Link href={`/blog/${post.slug}`} onClick={handleClick} className="block">
+            <Link href={`/blogs/${post.slug}`} onClick={handleClick} className="block">
                 {/* Hover Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0158e6]/0 via-transparent to-[#efef39]/0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
 

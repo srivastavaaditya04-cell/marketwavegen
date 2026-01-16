@@ -207,7 +207,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                     pipeline.
                                 </p>
                                 <Link
-                                    href="/contact"
+                                    href="/contact-us"
                                     className="inline-flex items-center justify-center h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base rounded-full bg-[#0158e6] text-white font-semibold hover:bg-[#33b5ff] transition-all transform hover:scale-105"
                                 >
                                     Start Your Pilot Program

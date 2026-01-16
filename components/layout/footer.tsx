@@ -55,10 +55,10 @@ export function Footer() {
                             {[
                                 { name: "Home", href: "/" },
                                 { name: "About Us", href: "/about" },
-                                { name: "Services", href: "/services" },
+                                { name: "Services", href: "/our-services" },
                                 { name: "Solutions", href: "/solutions" },
                                 { name: "Clients", href: "/clients" },
-                                { name: "Contact Us", href: "/contact" }
+                                { name: "Contact Us", href: "/contact-us" }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link href={item.href} className="text-neutral-500 hover:text-white transition-colors flex items-center group text-sm font-medium">

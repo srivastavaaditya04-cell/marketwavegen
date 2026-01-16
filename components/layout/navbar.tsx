@@ -30,15 +30,15 @@ export function Navbar() {
 
     const navLinks = [
         { name: "Home", href: "/" },
-        { name: "Services", href: "/services" },
+        { name: "Services", href: "/our-services" },
         { name: "Solutions", href: "/solutions" },
         // { name: "Clients", href: "/clients" },
         { name: "About", href: "/about" },
     ];
 
     const resourceLinks = [
-        { name: "Blog", href: "/blog", icon: Newspaper, desc: "Latest marketing insights" },
-        { name: "Case Studies", href: "/case-studies", icon: FileText, desc: "Real success stories" },
+        { name: "Blog", href: "/blogs", icon: Newspaper, desc: "Latest marketing insights" },
+        { name: "Case Studies", href: "/case-study", icon: FileText, desc: "Real success stories" },
         { name: "White Papers", href: "/white-papers", icon: BookOpen, desc: "Deep industry research" },
     ];
 
@@ -121,7 +121,7 @@ export function Navbar() {
                             </div>
                         </div>
 
-                        <Link href="/contact">
+                        <Link href="/contact-us">
                             <Button className="bg-[#0158e6] hover:bg-[#0046b8] text-white rounded-full px-8 h-12 font-bold uppercase tracking-wider shadow-[0_0_30px_-10px_rgba(1,88,230,0.5)]">
                                 Contact Us
                             </Button>
@@ -188,7 +188,7 @@ export function Navbar() {
                             )}
                         </div>
 
-                        <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/contact-us" onClick={() => setIsMobileMenuOpen(false)}>
                             <Button className="w-full bg-[#0158e6] text-white rounded-full h-14 font-bold uppercase mt-2">
                                 Contact Us
                             </Button>

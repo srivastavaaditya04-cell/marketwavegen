@@ -60,7 +60,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
             {/* Previous Button */}
             {currentPage > 1 && (
                 <Link
-                    href={currentPage === 2 ? '/blog' : `/blog/page/${currentPage - 1}`}
+                    href={currentPage === 2 ? '/blogs' : `/blogs/page/${currentPage - 1}`}
                     onClick={handleClick}
                 >
                     <Button
@@ -87,7 +87,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
 
                     const pageNum = page as number;
                     const isCurrentPage = pageNum === currentPage;
-                    const href = pageNum === 1 ? '/blog' : `/blog/page/${pageNum}`;
+                    const href = pageNum === 1 ? '/blogs' : `/blogs/page/${pageNum}`;
 
                     return (
                         <Link key={pageNum} href={href} onClick={handleClick}>
@@ -110,7 +110,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
 
             {/* Next Button */}
             {currentPage < totalPages && (
-                <Link href={`/blog/page/${currentPage + 1}`} onClick={handleClick}>
+                <Link href={`/blogs/page/${currentPage + 1}`} onClick={handleClick}>
                     <Button
                         variant="outline"
                         size="lg"

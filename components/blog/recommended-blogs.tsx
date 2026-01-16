@@ -111,7 +111,7 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                             return (
                                 <Link
                                     key={post.id}
-                                    href={`/blog/${post.slug}`}
+                                    href={`/blogs/${post.slug}`}
                                     className="flex-shrink-0 w-[280px] md:w-[350px] snap-start group"
                                 >
                                     <article className="h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-[#0158e6] transition-all duration-300 hover:shadow-[0_0_40px_rgba(1,88,230,0.3)] hover:transform hover:scale-[1.02]">

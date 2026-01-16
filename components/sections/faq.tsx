@@ -59,7 +59,7 @@ export function FAQ({ items = faqs, variant = "default" }: FAQProps) {
                                 Everything you need to know about our signal-first approach and how we drive revenue.
                             </p>
                             <Link 
-                                href="/contact"
+                                href="/contact-us"
                                 className={cn(buttonVariants({ variant: "default", size: "default" }), "h-12 px-8 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/10 cursor-pointer")}
                             >
                                 Contact Support
