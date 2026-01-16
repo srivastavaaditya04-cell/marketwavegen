@@ -206,6 +206,11 @@ export const aboutContent = {
                 answer: "Yes. Signal-first execution is particularly effective for long and complex sales cycles where early detection and accurate timing influence conversion outcomes."
             }
         ]
+    },
+    video: {
+        title: "See Us in Action",
+        subtitle: "How we transform buyer signals into revenue",
+        videoId: "rSQ4TH57Ckg"
     }
 };
 

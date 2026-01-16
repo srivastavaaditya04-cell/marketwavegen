@@ -77,10 +77,15 @@ export function Footer() {
                             Policy
                         </h4>
                         <ul className="space-y-4">
-                            {["Privacy Policy", "Terms & Conditions", "Cookie Policy", "Do Not Sell My Information"].map((item) => (
-                                <li key={item}>
-                                    <Link href="/coming-soon" className="text-neutral-500 hover:text-white transition-colors text-sm font-medium">
-                                        {item}
+                            {[ 
+                                { name: "Terms & Conditions", href: "/terms-and-conditions" },
+                                { name: "Privacy Policy", href: "/privacy-policy" },
+                                { name: "Do Not Sell My Info", href: "/do-not-sell-my-information" },
+                                { name: "Cookie Policy", href: "/cookie-policy" }
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-neutral-500 hover:text-white transition-colors text-sm font-medium">
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
@@ -88,7 +93,7 @@ export function Footer() {
                     </div>
 
                     {/* Contact - Company */}
-                    <div className="lg:col-span-4 lg:pl-8 border-l border-white/5">
+                    <div className="lg:col-span-4 pl-4 lg:pl-8 border-l border-white/5">
                         <h4 className="text-white font-bold uppercase tracking-widest text-[10px] mb-8 flex items-center gap-2">
                             <span className="w-1 h-1 rounded-full bg-[#0158e6]" />
                             Company
@@ -125,7 +130,7 @@ export function Footer() {
                                 <div className="space-y-1">
                                     <span className="block text-[10px] font-bold text-neutral-600 uppercase tracking-widest">Call Expert</span>
                                     <a href="tel:+17867764116" className="text-white font-medium hover:text-[#33b5ff] transition-colors">
-                                        +1 (786) 776-4116
+                                        +1 (717) 973-8159
                                     </a>
                                 </div>
                             </li>
@@ -133,9 +138,9 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-6 text-center">
                     <p className="text-neutral-600 text-[11px] font-medium tracking-wide uppercase">
-                        Copyright © 2025 Market Wavegen, All Rights Reserved
+                        Copyright © 2026 Market Wavegen, All Rights Reserved
                     </p>
                     {/* <div className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />

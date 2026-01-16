@@ -221,7 +221,7 @@ export default function ContactPage() {
             {/* Information Grid Container */}
             <section className="py-12 md:py-24 relative">
                 <Container>
-                    <BentoGrid className="auto-rows-[20rem] md:auto-rows-[25rem]">
+                    <BentoGrid className="auto-rows-auto md:auto-rows-[25rem]">
                         {ContactBentoItems.map((item, i) => (
                             <BentoGridItem
                                 key={i}

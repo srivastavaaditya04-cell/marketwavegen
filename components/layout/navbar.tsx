@@ -30,10 +30,9 @@ export function Navbar() {
 
     const navLinks = [
         { name: "Home", href: "/" },
+         { name: "About", href: "/about" },
         { name: "Services", href: "/our-services" },
         { name: "Solutions", href: "/solutions" },
-        // { name: "Clients", href: "/clients" },
-        { name: "About", href: "/about" },
     ];
 
     const resourceLinks = [

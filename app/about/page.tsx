@@ -10,6 +10,7 @@ import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { FAQ } from "@/components/sections/faq";
+import { AboutVideo } from "@/components/sections/about-video";
 
 export default function AboutPage() {
     return (
@@ -280,6 +281,9 @@ export default function AboutPage() {
                         ))}
                     </div>
                 </div>
+
+                {/* Video Section */}
+                <AboutVideo />
 
                 {/* FAQ Section */}
                 <FAQ items={aboutContent.faq.items} variant="embedded" />
