@@ -79,9 +79,9 @@ export function Footer() {
                         <ul className="space-y-4">
                             {[ 
                                 { name: "Terms & Conditions", href: "/terms-and-conditions" },
-                                { name: "Privacy Policy", href: "/privacy-policy" },
-                                { name: "Do Not Sell My Info", href: "/do-not-sell-my-information" },
-                                { name: "Cookie Policy", href: "/cookie-policy" }
+                                // { name: "Privacy Policy", href: "/privacy-policy" },
+                                // { name: "Do Not Sell My Info", href: "/do-not-sell-my-information" },
+                                // { name: "Cookie Policy", href: "/cookie-policy" }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link href={item.href} className="text-neutral-500 hover:text-white transition-colors text-sm font-medium">
