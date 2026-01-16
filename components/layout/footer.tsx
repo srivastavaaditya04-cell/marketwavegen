@@ -137,10 +137,10 @@ export function Footer() {
                     <p className="text-neutral-600 text-[11px] font-medium tracking-wide uppercase">
                         Copyright © 2025 Market Wavegen, All Rights Reserved
                     </p>
-                    <div className="flex items-center gap-2">
+                    {/* <div className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                         <span className="text-[10px] font-bold text-neutral-600 uppercase tracking-widest">System Status: Optimal</span>
-                    </div>
+                    </div> */}
                 </div>
             </Container>
         </footer>
