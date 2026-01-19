@@ -4,27 +4,48 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
 import { aboutContent } from "@/data/about-data";
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function AboutVideo() {
     const [isPlaying, setIsPlaying] = useState(false);
+    const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
+    const videoSectionRef = useRef<HTMLDivElement>(null);
     const { video } = aboutContent;
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // Start playing when section is 50% visible and hasn't auto-played yet
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !hasAutoPlayed) {
+                        setIsPlaying(true);
+                        setHasAutoPlayed(true);
+                    }
+                });
+            },
+            {
+                threshold: 0.5, // Trigger when 50% of the section is visible
+            }
+        );
+
+        if (videoSectionRef.current) {
+            observer.observe(videoSectionRef.current);
+        }
+
+        return () => {
+            if (videoSectionRef.current) {
+                observer.unobserve(videoSectionRef.current);
+            }
+        };
+    }, [hasAutoPlayed]);
+
     return (
-        <section className="py-20 relative overflow-hidden">
+        <section ref={videoSectionRef} className="py-20 relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-full bg-[#0158e6]/5 blur-[120px] -z-10" />
 
             <Container>
                 <div className="text-center mb-12">
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-sm md:text-base font-bold text-[#33b5ff] uppercase tracking-wider mb-4"
-                    >
-                        Demo
-                    </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +74,10 @@ export function AboutVideo() {
                         {!isPlaying ? (
                             <div 
                                 className="absolute inset-0 z-10 flex items-center justify-center group"
-                                onClick={() => setIsPlaying(true)}
+                                onClick={() => {
+                                    setIsPlaying(true);
+                                    setHasAutoPlayed(true);
+                                }}
                             >
                                 {/* Thumbnail Placeholder using a gradient/overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-black/80 transition-opacity duration-500 group-hover:opacity-60" />
