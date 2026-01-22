@@ -16,7 +16,7 @@ import {
 export const aboutContent = {
     hero: {
         title: "A Global Signal-Driven Engine for Predictable B2B Pipeline",
-        subtitle: "Built Around How Buyers Actually Buy"
+        subtitle: "Built Around How Buyers Actually Buy."
     },
     whoWeAre: {
         title: "Who We Are",
