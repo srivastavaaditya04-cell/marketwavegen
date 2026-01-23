@@ -13,5 +13,10 @@ export const testimonials = [
         quote: "Their professionalism and market expertise were evident from the start. Detailed feasibility was crucial for our successful targeted campaign driving robust registrations and brand presence.",
         author: "Freshworks",
         role: "Global Demand Generation Manager"
+    },
+    {
+        quote: "Their professionalism and market expertise were evident from the start. Detailed feasibility was crucial for our successful targeted campaign driving robust registrations and brand presence.",
+        author: "Marketwavegen",
+        role: "Global Demand Generation Manager"
     }
 ];
