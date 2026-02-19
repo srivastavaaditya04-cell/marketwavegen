@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/container';
-import { getAllPosts } from '@/lib/wordpress';
+import { getPostsExcludingCategories } from '@/lib/wordpress';
 import { BlogCard } from '@/components/blog/blog-card';
 import { BlogHero } from '@/components/blog/blog-hero';
 import { Pagination } from '@/components/blog/pagination';
@@ -43,7 +43,7 @@ export default async function BlogPaginatedPage({ params }: BlogPageProps) {
     }
 
     // Server-side fetch with ISR (cached for 60 seconds)
-    const { posts, totalPages, currentPage } = await getAllPosts(POSTS_PER_PAGE, pageNumber);
+    const { posts, totalPages, currentPage } = await getPostsExcludingCategories(['whitepaper', 'case-study'], POSTS_PER_PAGE, pageNumber);
 
     // If page number exceeds total pages, show 404
     if (pageNumber > totalPages) {

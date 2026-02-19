@@ -215,6 +215,45 @@ export async function getPostsByCategory(
     }
 }
 
+export async function getPostsExcludingCategories(
+    categorySlugs: string[],
+    perPage: number = 10,
+    page: number = 1
+): Promise<PaginatedResponse> {
+    try {
+        const categories = await getCategories();
+        const excludeIds = categories
+            .filter((c) => categorySlugs.includes(c.slug))
+            .map((c) => c.id);
+        const excludeParam = excludeIds.join(',');
+        const response = await fetch(
+            `${WP_API_URL}/posts?per_page=${perPage}&page=${page}&_embed${excludeParam ? `&categories_exclude=${excludeParam}` : ''}`,
+            {
+                next: { revalidate: 60 },
+            }
+        );
+        if (!response.ok) {
+            throw new Error(`WordPress API error: ${response.status}`);
+        }
+        const posts: WordPressPost[] = await response.json();
+        const totalPosts = parseInt(response.headers.get('X-WP-Total') || '0', 10);
+        const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
+        return {
+            posts,
+            totalPosts,
+            totalPages,
+            currentPage: page,
+        };
+    } catch (error) {
+        console.error('Error fetching posts excluding categories:', error);
+        return {
+            posts: [],
+            totalPosts: 0,
+            totalPages: 0,
+            currentPage: page,
+        };
+    }
+}
 /**
  * Clean WordPress shortcodes from content
  * Removes [metform], [elementor-template], etc. that won't work headlessly
