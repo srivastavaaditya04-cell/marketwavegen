@@ -324,15 +324,23 @@ body {
 
   /* Links */
   a {
-    color: var(--primary);
-    text-decoration: underline;
-    transition: color 0.2s;
+    color: #33b5ff !important;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration-color 0.2s;
   }
 
   a:hover {
-    color: var(--primary-foreground);
-    background-color: var(--primary);
-    text-decoration: none;
+    color: #ffffff;
+    background-color: transparent;
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  a:visited {
+    color: #e6e182;
   }
 
   /* Lists */
