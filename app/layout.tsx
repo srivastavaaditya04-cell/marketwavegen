@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -35,6 +36,14 @@ export default function RootLayout({
         {children}
         <CTA />
         <Footer />
+        <Script id="zsiq-init" strategy="afterInteractive">
+          {`window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}`}
+        </Script>
+        <Script
+          id="zsiqscript"
+          src="https://salesiq.zohopublic.in/widget?wc=siq340374aa0da85a384d7c0918a5eba0a222fef3e1806d59ac3b5190b0990a89df"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
