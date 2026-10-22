@@ -1,8 +1,7 @@
 import { google } from 'googleapis';
 import { NextResponse } from 'next/server';
 import { getGatedVideo } from '@/data/videos';
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { isValidEmail, isFreeEmail, WORK_EMAIL_MESSAGE } from '@/lib/work-email';
 
 export async function POST(request: Request) {
     try {
@@ -19,8 +18,11 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Unknown video' }, { status: 404 });
         }
 
-        if (typeof email !== 'string' || !EMAIL_RE.test(email.trim())) {
+        if (typeof email !== 'string' || !isValidEmail(email)) {
             return NextResponse.json({ error: 'A valid email is required' }, { status: 400 });
+        }
+        if (isFreeEmail(email)) {
+            return NextResponse.json({ error: WORK_EMAIL_MESSAGE }, { status: 400 });
         }
 
         const auth = new google.auth.GoogleAuth({

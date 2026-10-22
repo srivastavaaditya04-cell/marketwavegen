@@ -6,6 +6,7 @@ import { Mail, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { GatedVideo } from "@/data/videos";
+import { isValidEmail, isFreeEmail, WORK_EMAIL_MESSAGE } from "@/lib/work-email";
 
 interface VideoGateProps {
     video: GatedVideo;
@@ -43,6 +44,16 @@ export function VideoGate({ video }: VideoGateProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!email) return;
+        if (!isValidEmail(email)) {
+            setStatus("error");
+            setErrorMsg("Please enter a valid email address.");
+            return;
+        }
+        if (isFreeEmail(email)) {
+            setStatus("error");
+            setErrorMsg(WORK_EMAIL_MESSAGE);
+            return;
+        }
 
         setStatus("loading");
         setErrorMsg("");
@@ -152,7 +163,7 @@ export function VideoGate({ video }: VideoGateProps) {
                             </button>
 
                             <div className="space-y-1 pr-6">
-                                <h3 className="text-lg font-bold text-white uppercase tracking-tight">Enter your email to watch</h3>
+                                <h3 className="text-lg font-bold text-white uppercase tracking-tight">Enter your work email</h3>
                                 <p className="text-neutral-400 text-sm">The video starts right after.</p>
                             </div>
 
@@ -174,7 +185,7 @@ export function VideoGate({ video }: VideoGateProps) {
                                     type="email"
                                     placeholder="name@company.com"
                                     value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    onChange={(e) => { setEmail(e.target.value); if (status === "error") setStatus("idle"); }}
                                     required
                                     autoFocus
                                     className="w-full h-14 bg-white/10 border border-white/15 rounded-2xl pl-12 pr-4 text-white placeholder:text-white/30 focus:outline-none focus:border-[#33b5ff]/60 focus:bg-white/15 transition-all"
