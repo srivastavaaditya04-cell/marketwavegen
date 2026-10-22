@@ -172,7 +172,7 @@ export function VideoGate({ video }: VideoGateProps) {
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#33b5ff] transition-colors" size={20} />
                                 <input
                                     type="email"
-                                    placeholder="Your email *"
+                                    placeholder="name@company.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
