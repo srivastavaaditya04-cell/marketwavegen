@@ -8,6 +8,8 @@ export interface GatedVideo {
     src: string;
     /** Optional poster image path under /public */
     poster?: string;
+    /** Display length shown on the cover, e.g. "1:39" */
+    duration?: string;
     badge?: string;
 }
 
@@ -15,9 +17,10 @@ export const gatedVideos: GatedVideo[] = [
     {
         slug: "intro",
         title: "Market Wavegen in Action",
-        description:
-            "See how we turn real-time intent, buyer behaviour and tech-stack signals into pipeline. Enter your details to watch the full video.",
+        description: "Enter your email to watch the full video.",
         src: "/videos/market-wavegen-intro.mp4",
+        poster: "/videos/market-wavegen-intro-poster.jpg",
+        duration: "1:39",
         badge: "Exclusive Video",
     },
 ];

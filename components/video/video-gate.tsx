@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, User, Building2, Play, Lock } from "lucide-react";
+import { Mail, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { GatedVideo } from "@/data/videos";
@@ -19,9 +19,9 @@ const MILESTONES = [10, 25, 50, 75, 90, 100];
 export function VideoGate({ video }: VideoGateProps) {
     const [unlocked, setUnlocked] = useState(false);
     const [leadRow, setLeadRow] = useState<number | null>(null);
-    const [name, setName] = useState("");
+    const [justUnlocked, setJustUnlocked] = useState(false);
+    const [asking, setAsking] = useState(false);
     const [email, setEmail] = useState("");
-    const [company, setCompany] = useState("");
     const [website, setWebsite] = useState(""); // honeypot
     const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
     const [errorMsg, setErrorMsg] = useState("");
@@ -52,9 +52,7 @@ export function VideoGate({ video }: VideoGateProps) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     slug: video.slug,
-                    name,
                     email,
-                    company,
                     website,
                     pageUrl: window.location.href,
                 }),
@@ -73,6 +71,7 @@ export function VideoGate({ video }: VideoGateProps) {
                 /* ignore */
             }
             setLeadRow(row);
+            setJustUnlocked(true);
             setUnlocked(true);
             setStatus("idle");
         } catch (err) {
@@ -82,116 +81,122 @@ export function VideoGate({ video }: VideoGateProps) {
     };
 
     if (unlocked) {
-        return <GatedPlayer video={video} leadRow={leadRow} />;
+        return <GatedPlayer video={video} leadRow={leadRow} autoPlay={justUnlocked} />;
     }
 
-    const inputClass =
-        "w-full h-14 bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 text-white placeholder:text-white/30 focus:outline-none focus:border-[#33b5ff]/50 focus:bg-white/10 transition-all";
-
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
-            {/* Locked preview */}
-            <div className="lg:col-span-3 relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-[#0158e6]/20 via-black to-[#33b5ff]/10 min-h-[260px] flex items-center justify-center">
-                <div
-                    className="absolute inset-0 opacity-[0.04]"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-                        backgroundSize: "40px 40px",
-                    }}
-                />
-                <div className="relative z-10 flex flex-col items-center gap-4 text-center px-6">
-                    <div className="w-20 h-20 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center">
-                        <Lock className="text-white/60" size={28} />
-                    </div>
-                    <p className="text-sm uppercase tracking-widest text-neutral-400 font-bold">
-                        Fill in the form to unlock
-                    </p>
-                </div>
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0158e6]/30 blur-3xl rounded-full" />
-                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-[#33b5ff]/20 blur-3xl rounded-full" />
-            </div>
-
-            {/* Form */}
-            <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="lg:col-span-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl p-8 space-y-6"
-            >
-                <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white uppercase tracking-tight">Watch the video</h3>
-                    <p className="text-neutral-500 text-sm">Enter your work email and we&apos;ll unlock it instantly.</p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* Honeypot, hidden from humans */}
-                    <input
-                        type="text"
-                        name="website"
-                        value={website}
-                        onChange={(e) => setWebsite(e.target.value)}
-                        tabIndex={-1}
-                        autoComplete="off"
-                        className="hidden"
-                        aria-hidden="true"
-                    />
-
-                    <div className="relative group/input">
-                        <User className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within/input:text-[#33b5ff] transition-colors" size={20} />
-                        <input
-                            type="text"
-                            placeholder="Full name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className={inputClass}
-                        />
-                    </div>
-
-                    <div className="relative group/input">
-                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within/input:text-[#33b5ff] transition-colors" size={20} />
-                        <input
-                            type="email"
-                            placeholder="Work email *"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className={inputClass}
-                        />
-                    </div>
-
-                    <div className="relative group/input">
-                        <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within/input:text-[#33b5ff] transition-colors" size={20} />
-                        <input
-                            type="text"
-                            placeholder="Company"
-                            value={company}
-                            onChange={(e) => setCompany(e.target.value)}
-                            className={inputClass}
-                        />
-                    </div>
-
-                    <Button
-                        type="submit"
-                        disabled={status === "loading"}
+        <div className="max-w-[960px] mx-auto">
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-black aspect-video shadow-[0_0_80px_rgba(51,181,255,0.12)]">
+                {/* Cover image */}
+                {video.poster ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                        src={video.poster}
+                        alt={video.title}
                         className={cn(
-                            "w-full h-14 rounded-2xl font-bold uppercase tracking-widest text-xs border border-white/10 transition-all gap-2",
-                            "bg-white/10 hover:bg-white/20 text-white"
+                            "absolute inset-0 w-full h-full object-cover transition-all duration-500",
+                            asking ? "scale-105 blur-sm brightness-50" : "brightness-95 group-hover:brightness-100"
                         )}
+                    />
+                ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0158e6]/30 via-black to-[#33b5ff]/20" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+                {/* Whole cover is clickable; the play pill sits bottom-left, off the subject */}
+                {!asking && (
+                    <button
+                        type="button"
+                        onClick={() => setAsking(true)}
+                        aria-label="Play video"
+                        className="absolute inset-0 z-10 group cursor-pointer"
                     >
-                        <Play size={14} />
-                        {status === "loading" ? "Unlocking..." : "Unlock & Watch"}
-                    </Button>
+                        <span className="absolute left-5 bottom-5 sm:left-8 sm:bottom-8 flex items-center gap-3">
+                            <span className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-black shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110">
+                                <Play className="ml-1" size={24} fill="currentColor" />
+                            </span>
+                            <span className="flex flex-col items-start text-left">
+                                <span className="text-white font-bold uppercase tracking-widest text-xs sm:text-sm drop-shadow">
+                                    Watch video
+                                </span>
+                                {video.duration && (
+                                    <span className="text-white/70 text-xs drop-shadow">{video.duration}</span>
+                                )}
+                            </span>
+                        </span>
+                    </button>
+                )}
 
-                    {status === "error" && (
-                        <p className="text-xs text-red-400 text-center">{errorMsg}</p>
-                    )}
-                </form>
+                {/* Email overlay */}
+                {asking && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute inset-0 z-20 flex items-center justify-center p-4 sm:p-8"
+                    >
+                        <motion.form
+                            onSubmit={handleSubmit}
+                            initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ delay: 0.1 }}
+                            className="relative w-full max-w-md bg-black/70 backdrop-blur-xl border border-white/15 rounded-3xl p-6 sm:p-8 space-y-5"
+                        >
+                            <button
+                                type="button"
+                                onClick={() => setAsking(false)}
+                                aria-label="Close"
+                                className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
+                            >
+                                <X size={18} />
+                            </button>
 
-                <p className="text-[10px] text-center text-white/20 uppercase tracking-widest font-medium">
-                    We respect your inbox. No spam.
-                </p>
-            </motion.div>
+                            <div className="space-y-1 pr-6">
+                                <h3 className="text-lg font-bold text-white uppercase tracking-tight">Enter your email to watch</h3>
+                                <p className="text-neutral-400 text-sm">The video starts right after.</p>
+                            </div>
+
+                            {/* Honeypot, hidden from humans */}
+                            <input
+                                type="text"
+                                name="website"
+                                value={website}
+                                onChange={(e) => setWebsite(e.target.value)}
+                                tabIndex={-1}
+                                autoComplete="off"
+                                className="hidden"
+                                aria-hidden="true"
+                            />
+
+                            <div className="relative group/input">
+                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#33b5ff] transition-colors" size={20} />
+                                <input
+                                    type="email"
+                                    placeholder="Your email *"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                    autoFocus
+                                    className="w-full h-14 bg-white/10 border border-white/15 rounded-2xl pl-12 pr-4 text-white placeholder:text-white/30 focus:outline-none focus:border-[#33b5ff]/60 focus:bg-white/15 transition-all"
+                                />
+                            </div>
+
+                            <Button
+                                type="submit"
+                                disabled={status === "loading"}
+                                className="w-full h-14 rounded-2xl font-bold uppercase tracking-widest text-xs border border-white/10 transition-all gap-2 bg-[#0158e6] hover:bg-[#33b5ff] text-white"
+                            >
+                                <Play size={14} fill="currentColor" />
+                                {status === "loading" ? "Unlocking..." : "Watch now"}
+                            </Button>
+
+                            {status === "error" && (
+                                <p className="text-xs text-red-400 text-center">{errorMsg}</p>
+                            )}
+                        </motion.form>
+                    </motion.div>
+                )}
+            </div>
         </div>
     );
 }
@@ -202,8 +207,14 @@ export function VideoGate({ video }: VideoGateProps) {
  * backwards never lowers the figure. Reports at milestones, on pause/end, and
  * when the tab is hidden or closed (via sendBeacon so the request survives).
  */
-function GatedPlayer({ video, leadRow }: { video: GatedVideo; leadRow: number | null }) {
+function GatedPlayer({ video, leadRow, autoPlay }: { video: GatedVideo; leadRow: number | null; autoPlay: boolean }) {
     const videoRef = useRef<HTMLVideoElement>(null);
+
+    // Start playing right after the viewer unlocks. If the browser blocks it,
+    // the controls are visible and they can press play.
+    useEffect(() => {
+        if (autoPlay) videoRef.current?.play().catch(() => { /* blocked: user presses play */ });
+    }, [autoPlay]);
     const maxTimeRef = useRef(0);
     const lastSentPercentRef = useRef(-1);
     const nextMilestoneRef = useRef(0);
@@ -281,7 +292,6 @@ function GatedPlayer({ video, leadRow }: { video: GatedVideo; leadRow: number | 
                 src={video.src}
                 poster={video.poster}
                 controls
-                autoPlay
                 playsInline
                 controlsList="nodownload"
                 onTimeUpdate={handleTimeUpdate}
