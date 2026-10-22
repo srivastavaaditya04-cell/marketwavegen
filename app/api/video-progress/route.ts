@@ -1,10 +1,11 @@
 import { google } from 'googleapis';
 import { NextResponse } from 'next/server';
+import { sheetTimestampIST } from '@/lib/sheet-time';
 
 /**
  * Records how much of a gated video a lead has watched.
- * Writes only to the watch-metric columns (I:L) of the lead's own row in the
- * "Video Access" tab, so it can never touch the contact details in A:H.
+ * Writes only to the watch-metric columns (D:G) of the lead's own row in the
+ * "Video Access" tab, so it can never touch the email or video columns.
  */
 export async function POST(request: Request) {
     try {
@@ -32,7 +33,7 @@ export async function POST(request: Request) {
         });
         const sheets = google.sheets({ version: 'v4', auth });
 
-        const range = `'Video Access'!I${row}:L${row}`;
+        const range = `'Video Access'!D${row}:G${row}`;
 
         // Never let a later, shorter session overwrite a higher watched figure.
         const existing = await sheets.spreadsheets.values.get({
@@ -55,7 +56,7 @@ export async function POST(request: Request) {
                     finalPercent,
                     finalSeconds,
                     Number.isFinite(duration) && duration > 0 ? Math.round(duration) : '',
-                    new Date().toISOString(),
+                    sheetTimestampIST(),
                 ]],
             },
         });

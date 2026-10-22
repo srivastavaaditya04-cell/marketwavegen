@@ -2,11 +2,12 @@ import { google } from 'googleapis';
 import { NextResponse } from 'next/server';
 import { getGatedVideo } from '@/data/videos';
 import { isValidEmail, isFreeEmail, WORK_EMAIL_MESSAGE } from '@/lib/work-email';
+import { sheetTimestampIST } from '@/lib/sheet-time';
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { slug, name, email, phone, company, pageUrl, website } = body;
+        const { slug, email, pageUrl, website } = body;
 
         // Honeypot: real users never fill this hidden field.
         if (website) {
@@ -40,16 +41,18 @@ export async function POST(request: Request) {
             range: "'Video Access'!A:H",
             valueInputOption: 'USER_ENTERED',
             requestBody: {
+                // Columns: Time (IST) | Email | Video | Watched % | Watched (sec) | Video Length (sec) | Last Watched (IST) | Page URL
+                // The watch columns (D:G) are filled later by /api/video-progress.
                 values: [
                     [
-                        new Date().toISOString(),
+                        sheetTimestampIST(),
+                        email.trim().toLowerCase(),
                         video.title,
-                        (name || '').toString().trim(),
-                        email.trim(),
-                        (phone || '').toString().trim(),
-                        (company || '').toString().trim(),
-                        (pageUrl || '').toString(),
+                        0,
+                        0,
                         '',
+                        '',
+                        (pageUrl || '').toString(),
                     ],
                 ],
             },
