@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/container';
 import {
     getPostBySlug,
     getAllPosts,
+    getPostsByCategory,
     cleanShortcodes,
     formatDate,
     calculateReadingTime,
@@ -71,8 +72,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
     const author = post._embedded?.author?.[0]?.name || 'Market Wavegen';
 
-    // Fetch recommended posts (at least 6 posts)
-    const { posts: recommendedPosts } = await getAllPosts(7, 1);
+    // Categories of this post (case studies and white papers keep their own section)
+    const terms = (post._embedded?.['wp:term']?.flat() ?? []).filter(
+        (t) => t.taxonomy === 'category' && t.slug !== 'uncategorized'
+    );
+    const primary = terms[0];
+    const sectionPath = primary?.slug === 'case-study' ? '/case-study' : primary?.slug === 'whitepaper' ? '/white-papers' : null;
+
+    // Related posts from the same category, topped up with the newest posts
+    let recommendedPosts = primary ? (await getPostsByCategory(primary.slug, 7, 1)).posts : [];
+    if (recommendedPosts.filter((p) => p.id !== post.id).length < 6) {
+        const latest = (await getAllPosts(7, 1)).posts;
+        recommendedPosts = [...recommendedPosts, ...latest.filter((p) => !recommendedPosts.some((r) => r.id === p.id))];
+    }
 
     // Generate JSON-LD structured data for SEO
     const jsonLd = {
@@ -140,6 +152,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                     <span>{readingTime} min read</span>
                                 </div>
                             </div>
+
+                            {/* Category */}
+                            {primary && (
+                                <Link
+                                    href={sectionPath ?? `/blogs/category/${primary.slug}`}
+                                    className="inline-block mb-4 rounded-full border border-[#0158e6]/50 bg-[#0158e6]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#33b5ff] hover:bg-[#0158e6] hover:text-white transition-colors"
+                                >
+                                    {primary.slug === 'blogs' ? 'Insights' : primary.name}
+                                </Link>
+                            )}
 
                             {/* Title */}
                             <h1

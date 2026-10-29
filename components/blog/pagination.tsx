@@ -8,9 +8,20 @@ import NProgress from 'nprogress';
 interface PaginationProps {
     currentPage: number;
     totalPages: number;
+    /** Listing the pages belong to, e.g. /blogs or /blogs/category/marketing */
+    basePath?: string;
+    /** When set, pages use ?q=<search>&page=N instead of /page/N */
+    search?: string;
 }
 
-export function Pagination({ currentPage, totalPages }: PaginationProps) {
+export function Pagination({ currentPage, totalPages, basePath = '/blogs', search }: PaginationProps) {
+    const hrefFor = (n: number) =>
+        search !== undefined
+            ? `${basePath}?q=${encodeURIComponent(search)}${n > 1 ? `&page=${n}` : ''}`
+            : n === 1
+              ? basePath
+              : `${basePath}/page/${n}`;
+
     const handleClick = () => {
         NProgress.start();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -60,7 +71,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
             {/* Previous Button */}
             {currentPage > 1 && (
                 <Link
-                    href={currentPage === 2 ? '/blogs' : `/blogs/page/${currentPage - 1}`}
+                    href={hrefFor(currentPage - 1)}
                     onClick={handleClick}
                 >
                     <Button
@@ -87,7 +98,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
 
                     const pageNum = page as number;
                     const isCurrentPage = pageNum === currentPage;
-                    const href = pageNum === 1 ? '/blogs' : `/blogs/page/${pageNum}`;
+                    const href = hrefFor(pageNum);
 
                     return (
                         <Link key={pageNum} href={href} onClick={handleClick}>
@@ -110,7 +121,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
 
             {/* Next Button */}
             {currentPage < totalPages && (
-                <Link href={`/blogs/page/${currentPage + 1}`} onClick={handleClick}>
+                <Link href={hrefFor(currentPage + 1)} onClick={handleClick}>
                     <Button
                         variant="outline"
                         size="lg"

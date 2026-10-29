@@ -16,7 +16,10 @@ export interface WordPressPost {
     date: string;
     modified?: string;
     featured_media: number;
+    sticky?: boolean;
+    categories?: number[];
     _embedded?: {
+        'wp:term'?: Array<Array<{ id: number; name: string; slug: string; taxonomy: string }>>;
         'wp:featuredmedia'?: Array<{
             source_url: string;
             alt_text: string;
@@ -109,4 +112,29 @@ export function formatDate(dateString: string): string {
  */
 export function getElementorCSSUrl(postId: number): string {
     return `${WORDPRESS_URL}/wp-content/uploads/elementor/css/post-${postId}.css`;
+}
+
+/** Categories that are used for the site's own sections and never shown as blog topics */
+export const NON_BLOG_CATEGORY_SLUGS = ['case-study', 'whitepaper'];
+const HIDDEN_CATEGORY_SLUGS = ['uncategorized', ...NON_BLOG_CATEGORY_SLUGS];
+
+/** Display name for a category (the WordPress "Blogs" catch-all reads better as "Insights") */
+export function categoryLabel(name: string, slug?: string): string {
+    return slug === 'blogs' || name === 'Blogs' ? 'Insights' : name;
+}
+
+/** Topic categories of a post, ready to show as labels */
+export function getPostCategories(post: WordPressPost): Array<{ name: string; slug: string }> {
+    const terms = post._embedded?.['wp:term']?.flat() ?? [];
+    return terms
+        .filter((t) => t.taxonomy === 'category' && !HIDDEN_CATEGORY_SLUGS.includes(t.slug))
+        .map((t) => ({ name: categoryLabel(t.name, t.slug), slug: t.slug }));
+}
+
+/** First PDF link inside a post, as a site-relative path when it points at this site */
+export function extractPdfUrl(html: string): string | null {
+    const decoded = html.replace(/&amp;|&#038;|&#38;/g, '&');
+    const match = decoded.match(/href=["']([^"']+\.pdf)["']/i);
+    if (!match) return null;
+    return match[1].replace(/^https?:\/\/(www\.)?marketwavegen\.com/i, '');
 }

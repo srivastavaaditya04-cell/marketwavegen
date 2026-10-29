@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { WordPressPost, formatDate, extractTextFromHTML, calculateReadingTime } from '@/lib/wordpress-utils';
+import { WordPressPost, formatDate, extractTextFromHTML, calculateReadingTime, getPostCategories } from '@/lib/wordpress-utils';
 import { Calendar, Clock, ArrowRight, TrendingUp } from 'lucide-react';
 import NProgress from 'nprogress';
 
@@ -17,6 +17,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
 
     const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
     const readingTime = calculateReadingTime(post.content.rendered);
+    const category = getPostCategories(post)[0];
 
     const handleClick = () => {
         NProgress.start();
@@ -62,6 +63,12 @@ export function BlogCard({ post, index }: BlogCardProps) {
                             <span>{readingTime} min read</span>
                         </div>
                     </div>
+
+                    {category && (
+                        <span className="inline-block mb-2 text-[11px] font-semibold uppercase tracking-widest text-[#33b5ff]">
+                            {category.name}
+                        </span>
+                    )}
 
                     {/* Title */}
                     <h2

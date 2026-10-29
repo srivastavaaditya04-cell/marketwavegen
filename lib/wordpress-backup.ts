@@ -62,11 +62,23 @@ export function getBackupPostsByCategoryId(categoryId: number): WordPressPost[] 
     );
 }
 
-export function getBackupPostsExcludingCategoryIds(excludeIds: number[]): WordPressPost[] {
+export function getBackupPostsExcludingCategoryIds(
+    excludeIds: number[],
+    excludePostIds: number[] = []
+): WordPressPost[] {
     return getBackupPosts().filter(
         (p) =>
+            !excludePostIds.includes(p.id) &&
             !((p as unknown as { categories?: number[] }).categories || []).some((id) =>
                 excludeIds.includes(id)
             )
+    );
+}
+
+export function searchBackupPosts(query: string, excludeCategoryIds: number[]): WordPressPost[] {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return getBackupPostsExcludingCategoryIds(excludeCategoryIds).filter((p) =>
+        `${p.title.rendered} ${p.excerpt?.rendered ?? ''}`.toLowerCase().includes(q)
     );
 }

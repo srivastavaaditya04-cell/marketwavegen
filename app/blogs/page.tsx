@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Container } from '@/components/ui/container';
-import { getPostsExcludingCategories } from '@/lib/wordpress';
-import { BlogCard } from '@/components/blog/blog-card';
-import { BlogHero } from '@/components/blog/blog-hero';
-import { Pagination } from '@/components/blog/pagination';
+import { BlogListing } from '@/components/blog/blog-listing';
+import {
+    getBlogCategories,
+    getFeaturedPosts,
+    getPostsExcludingCategories,
+    getRecentPosts,
+} from '@/lib/wordpress';
+import { NON_BLOG_CATEGORY_SLUGS } from '@/lib/wordpress-utils';
 
 export const metadata: Metadata = {
     title: 'Blog | Market Wavegen - B2B Marketing Insights',
@@ -17,39 +18,27 @@ export const metadata: Metadata = {
     },
 };
 
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 12;
 
 export default async function BlogPage() {
     // Server-side fetch with ISR (cached for 60 seconds)
-    const { posts, totalPages, currentPage } = await getPostsExcludingCategories(['whitepaper', 'case-study'], POSTS_PER_PAGE, 1);
+    const [featured, categories] = await Promise.all([getFeaturedPosts(3), getBlogCategories()]);
+    const featuredIds = featured.map((p) => p.id);
+    const [{ posts, totalPages, currentPage }, recent] = await Promise.all([
+        getPostsExcludingCategories(NON_BLOG_CATEGORY_SLUGS, POSTS_PER_PAGE, 1, featuredIds),
+        getRecentPosts(4),
+    ]);
 
     return (
-        <div className="min-h-screen bg-[#0A0A0A] text-white">
-            <BlogHero />
-
-            {/* Blog Posts Grid */}
-            <section className="py-16 md:py-24 relative">
-                <Container>
-                    {posts.length === 0 ? (
-                        <div className="text-center py-20">
-                            <p className="text-xl text-neutral-500">No blog posts found.</p>
-                        </div>
-                    ) : (
-                        <>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
-                                {posts.map((post, idx) => (
-                                    <BlogCard key={post.id} post={post} index={idx} />
-                                ))}
-                            </div>
-
-                            {/* Pagination */}
-                            {totalPages > 1 && (
-                                <Pagination currentPage={currentPage} totalPages={totalPages} />
-                            )}
-                        </>
-                    )}
-                </Container>
-            </section>
-        </div>
+        <BlogListing
+            posts={posts}
+            totalPages={totalPages}
+            currentPage={currentPage}
+            basePath="/blogs"
+            categories={categories}
+            recent={recent}
+            featured={featured}
+            emptyText="No blog posts found."
+        />
     );
 }

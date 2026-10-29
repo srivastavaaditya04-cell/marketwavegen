@@ -7,6 +7,8 @@ interface BlogHeroProps {
     badge?: string;
     title?: React.ReactNode;
     subtitle?: string;
+    /** Shorter hero for listing pages that have more content below */
+    compact?: boolean;
 }
 
 export function BlogHero({
@@ -19,10 +21,11 @@ export function BlogHero({
             </span>
         </>
     ),
-    subtitle = "Expert perspectives on B2B marketing, demand generation, and revenue growth"
+    subtitle = "Expert perspectives on B2B marketing, demand generation, and revenue growth",
+    compact = false,
 }: BlogHeroProps) {
     return (
-        <section className="relative min-h-[60vh] pt-32 md:pt-48 pb-16 flex items-center justify-center overflow-hidden">
+        <section className={`relative ${compact ? 'min-h-[40vh] pt-28 md:pt-40 pb-8' : 'min-h-[60vh] pt-32 md:pt-48 pb-16'} flex items-center justify-center overflow-hidden`}>
             {/* Background Effects */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(1,88,230,0.08)_0%,transparent_50%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(239,239,57,0.05)_0%,transparent_40%)]" />
@@ -54,7 +57,7 @@ export function BlogHero({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider leading-[0.9] mb-8"
+                        className={`${compact ? 'text-4xl md:text-6xl lg:text-7xl' : 'text-5xl md:text-7xl lg:text-8xl'} font-black uppercase tracking-wider leading-[0.9] mb-8`}
                     >
                         {title}
                     </motion.h1>
