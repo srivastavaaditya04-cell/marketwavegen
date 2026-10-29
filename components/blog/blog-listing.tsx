@@ -5,7 +5,7 @@ import { BlogSidebar } from '@/components/blog/blog-sidebar';
 import { CategoryBar } from '@/components/blog/category-bar';
 import { FeaturedPosts } from '@/components/blog/featured-posts';
 import { Pagination } from '@/components/blog/pagination';
-import type { WordPressPost } from '@/lib/wordpress-utils';
+import { slimForCard, type WordPressPost } from '@/lib/wordpress-utils';
 
 interface BlogListingProps {
     posts: WordPressPost[];
@@ -64,7 +64,7 @@ export function BlogListing({
                                 <>
                                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
                                         {posts.map((post, idx) => (
-                                            <BlogCard key={post.id} post={post} index={idx} />
+                                            <BlogCard key={post.id} post={slimForCard(post)} index={idx} />
                                         ))}
                                     </div>
                                     {totalPages > 1 && (

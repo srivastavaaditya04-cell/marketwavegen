@@ -78,7 +78,7 @@ export function FeaturedPosts({ posts }: { posts: WordPressPost[] }) {
                             >
                                 <div className="w-28 h-28 shrink-0 rounded-xl overflow-hidden bg-page/40">
                                     {img ? (
-                                        <img src={img} alt="" className="w-full h-full object-cover" />
+                                        <img src={img} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                                     ) : (
                                         <div className="w-full h-full bg-gradient-to-br from-[#0158e6]/20 to-[#33b5ff]/10" />
                                     )}

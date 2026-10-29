@@ -106,7 +106,7 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                     >
                         {recommendedPosts.map((post) => {
                             const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
-                            const readingTime = calculateReadingTime(post.content.rendered);
+                            const readingTime = post.readingMinutes ?? calculateReadingTime(post.content.rendered);
 
                             return (
                                 <Link
@@ -119,6 +119,8 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                                         {featuredImage && (
                                             <div className="relative h-48 md:h-56 overflow-hidden bg-ink/5">
                                                 <img
+                                                    loading="lazy"
+                                                    decoding="async"
                                                     src={featuredImage}
                                                     alt={post.title.rendered}
                                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"

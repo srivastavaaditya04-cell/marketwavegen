@@ -16,7 +16,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
         : extractTextFromHTML(post.content.rendered, 120);
 
     const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
-    const readingTime = calculateReadingTime(post.content.rendered);
+    const readingTime = post.readingMinutes ?? calculateReadingTime(post.content.rendered);
     const category = getPostCategories(post)[0];
 
     const handleClick = () => {
@@ -38,6 +38,8 @@ export function BlogCard({ post, index }: BlogCardProps) {
                 <div className="relative h-56 overflow-hidden bg-page/40">
                     {featuredImage ? (
                         <img
+                            loading="lazy"
+                            decoding="async"
                             src={featuredImage}
                             alt={post.title.rendered}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

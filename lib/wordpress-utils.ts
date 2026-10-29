@@ -17,6 +17,8 @@ export interface WordPressPost {
     modified?: string;
     featured_media: number;
     sticky?: boolean;
+    /** Set by slimForCard so cards don't need the full article text */
+    readingMinutes?: number;
     categories?: number[];
     _embedded?: {
         'wp:term'?: Array<Array<{ id: number; name: string; slug: string; taxonomy: string }>>;
@@ -26,6 +28,7 @@ export interface WordPressPost {
             media_details?: {
                 width: number;
                 height: number;
+                sizes?: Record<string, { source_url: string; width: number }>;
             };
         }>;
         author?: Array<{
@@ -137,4 +140,44 @@ export function extractPdfUrl(html: string): string | null {
     const match = decoded.match(/href=["']([^"']+\.pdf)["']/i);
     if (!match) return null;
     return match[1].replace(/^https?:\/\/(www\.)?marketwavegen\.com/i, '');
+}
+
+/**
+ * Small copy of a post for card lists. Client components get their props serialized into the page,
+ * so sending every article's full text made /blogs several hundred KB.
+ */
+export function slimForCard(post: WordPressPost): WordPressPost {
+    const media = post._embedded?.['wp:featuredmedia']?.[0];
+    const sizes = media?.media_details?.sizes;
+    const smallUrl = sizes?.medium_large?.source_url ?? sizes?.large?.source_url ?? media?.source_url;
+    return {
+        id: post.id,
+        slug: post.slug,
+        date: post.date,
+        featured_media: post.featured_media,
+        title: post.title,
+        content: { rendered: '' },
+        excerpt: {
+            rendered: extractTextFromHTML(post.excerpt?.rendered || post.content.rendered, 200),
+        },
+        readingMinutes: calculateReadingTime(post.content.rendered),
+        _embedded: {
+            'wp:featuredmedia': smallUrl ? [{ source_url: smallUrl, alt_text: media?.alt_text ?? '' }] : undefined,
+            'wp:term': post._embedded?.['wp:term']?.map((group) =>
+                group.filter((t) => t.taxonomy === 'category')
+            ),
+        },
+    };
+}
+
+/** Let the browser skip images below the fold (the first image stays eager for faster first paint) */
+export function lazyLoadImages(html: string): string {
+    let first = true;
+    return html.replace(/<img\b(?![^>]*\bloading=)/gi, (m) => {
+        if (first) {
+            first = false;
+            return m;
+        }
+        return `${m} loading="lazy" decoding="async"`;
+    });
 }

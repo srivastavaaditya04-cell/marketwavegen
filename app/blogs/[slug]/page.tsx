@@ -10,7 +10,8 @@ import {
     formatDate,
     calculateReadingTime,
     extractTextFromHTML,
-    getElementorCSSUrl,
+    lazyLoadImages,
+    slimForCard,
 } from '@/lib/wordpress';
 import { Calendar, Clock, ArrowLeft, Share2, User } from 'lucide-react';
 import { BackLink } from '@/components/blog/back-link';
@@ -68,7 +69,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     const readingTime = calculateReadingTime(post.content.rendered);
-    const cleanedContent = cleanShortcodes(post.content.rendered);
+    const cleanedContent = lazyLoadImages(cleanShortcodes(post.content.rendered));
     const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
     const author = post._embedded?.author?.[0]?.name || 'Market Wavegen';
 
@@ -80,11 +81,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const sectionPath = primary?.slug === 'case-study' ? '/case-study' : primary?.slug === 'whitepaper' ? '/white-papers' : null;
 
     // Related posts from the same category, topped up with the newest posts
-    let recommendedPosts = primary ? (await getPostsByCategory(primary.slug, 7, 1)).posts : [];
+    const [sameCategory, latestPosts] = await Promise.all([
+        primary ? getPostsByCategory(primary.slug, 7, 1).then((r) => r.posts) : Promise.resolve([]),
+        getAllPosts(7, 1).then((r) => r.posts),
+    ]);
+    let recommendedPosts = sameCategory;
     if (recommendedPosts.filter((p) => p.id !== post.id).length < 6) {
-        const latest = (await getAllPosts(7, 1)).posts;
-        recommendedPosts = [...recommendedPosts, ...latest.filter((p) => !recommendedPosts.some((r) => r.id === p.id))];
+        recommendedPosts = [...recommendedPosts, ...latestPosts.filter((p) => !recommendedPosts.some((r) => r.id === p.id))];
     }
+    recommendedPosts = recommendedPosts.map(slimForCard);
 
     // Generate JSON-LD structured data for SEO
     const jsonLd = {
@@ -107,9 +112,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <>
-            {/* Load Elementor CSS for this specific post */}
-            <link rel="stylesheet" href={getElementorCSSUrl(post.id)} />
-
             {/* JSON-LD Structured Data for SEO */}
             <script
                 type="application/ld+json"

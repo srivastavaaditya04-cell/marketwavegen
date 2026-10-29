@@ -17,6 +17,8 @@ export function ResourceCard({ post, label }: ResourceCardProps) {
             <Link href={`/blogs/${post.slug}`} className="block relative h-48 bg-page/40 overflow-hidden">
                 {image ? (
                     <img
+                        loading="lazy"
+                        decoding="async"
                         src={image}
                         alt=""
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
