@@ -17,7 +17,7 @@ export function BackLink({ showText = false }: BackLinkProps) {
         <Link
             href="/blogs"
             onClick={handleClick}
-            className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-[#0158e6] transition-colors group"
+            className="inline-flex items-center gap-2 text-sm text-ink/60 hover:text-[#0158e6] transition-colors group"
         >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             {showText ? (

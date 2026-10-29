@@ -23,7 +23,7 @@ export function FeaturedPosts({ posts }: { posts: WordPressPost[] }) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <Link
                     href={`/blogs/${main.slug}`}
-                    className="group relative lg:col-span-2 min-h-[320px] md:min-h-[420px] rounded-3xl overflow-hidden border border-white/10 bg-black/40 flex items-end"
+                    className="group relative lg:col-span-2 min-h-[320px] md:min-h-[420px] rounded-3xl overflow-hidden border border-ink/10 bg-page/40 flex items-end"
                 >
                     {mainImage ? (
                         <img
@@ -50,10 +50,10 @@ export function FeaturedPosts({ posts }: { posts: WordPressPost[] }) {
                             className="mt-3 text-2xl md:text-4xl font-bold leading-tight text-white group-hover:text-[#33b5ff] transition-colors"
                             dangerouslySetInnerHTML={{ __html: main.title.rendered }}
                         />
-                        <p className="mt-3 text-neutral-300 line-clamp-2 text-sm md:text-base">
+                        <p className="mt-3 text-white/80 line-clamp-2 text-sm md:text-base">
                             {extractTextFromHTML(main.excerpt?.rendered || main.content.rendered, 160)}
                         </p>
-                        <div className="mt-4 flex items-center gap-4 text-xs text-neutral-400">
+                        <div className="mt-4 flex items-center gap-4 text-xs text-white/70">
                             <time dateTime={main.date}>{formatDate(main.date)}</time>
                             <span className="flex items-center gap-1.5">
                                 <Clock className="w-3.5 h-3.5" />
@@ -74,9 +74,9 @@ export function FeaturedPosts({ posts }: { posts: WordPressPost[] }) {
                             <Link
                                 key={post.id}
                                 href={`/blogs/${post.slug}`}
-                                className="group flex-1 flex gap-4 p-4 rounded-2xl border border-white/10 bg-white/5 hover:border-[#0158e6]/50 transition-colors"
+                                className="group flex-1 flex gap-4 p-4 rounded-2xl border border-ink/10 bg-ink/5 hover:border-[#0158e6]/50 transition-colors"
                             >
-                                <div className="w-28 h-28 shrink-0 rounded-xl overflow-hidden bg-black/40">
+                                <div className="w-28 h-28 shrink-0 rounded-xl overflow-hidden bg-page/40">
                                     {img ? (
                                         <img src={img} alt="" className="w-full h-full object-cover" />
                                     ) : (
@@ -85,15 +85,15 @@ export function FeaturedPosts({ posts }: { posts: WordPressPost[] }) {
                                 </div>
                                 <div className="min-w-0 flex flex-col justify-center">
                                     {category && (
-                                        <span className="text-[11px] font-semibold uppercase tracking-widest text-[#33b5ff]">
+                                        <span className="text-[11px] font-semibold uppercase tracking-widest text-brand-cyan">
                                             {category.name}
                                         </span>
                                     )}
                                     <h3
-                                        className="mt-1 text-base font-bold text-white line-clamp-3 group-hover:text-[#33b5ff] transition-colors"
+                                        className="mt-1 text-base font-bold text-ink line-clamp-3 group-hover:text-brand-cyan transition-colors"
                                         dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                                     />
-                                    <time className="mt-2 text-xs text-neutral-500" dateTime={post.date}>
+                                    <time className="mt-2 text-xs text-ink/50" dateTime={post.date}>
                                         {formatDate(post.date)}
                                     </time>
                                 </div>

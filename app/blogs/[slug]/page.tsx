@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            <article className="min-h-screen bg-[#0A0A0A] text-white">
+            <article className="min-h-screen bg-page text-ink">
                 {/* Article Header */}
                 <header className="relative pt-24 sm:pt-32 md:pt-40 pb-8 sm:pb-12 md:pb-16 overflow-hidden">
                     {/* Background Effects */}
@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         className="absolute inset-0 opacity-[0.02]"
                         style={{
                             backgroundImage:
-                                'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+                                'linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)',
                             backgroundSize: '40px 40px',
                         }}
                     />
@@ -138,7 +138,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             </div>
 
                             {/* Meta Information */}
-                            <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm text-neutral-500 mb-6 sm:mb-8">
+                            <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm text-ink/50 mb-6 sm:mb-8">
                                 <div className="flex items-center gap-2">
                                     <User className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                     <span>{author}</span>
@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             {primary && (
                                 <Link
                                     href={sectionPath ?? `/blogs/category/${primary.slug}`}
-                                    className="inline-block mb-4 rounded-full border border-[#0158e6]/50 bg-[#0158e6]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#33b5ff] hover:bg-[#0158e6] hover:text-white transition-colors"
+                                    className="inline-block mb-4 rounded-full border border-[#0158e6]/50 bg-[#0158e6]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-cyan hover:bg-[#0158e6] hover:text-white transition-colors"
                                 >
                                     {primary.slug === 'blogs' ? 'Insights' : primary.name}
                                 </Link>
@@ -165,13 +165,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                             {/* Title */}
                             <h1
-                                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 sm:mb-8 leading-tight"
+                                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-ink mb-6 sm:mb-8 leading-tight"
                                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                             />
 
                             {/* Featured Image */}
                             {featuredImage && (
-                                <div className="relative w-full h-48 sm:h-64 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                                <div className="relative w-full h-48 sm:h-64 md:h-96 lg:h-[500px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-ink/10">
                                     <img
                                         src={featuredImage}
                                         alt={post.title.rendered}
@@ -185,7 +185,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </header>
 
                 {/* Article Content - Elementor Rendered */}
-                <section className="py-12 md:py-20 relative bg-[#0A0A0A]">
+                <section className="py-12 md:py-20 relative bg-page">
                     <Container>
                         <div className="max-w-4xl mx-auto">
                             <div
@@ -200,7 +200,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <RecommendedBlogs posts={recommendedPosts} currentPostId={post.id} />
 
                 {/* Article Footer */}
-                <footer className="py-8 sm:py-12 md:py-16 border-t border-white/5 relative bg-[#0A0A0A]">
+                <footer className="py-8 sm:py-12 md:py-16 border-t border-ink/5 relative bg-page">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0158e6]/5 to-transparent" />
 
                     <Container className="relative z-10">
@@ -210,9 +210,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                                 {/* Share Section */}
                                 <div className="flex items-center gap-4">
-                                    <span className="text-sm text-neutral-500">Share this insight:</span>
+                                    <span className="text-sm text-ink/50">Share this insight:</span>
                                     <div className="flex gap-2">
-                                        <button className="p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-[#0158e6] hover:border-[#0158e6] transition-all">
+                                        <button className="p-3 rounded-lg bg-ink/5 border border-ink/10 hover:bg-[#0158e6] hover:border-[#0158e6] transition-all">
                                             <Share2 className="w-4 h-4" />
                                         </button>
                                     </div>
@@ -220,11 +220,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             </div>
 
                             {/* CTA Section */}
-                            <div className="mt-12 sm:mt-16 p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#0158e6]/10 to-[#efef39]/5 border border-white/10 text-center">
+                            <div className="mt-12 sm:mt-16 p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#0158e6]/10 to-[#efef39]/5 border border-ink/10 text-center">
                                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
                                     Ready to Transform Your B2B Strategy?
                                 </h3>
-                                <p className="text-sm sm:text-base text-neutral-400 mb-4 sm:mb-6 max-w-2xl mx-auto">
+                                <p className="text-sm sm:text-base text-ink/60 mb-4 sm:mb-6 max-w-2xl mx-auto">
                                     Join forward-thinking companies leveraging Market Wavegen to build predictable
                                     pipeline.
                                 </p>

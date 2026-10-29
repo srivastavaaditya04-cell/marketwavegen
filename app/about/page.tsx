@@ -14,7 +14,7 @@ import { AboutVideo } from "@/components/sections/about-video";
 
 export default function AboutPage() {
     return (
-        <div className="relative min-h-screen w-full bg-[#0A0A0A] overflow-hidden antialiased pt-28 md:pt-40 pb-12 md:pb-24">
+        <div className="relative min-h-screen w-full bg-page overflow-hidden antialiased pt-28 md:pt-40 pb-12 md:pb-24">
             {/* Background Texture */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(239,239,57,0.05)_0%,transparent_50%)]" />
 
@@ -25,11 +25,11 @@ export default function AboutPage() {
                     transition={{ duration: 0.8 }}
                     className="max-w-5xl mb-12"
                 >
-                    <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 tracking-normal leading-none">
+                    <h1 className="text-3xl md:text-6xl font-bold text-ink mb-6 tracking-normal leading-none">
                         A Global Signal-Driven Engine <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] to-[#33b5ff]">for Predictable B2B Pipeline</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] to-brand-cyan">for Predictable B2B Pipeline</span>
                     </h1>
-                    <h2 className="text-xl md:text-2xl font-light text-white/90 border-l-4 border-[#efef39] pl-4 italic mb-8">
+                    <h2 className="text-xl md:text-2xl font-light text-ink/90 border-l-4 border-[#efef39] pl-4 italic mb-8">
                                {aboutContent.hero.subtitle}
                       </h2>
                 </motion.div>
@@ -42,16 +42,16 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="p-8 md:p-12 rounded-[2rem] bg-white/5 border border-white/5 backdrop-blur-md relative overflow-hidden group"
+                        className="p-8 md:p-12 rounded-[2rem] bg-ink/5 border border-ink/5 backdrop-blur-md relative overflow-hidden group"
                     >
                         <div className="absolute top-0 left-0 w-24 h-24 bg-[#33b5ff]/10 blur-3xl -translate-x-1/2 -translate-y-1/2" />
-                        <h2 className="text-2xl font-bold text-[#33b5ff] uppercase tracking-wider mb-8 flex items-center gap-3">
+                        <h2 className="text-2xl font-bold text-brand-cyan uppercase tracking-wider mb-8 flex items-center gap-3">
                             {/* <span className="w-8 h-[1px] bg-[#33b5ff]" /> */}
                             {aboutContent.whoWeAre.title}
                         </h2>
-                        <div className="space-y-6 text-neutral-300 leading-relaxed text-lg relative z-10">
+                        <div className="space-y-6 text-ink/75 leading-relaxed text-lg relative z-10">
                             {aboutContent.whoWeAre.content.map((paragraph, idx) => (
-                                <p key={idx} className="transition-colors group-hover:text-white/90">{paragraph}</p>
+                                <p key={idx} className="transition-colors group-hover:text-ink/90">{paragraph}</p>
                             ))}
                         </div>
                     </motion.div>
@@ -62,20 +62,20 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-neutral-900/50 border border-white/10 rounded-[2rem] p-8 md:p-12 relative overflow-hidden group"
+                        className="bg-ink/5 border border-ink/10 rounded-[2rem] p-8 md:p-12 relative overflow-hidden group"
                     >
                         <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#efef39]/10 blur-3xl translate-x-1/2 translate-y-1/2" />
 
-                        <h2 className="text-2xl font-bold text-[#efef39] uppercase tracking-wider mb-2 flex items-center gap-3">
+                        <h2 className="text-2xl font-bold text-brand-yellow uppercase tracking-wider mb-2 flex items-center gap-3">
                             {/* <span className="w-8 h-[1px] bg-[#efef39]" /> */}
                             {aboutContent.purpose.title}
                         </h2>
-                        <h3 className="text-xl font-bold text-white mb-8">
+                        <h3 className="text-xl font-bold text-ink mb-8">
                             {aboutContent.purpose.subtitle}
                         </h3>
-                        <div className="space-y-6 text-neutral-300 leading-relaxed text-lg relative z-10">
+                        <div className="space-y-6 text-ink/75 leading-relaxed text-lg relative z-10">
                             {aboutContent.purpose.content.map((paragraph, idx) => (
-                                <p key={idx} className="transition-colors group-hover:text-white/90">{paragraph}</p>
+                                <p key={idx} className="transition-colors group-hover:text-ink/90">{paragraph}</p>
                             ))}
                         </div>
                     </motion.div>
@@ -88,10 +88,10 @@ export default function AboutPage() {
 
                 {/* Where It Began */}
                 <div className="max-w-3xl mx-auto text-center mb-32">
-                    <h2 className="text-3xl font-bold text-white mb-8">
+                    <h2 className="text-3xl font-bold text-ink mb-8">
                         {aboutContent.history.title}
                     </h2>
-                    <div className="space-y-4 text-neutral-300 text-lg leading-relaxed">
+                    <div className="space-y-4 text-ink/75 text-lg leading-relaxed">
                         {aboutContent.history.content.map((paragraph, idx) => (
                             <p key={idx}>{paragraph}</p>
                         ))}
@@ -107,10 +107,10 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter"
+                            className="text-3xl md:text-5xl font-black text-ink uppercase tracking-tighter"
                         >
                             Why Market Wavegen <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#efef39] to-[#33b5ff]">Wins</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">Wins</span>
                         </motion.h2>
                     </div>
 
@@ -121,7 +121,7 @@ export default function AboutPage() {
                                 title={item.title}
                                 description={item.description}
                                 header={
-                                    <div className="relative flex flex-1 w-full h-full min-h-[14rem] rounded-3xl bg-black border border-white/5 overflow-hidden group/header">
+                                    <div className="relative flex flex-1 w-full h-full min-h-[14rem] rounded-3xl bg-page border border-ink/5 overflow-hidden group/header">
                                         {/* Content Image */}
                                         <img
                                             src={item.image}
@@ -130,10 +130,10 @@ export default function AboutPage() {
                                         />
 
                                         {/* Gradient Overlay for contrast */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-page via-transparent to-transparent" />
 
                                         {/* Abstract grid for texture */}
-                                        <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:24px_24px] opacity-20" />
+                                        <div className="absolute inset-0 bg-[radial-gradient(var(--dot)_1px,transparent_1px)] [background-size:24px_24px] opacity-20" />
 
                                         {/* Animated signal dot for the first item */}
                                         {i === 0 && (
@@ -160,7 +160,7 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="text-sm md:text-base font-bold text-[#33b5ff] uppercase tracking-wider mb-4"
+                            className="text-sm md:text-base font-bold text-brand-cyan uppercase tracking-wider mb-4"
                         >
                             {aboutContent.compliance.subtitle}
                         </motion.p>
@@ -168,7 +168,7 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-3xl md:text-5xl font-black text-white tracking-tight"
+                            className="text-3xl md:text-5xl font-black text-ink tracking-tight"
                         >
                             {aboutContent.compliance.title}
                         </motion.h2>
@@ -182,13 +182,13 @@ export default function AboutPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-[#33b5ff]/30 transition-all duration-300 overflow-hidden">
+                                className="group relative p-6 rounded-2xl bg-ink/5 border border-ink/10 backdrop-blur-md hover:bg-ink/10 hover:border-[#33b5ff]/30 transition-all duration-300 overflow-hidden">
                                 {/* Glow effect on hover */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-[#33b5ff]/0 to-[#efef39]/0 group-hover:from-[#33b5ff]/5 group-hover:to-[#efef39]/5 transition-all duration-500" />
 
                                 {/* Certificate Image */}
                                 <div className="relative z-10 mb-4 flex justify-center">
-                                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-white/10 p-3 group-hover:scale-105 transition-transform duration-300">
+                                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-ink/10 p-3 group-hover:scale-105 transition-transform duration-300">
                                         <img
                                             src={cert.image}
                                             alt={cert.name}
@@ -199,11 +199,11 @@ export default function AboutPage() {
 
                                 {/* Certificate Info */}
                                 <div className="relative z-10 text-center">
-                                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#33b5ff] transition-colors duration-300">
+                                    <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-brand-cyan transition-colors duration-300">
                                         {cert.name}
                                     </h3>
-                                    <p className="text-sm text-neutral-400 font-mono">
-                                        Certificate No.: <span className="text-[#efef39]">{cert.certNo}</span>
+                                    <p className="text-sm text-ink/60 font-mono">
+                                        Certificate No.: <span className="text-brand-yellow">{cert.certNo}</span>
                                     </p>
                                 </div>
 
@@ -223,7 +223,7 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="text-sm md:text-base font-bold text-[#efef39] uppercase tracking-wider mb-4"
+                            className="text-sm md:text-base font-bold text-brand-yellow uppercase tracking-wider mb-4"
                         >
                             {aboutContent.pressRelease.subtitle}
                         </motion.p>
@@ -231,7 +231,7 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-3xl md:text-5xl font-black text-white tracking-tight"
+                            className="text-3xl md:text-5xl font-black text-ink tracking-tight"
                         >
                             {aboutContent.pressRelease.title}
                         </motion.h2>
@@ -249,13 +249,13 @@ export default function AboutPage() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                                 whileHover={{ scale: 1.05, y: -5 }}
-                                className="group relative rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-[#efef39]/40 transition-all duration-300 overflow-hidden cursor-pointer aspect-square">
+                                className="group relative rounded-2xl bg-ink/5 border border-ink/10 backdrop-blur-md hover:bg-ink/10 hover:border-[#efef39]/40 transition-all duration-300 overflow-hidden cursor-pointer aspect-square">
                                 {/* Glow effect on hover */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-[#efef39]/0 to-[#33b5ff]/0 group-hover:from-[#efef39]/10 group-hover:to-[#33b5ff]/10 transition-all duration-500" />
 
                                 {/* Logo Container with white background */}
                                 <div className="relative z-10 w-full h-full p-6 flex items-center justify-center">
-                                    <div className="w-full h-full bg-white rounded-xl p-4 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-[#efef39]/20 transition-all duration-300">
+                                    <div className="w-full h-full bg-ink rounded-xl p-4 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-[#efef39]/20 transition-all duration-300">
                                         <img
                                             src={feature.image}
                                             alt={feature.name}
@@ -268,10 +268,10 @@ export default function AboutPage() {
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                                     <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
                                     <div className="relative flex flex-col items-center gap-2">
-                                        <svg className="w-8 h-8 text-[#efef39]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                         </svg>
-                                        <span className="text-sm text-white font-semibold">View Article</span>
+                                        <span className="text-sm text-ink font-semibold">View Article</span>
                                     </div>
                                 </div>
 

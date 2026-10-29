@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export function Footer() {
     return (
-        <footer className="bg-[#050505] border-t border-white/5 pt-24 pb-12 relative overflow-hidden">
+        <footer className="bg-page border-t border-ink/5 pt-24 pb-12 relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#0158e6]/20 to-transparent" />
 
@@ -24,7 +24,7 @@ export function Footer() {
                             />
                         </Link>
 
-                        <p className="text-neutral-400 text-lg font-medium leading-relaxed max-w-sm italic">
+                        <p className="text-ink/60 text-lg font-medium leading-relaxed max-w-sm italic">
                             "Transform your marketing strategy and achieve long-term success"
                         </p>
 
@@ -37,7 +37,7 @@ export function Footer() {
                                 <Link
                                     key={i}
                                     href={item.href}
-                                    className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-[#33b5ff] hover:bg-white/10 hover:border-[#33b5ff]/30 transition-all duration-300"
+                                    className="w-11 h-11 rounded-xl bg-ink/5 border border-ink/10 flex items-center justify-center text-ink/60 hover:text-brand-cyan hover:bg-ink/10 hover:border-[#33b5ff]/30 transition-all duration-300"
                                 >
                                     <item.Icon size={20} />
                                 </Link>
@@ -47,7 +47,7 @@ export function Footer() {
 
                     {/* Quick Links */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-white font-bold uppercase tracking-widest text-[10px] mb-8 flex items-center gap-2">
+                        <h4 className="text-ink font-bold uppercase tracking-widest text-[10px] mb-8 flex items-center gap-2">
                             <span className="w-1 h-1 rounded-full bg-[#33b5ff]" />
                             Links
                         </h4>
@@ -60,9 +60,9 @@ export function Footer() {
                                 { name: "Contact Us", href: "/contact-us" }
                             ].map((item) => (
                                 <li key={item.name}>
-                                    <Link href={item.href} className="text-neutral-500 hover:text-white transition-colors flex items-center group text-sm font-medium">
+                                    <Link href={item.href} className="text-ink/50 hover:text-ink transition-colors flex items-center group text-sm font-medium">
                                         {item.name}
-                                        <ArrowUpRight size={12} className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-[#33b5ff]" />
+                                        <ArrowUpRight size={12} className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity text-brand-cyan" />
                                     </Link>
                                 </li>
                             ))}
@@ -71,7 +71,7 @@ export function Footer() {
 
                     {/* Policy */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-white font-bold uppercase tracking-widest text-[10px] mb-8 flex items-center gap-2">
+                        <h4 className="text-ink font-bold uppercase tracking-widest text-[10px] mb-8 flex items-center gap-2">
                             <span className="w-1 h-1 rounded-full bg-[#efef39]" />
                             Policy
                         </h4>
@@ -83,7 +83,7 @@ export function Footer() {
                                 { name: "Cookie Policy", href: "/cookie-policy" }
                             ].map((item) => (
                                 <li key={item.name}>
-                                    <Link href={item.href} className="text-neutral-500 hover:text-white transition-colors text-sm font-medium">
+                                    <Link href={item.href} className="text-ink/50 hover:text-ink transition-colors text-sm font-medium">
                                         {item.name}
                                     </Link>
                                 </li>
@@ -92,19 +92,19 @@ export function Footer() {
                     </div>
 
                     {/* Contact - Company */}
-                    <div className="lg:col-span-4 pl-4 lg:pl-8 border-l border-white/5">
-                        <h4 className="text-white font-bold uppercase tracking-widest text-[10px] mb-8 flex items-center gap-2">
+                    <div className="lg:col-span-4 pl-4 lg:pl-8 border-l border-ink/5">
+                        <h4 className="text-ink font-bold uppercase tracking-widest text-[10px] mb-8 flex items-center gap-2">
                             <span className="w-1 h-1 rounded-full bg-[#0158e6]" />
                             Company
                         </h4>
                         <ul className="space-y-8">
                             <li className="flex gap-4 group">
-                                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-[#33b5ff]/30 transition-colors">
-                                    <MapPin className="text-[#33b5ff]" size={18} />
+                                <div className="w-10 h-10 rounded-xl bg-ink/5 border border-ink/10 flex items-center justify-center shrink-0 group-hover:border-[#33b5ff]/30 transition-colors">
+                                    <MapPin className="text-brand-cyan" size={18} />
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="block text-[10px] font-bold text-neutral-600 uppercase tracking-widest">Headquarters</span>
-                                    <span className="text-neutral-400 text-sm leading-relaxed block">
+                                    <span className="block text-[10px] font-bold text-ink/40 uppercase tracking-widest">Headquarters</span>
+                                    <span className="text-ink/60 text-sm leading-relaxed block">
                                         Office No. 1-BB Cerebrum IT Park, <br />
                                         Kalyani Nagar, Pune, <br />
                                         Maharashtra 411014
@@ -112,23 +112,23 @@ export function Footer() {
                                 </div>
                             </li>
                             <li className="flex gap-4 group">
-                                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-[#efef39]/30 transition-colors">
-                                    <Mail className="text-[#efef39]" size={18} />
+                                <div className="w-10 h-10 rounded-xl bg-ink/5 border border-ink/10 flex items-center justify-center shrink-0 group-hover:border-[#efef39]/30 transition-colors">
+                                    <Mail className="text-brand-yellow" size={18} />
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="block text-[10px] font-bold text-neutral-600 uppercase tracking-widest">Email Us</span>
-                                    <a href="mailto:sales@marketwavegen.com" className="text-white font-medium hover:text-[#33b5ff] transition-colors">
+                                    <span className="block text-[10px] font-bold text-ink/40 uppercase tracking-widest">Email Us</span>
+                                    <a href="mailto:sales@marketwavegen.com" className="text-ink font-medium hover:text-brand-cyan transition-colors">
                                         sales@marketwavegen.com
                                     </a>
                                 </div>
                             </li>
                             <li className="flex gap-4 group">
-                                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-[#33b5ff]/30 transition-colors">
-                                    <Phone className="text-[#33b5ff]" size={18} />
+                                <div className="w-10 h-10 rounded-xl bg-ink/5 border border-ink/10 flex items-center justify-center shrink-0 group-hover:border-[#33b5ff]/30 transition-colors">
+                                    <Phone className="text-brand-cyan" size={18} />
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="block text-[10px] font-bold text-neutral-600 uppercase tracking-widest">Call Expert</span>
-                                    <a href="tel:+17867764116" className="text-white font-medium hover:text-[#33b5ff] transition-colors">
+                                    <span className="block text-[10px] font-bold text-ink/40 uppercase tracking-widest">Call Expert</span>
+                                    <a href="tel:+17867764116" className="text-ink font-medium hover:text-brand-cyan transition-colors">
                                         +1 (717) 973-8159
                                     </a>
                                 </div>
@@ -137,13 +137,13 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-6 text-center">
-                    <p className="text-neutral-600 text-[11px] font-medium tracking-wide uppercase">
+                <div className="pt-12 border-t border-ink/5 flex flex-col md:flex-row justify-center items-center gap-6 text-center">
+                    <p className="text-ink/40 text-[11px] font-medium tracking-wide uppercase">
                         Copyright © 2026 Market Wavegen, All Rights Reserved
                     </p>
                     {/* <div className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                        <span className="text-[10px] font-bold text-neutral-600 uppercase tracking-widest">System Status: Optimal</span>
+                        <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest">System Status: Optimal</span>
                     </div> */}
                 </div>
             </Container>

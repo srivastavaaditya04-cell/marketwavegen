@@ -97,7 +97,7 @@ export function VideoGate({ video }: VideoGateProps) {
 
     return (
         <div className="max-w-[960px] mx-auto">
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-black aspect-video shadow-[0_0_80px_rgba(51,181,255,0.12)]">
+            <div className="relative rounded-3xl overflow-hidden border border-ink/10 bg-page aspect-video shadow-[0_0_80px_rgba(51,181,255,0.12)]">
                 {/* Cover image */}
                 {video.poster ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -131,7 +131,7 @@ export function VideoGate({ video }: VideoGateProps) {
                                     Watch video
                                 </span>
                                 {video.duration && (
-                                    <span className="text-white/70 text-xs drop-shadow">{video.duration}</span>
+                                    <span className="text-white/80 text-xs drop-shadow">{video.duration}</span>
                                 )}
                             </span>
                         </span>
@@ -151,20 +151,20 @@ export function VideoGate({ video }: VideoGateProps) {
                             initial={{ opacity: 0, y: 16, scale: 0.98 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             transition={{ delay: 0.1 }}
-                            className="relative w-full max-w-md bg-black/70 backdrop-blur-xl border border-white/15 rounded-3xl p-6 sm:p-8 space-y-5"
+                            className="relative w-full max-w-md bg-page/70 backdrop-blur-xl border border-ink/15 rounded-3xl p-6 sm:p-8 space-y-5"
                         >
                             <button
                                 type="button"
                                 onClick={() => setAsking(false)}
                                 aria-label="Close"
-                                className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
+                                className="absolute top-4 right-4 text-ink/40 hover:text-ink transition-colors"
                             >
                                 <X size={18} />
                             </button>
 
                             <div className="space-y-1 pr-6">
-                                <h3 className="text-lg font-bold text-white uppercase tracking-tight">Enter your work email</h3>
-                                <p className="text-neutral-400 text-sm">The video starts right after.</p>
+                                <h3 className="text-lg font-bold text-ink uppercase tracking-tight">Enter your work email</h3>
+                                <p className="text-ink/60 text-sm">The video starts right after.</p>
                             </div>
 
                             {/* Honeypot, hidden from humans */}
@@ -180,7 +180,7 @@ export function VideoGate({ video }: VideoGateProps) {
                             />
 
                             <div className="relative group/input">
-                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within/input:text-[#33b5ff] transition-colors" size={20} />
+                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/30 group-focus-within/input:text-brand-cyan transition-colors" size={20} />
                                 <input
                                     type="email"
                                     placeholder="name@company.com"
@@ -188,14 +188,14 @@ export function VideoGate({ video }: VideoGateProps) {
                                     onChange={(e) => { setEmail(e.target.value); if (status === "error") setStatus("idle"); }}
                                     required
                                     autoFocus
-                                    className="w-full h-14 bg-white/10 border border-white/15 rounded-2xl pl-12 pr-4 text-white placeholder:text-white/30 focus:outline-none focus:border-[#33b5ff]/60 focus:bg-white/15 transition-all"
+                                    className="w-full h-14 bg-ink/10 border border-ink/15 rounded-2xl pl-12 pr-4 text-ink placeholder:text-ink/30 focus:outline-none focus:border-[#33b5ff]/60 focus:bg-ink/15 transition-all"
                                 />
                             </div>
 
                             <Button
                                 type="submit"
                                 disabled={status === "loading"}
-                                className="w-full h-14 rounded-2xl font-bold uppercase tracking-widest text-xs border border-white/10 transition-all gap-2 bg-[#0158e6] hover:bg-[#33b5ff] text-white"
+                                className="w-full h-14 rounded-2xl font-bold uppercase tracking-widest text-xs border border-ink/10 transition-all gap-2 bg-[#0158e6] hover:bg-[#33b5ff] text-white"
                             >
                                 <Play size={14} fill="currentColor" />
                                 {status === "loading" ? "Unlocking..." : "Watch now"}
@@ -296,7 +296,7 @@ function GatedPlayer({ video, leadRow, autoPlay }: { video: GatedVideo; leadRow:
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="rounded-3xl overflow-hidden border border-white/10 bg-black shadow-[0_0_80px_rgba(51,181,255,0.15)]"
+            className="rounded-3xl overflow-hidden border border-ink/10 bg-page shadow-[0_0_80px_rgba(51,181,255,0.15)]"
         >
             <video
                 ref={videoRef}
@@ -308,7 +308,7 @@ function GatedPlayer({ video, leadRow, autoPlay }: { video: GatedVideo; leadRow:
                 onTimeUpdate={handleTimeUpdate}
                 onPause={() => report()}
                 onEnded={handleEnded}
-                className="w-full aspect-video bg-black"
+                className="w-full aspect-video bg-page"
             />
         </motion.div>
     );

@@ -237,7 +237,7 @@ export const howWeWorkSteps = [
         description: "Adapt campaigns to regional markets",
         detailedDescription: "Campaigns run through regional landing pages, language-adapted content, and market-specific compliance alignment to reduce friction and increase relevance.",
         icon: Globe2,
-        color: "#eab308"
+        color: "var(--step-amber)"
     },
     {
         id: 4,

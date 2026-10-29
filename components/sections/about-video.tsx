@@ -50,7 +50,7 @@ export function AboutVideo() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4"
+                        className="text-3xl md:text-5xl font-black text-ink tracking-tight mb-4"
                     >
                         {video.title}
                     </motion.h2>
@@ -58,7 +58,7 @@ export function AboutVideo() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-neutral-400 text-lg max-w-2xl mx-auto"
+                        className="text-ink/60 text-lg max-w-2xl mx-auto"
                     >
                         {video.subtitle}
                     </motion.p>
@@ -70,7 +70,7 @@ export function AboutVideo() {
                     transition={{ duration: 0.8 }}
                     className="max-w-5xl mx-auto"
                 >
-                    <div className="relative aspect-video rounded-[2rem] overflow-hidden bg-white/5 border border-white/10 shadow-2xl group cursor-pointer">
+                    <div className="relative aspect-video rounded-[2rem] overflow-hidden bg-ink/5 border border-ink/10 shadow-2xl group cursor-pointer">
                         {!isPlaying ? (
                             <div 
                                 className="absolute inset-0 z-10 flex items-center justify-center group"
@@ -87,8 +87,8 @@ export function AboutVideo() {
                                 <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full bg-[#0158e6] text-white shadow-[0_0_50px_rgba(1,88,230,0.5)] transform transition-all duration-500 group-hover:scale-110 group-hover:bg-[#33b5ff]">
                                     <Play size={40} className="fill-white ml-1" />
                                     {/* Rotating Ring */}
-                                    <div className="absolute inset-[-8px] border border-white/20 rounded-full animate-[spin_10s_linear_infinite]" />
-                                    <div className="absolute inset-[-16px] border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+                                    <div className="absolute inset-[-8px] border border-ink/20 rounded-full animate-[spin_10s_linear_infinite]" />
+                                    <div className="absolute inset-[-16px] border border-ink/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
                                 </div>
                             </div>
                         ) : (

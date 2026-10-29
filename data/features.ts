@@ -15,19 +15,19 @@ export const features = [
         id: "03",
         title: "Verified Global Data Foundation",
         description: "Identity, role, consent, and intent are verified using ISO-certified workflows inside Mantech Mark™.",
-        className: "md:col-span-1 md:row-span-1 bg-white/5 border-white/10"
+        className: "md:col-span-1 md:row-span-1 bg-ink/5 border-ink/10"
     },
     {
         id: "04",
         title: "Precision at Scale",
         description: "Access 147M+ professionals and 498M+ companies, continuously scored and reprioritized based on readiness and timing.",
-        className: "md:col-span-1 md:row-span-1 bg-white/5 border-white/10"
+        className: "md:col-span-1 md:row-span-1 bg-ink/5 border-ink/10"
     },
     {
         id: "05",
         title: "Human-Led Validation",
         description: "Tele-qualification teams validate real interest, project context, and timing before sales engagement.",
-        className: "md:col-span-1 md:row-span-1 bg-white/5 border-white/10"
+        className: "md:col-span-1 md:row-span-1 bg-ink/5 border-ink/10"
     },
     {
         id: "06",

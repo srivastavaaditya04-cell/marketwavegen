@@ -16,7 +16,7 @@ export function BlogHero({
     title = (
         <>
             Insights & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] via-[#33b5ff] to-[#efef39]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] via-brand-cyan to-brand-yellow">
                 Intelligence
             </span>
         </>
@@ -35,7 +35,7 @@ export function BlogHero({
                 className="absolute inset-0 opacity-[0.02]"
                 style={{
                     backgroundImage:
-                        'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+                        'linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)',
                     backgroundSize: '60px 60px',
                 }}
             />
@@ -46,9 +46,9 @@ export function BlogHero({
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-sm"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink/10 bg-ink/5 mb-8 backdrop-blur-sm"
                     >
-                        <span className="text-xs font-bold uppercase tracking-widest text-neutral-400">
+                        <span className="text-xs font-bold uppercase tracking-widest text-ink/60">
                             {badge}
                         </span>
                     </motion.div>
@@ -66,7 +66,7 @@ export function BlogHero({
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-xl md:text-2xl text-neutral-400 font-light  inline-block"
+                        className="text-xl md:text-2xl text-ink/60 font-light  inline-block"
                     >
                         {subtitle}
                     </motion.p>

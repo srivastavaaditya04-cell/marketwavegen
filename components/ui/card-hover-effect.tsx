@@ -47,7 +47,7 @@ export const HoverEffect = ({
                     </AnimatePresence>
                     <Card>
                         <div className="flex flex-col items-center text-center gap-4">
-                            <CheckCircle2 className="w-8 h-8 text-[#efef39]" />
+                            <CheckCircle2 className="w-8 h-8 text-brand-yellow" />
                             <CardDescription>{item}</CardDescription>
                         </div>
                     </Card>
@@ -67,7 +67,7 @@ export const Card = ({
     return (
         <div
             className={cn(
-                "rounded-2xl h-full w-full p-4 overflow-hidden bg-white/5 border border-white/10 group-hover:border-white/20 relative z-20 transition-colors",
+                "rounded-2xl h-full w-full p-4 overflow-hidden bg-ink/5 border border-ink/10 group-hover:border-ink/20 relative z-20 transition-colors",
                 className
             )}
         >
@@ -88,7 +88,7 @@ export const CardDescription = ({
     return (
         <p
             className={cn(
-                "mt-4 text-neutral-300 tracking-wide leading-relaxed text-sm md:text-base font-light",
+                "mt-4 text-ink/75 tracking-wide leading-relaxed text-sm md:text-base font-light",
                 className
             )}
         >

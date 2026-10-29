@@ -30,11 +30,11 @@ export default async function WatchPage({ params }: PageProps) {
     if (!video) notFound();
 
     return (
-        <div className="min-h-screen bg-[#0A0A0A] text-white pt-0">
+        <div className="min-h-screen bg-page text-ink pt-0">
             <BlogHero
                 badge={video.badge ?? "Video"}
                 title={
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#efef39] to-[#33b5ff]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">
                         {video.title}
                     </span>
                 }

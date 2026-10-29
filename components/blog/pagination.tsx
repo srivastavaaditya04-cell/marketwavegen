@@ -77,7 +77,7 @@ export function Pagination({ currentPage, totalPages, basePath = '/blogs', searc
                     <Button
                         variant="outline"
                         size="lg"
-                        className="h-12 px-4 rounded-full bg-white/5 border-white/10 text-white hover:bg-[#0158e6] hover:border-[#0158e6] transition-all"
+                        className="h-12 px-4 rounded-full bg-ink/5 border-ink/10 text-ink hover:text-white hover:bg-[#0158e6] hover:border-[#0158e6] transition-all"
                     >
                         <ChevronLeft className="w-5 h-5" />
                         <span className="sr-only md:not-sr-only md:ml-2">Previous</span>
@@ -90,7 +90,7 @@ export function Pagination({ currentPage, totalPages, basePath = '/blogs', searc
                 {pageNumbers.map((page, idx) => {
                     if (page === '...') {
                         return (
-                            <span key={`ellipsis-${idx}`} className="px-4 text-neutral-500">
+                            <span key={`ellipsis-${idx}`} className="px-4 text-ink/50">
                                 ...
                             </span>
                         );
@@ -108,7 +108,7 @@ export function Pagination({ currentPage, totalPages, basePath = '/blogs', searc
                                 className={
                                     isCurrentPage
                                         ? 'h-12 w-12 rounded-full bg-[#0158e6] text-white hover:bg-[#0046b8] border-[#0158e6]'
-                                        : 'h-12 w-12 rounded-full bg-white/5 border-white/10 text-white hover:bg-[#0158e6] hover:border-[#0158e6] transition-all'
+                                        : 'h-12 w-12 rounded-full bg-ink/5 border-ink/10 text-ink hover:text-white hover:bg-[#0158e6] hover:border-[#0158e6] transition-all'
                                 }
                                 aria-current={isCurrentPage ? 'page' : undefined}
                             >
@@ -125,7 +125,7 @@ export function Pagination({ currentPage, totalPages, basePath = '/blogs', searc
                     <Button
                         variant="outline"
                         size="lg"
-                        className="h-12 px-4 rounded-full bg-white/5 border-white/10 text-white hover:bg-[#0158e6] hover:border-[#0158e6] transition-all"
+                        className="h-12 px-4 rounded-full bg-ink/5 border-ink/10 text-ink hover:text-white hover:bg-[#0158e6] hover:border-[#0158e6] transition-all"
                     >
                         <span className="sr-only md:not-sr-only md:mr-2">Next</span>
                         <ChevronRight className="w-5 h-5" />

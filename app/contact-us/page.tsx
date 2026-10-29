@@ -51,7 +51,7 @@ const ContactBentoItems = [
                 </div>
             </div>
         ),
-        icon: <Globe className="h-4 w-4 text-neutral-500" />,
+        icon: <Globe className="h-4 w-4 text-ink/50" />,
         className: "md:col-span-2",
     },
     {
@@ -68,16 +68,16 @@ const ContactBentoItems = [
 
                 <div className="relative z-10 flex flex-col h-full w-full p-6 justify-between">
                     <div className="w-10 h-10 rounded-lg bg-[#33b5ff]/10 border border-[#33b5ff]/20 flex items-center justify-center transition-colors group-hover:bg-[#33b5ff]/20 backdrop-blur-sm">
-                        <Target className="w-5 h-5 text-[#33b5ff]" />
+                        <Target className="w-5 h-5 text-brand-cyan" />
                     </div>
                     <div className="space-y-1">
-                        <p className="text-neutral-500 text-[10px] font-bold uppercase tracking-widest">London Office</p>
+                        <p className="text-white/50 text-[10px] font-bold uppercase tracking-widest">London Office</p>
                         <p className="text-white font-medium">+44 151-452-5520</p>
                     </div>
                 </div>
             </div>
         ),
-        icon: <Hexagon className="h-4 w-4 text-neutral-500" />,
+        icon: <Hexagon className="h-4 w-4 text-ink/50" />,
         className: "md:col-span-1",
     },
     {
@@ -103,7 +103,7 @@ const ContactBentoItems = [
                 <Users className="absolute -bottom-4 -right-4 w-24 h-24 text-white/5 group-hover:text-white/10 transition-colors" />
             </div>
         ),
-        icon: <Users className="h-4 w-4 text-neutral-500" />,
+        icon: <Users className="h-4 w-4 text-ink/50" />,
         className: "md:col-span-1",
     },
     {
@@ -112,12 +112,12 @@ const ContactBentoItems = [
         header: (
             <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-[#0158e6]/5 border border-white/10 p-6 flex-col justify-center items-center group relative cursor-pointer overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0158e6]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <Mail className="w-12 h-12 text-[#33b5ff] group-hover:scale-110 transition-transform mb-4" />
+                <Mail className="w-12 h-12 text-brand-cyan group-hover:scale-110 transition-transform mb-4" />
                 <span className="text-white font-bold text-lg relative z-10">sales@marketwavegen.com</span>
                 <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-[#33b5ff]/10 blur-3xl pointer-events-none" />
             </div>
         ),
-        icon: <Mail className="h-4 w-4 text-neutral-500" />,
+        icon: <Mail className="h-4 w-4 text-ink/50" />,
         className: "md:col-span-2",
     },
 ];
@@ -165,7 +165,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#050505] text-white selection:bg-[#efef39] selection:text-black dark">
+        <div className="min-h-screen bg-page text-ink selection:bg-[#efef39] selection:text-black dark">
             <section className="relative min-h-[80vh] pt-24 md:pt-32 flex items-center justify-center overflow-hidden">
                 <Spotlight />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(51,181,255,0.05),transparent_70%)]" />
@@ -175,7 +175,7 @@ export default function ContactPage() {
                     <motion.div
                         animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
                         transition={{ duration: 10, repeat: Infinity }}
-                        className="absolute top-[20%] left-[15%] w-32 h-32 border border-white/5 rounded-full"
+                        className="absolute top-[20%] left-[15%] w-32 h-32 border border-ink/5 rounded-full"
                     />
                     <motion.div
                         animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
@@ -190,10 +190,10 @@ export default function ContactPage() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-8 backdrop-blur-sm"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-ink/10 bg-ink/5 mb-8 backdrop-blur-sm"
                         >
                             <span className="w-2 h-2 rounded-full bg-[#efef39] animate-pulse" />
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Status: Connection Hub Online</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/60">Status: Connection Hub Online</span>
                         </motion.div>
 
                         <motion.h1
@@ -203,14 +203,14 @@ export default function ContactPage() {
                             className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-wide leading-[0.8] mb-8 px-4"
                         >
                             Get In The <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">Signal</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-ink to-ink/20">Signal</span>
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-xl md:text-2xl text-neutral-400 max-w-2xl font-light"
+                            className="text-xl md:text-2xl text-ink/60 max-w-2xl font-light"
                         >
                             Bridging the gap between intent and execution. Let&apos;s build your revenue architecture together.
                         </motion.p>
@@ -240,7 +240,7 @@ export default function ContactPage() {
             <Section className="relative overflow-visible" allowOverflow>
                 {/* Blueprint Background */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none -z-10"
-                    style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '60px 60px' }}
+                    style={{ backgroundImage: 'linear-gradient(var(--ink) 1px, transparent 1px), linear-gradient(90deg, var(--ink) 1px, transparent 1px)', backgroundSize: '60px 60px' }}
                 />
 
                 <Container className="relative">
@@ -255,7 +255,7 @@ export default function ContactPage() {
                                     THE CONTACT <br />
                                     <span className="text-[#0158e6]">LABORATORY</span>
                                 </h2>
-                                <p className="text-lg md:text-xl text-neutral-400 border-l-2 border-[#efef39] ml-4 lg:ml-0 pl-6 font-light">
+                                <p className="text-lg md:text-xl text-ink/60 border-l-2 border-[#efef39] ml-4 lg:ml-0 pl-6 font-light">
                                     Our specialists are standing by to process your inquiry. High-velocity outreach starts with a single trigger.
                                 </p>
                             </motion.div>
@@ -269,12 +269,12 @@ export default function ContactPage() {
                                 >
                                     <motion.div
                                         whileHover={{ scale: 1.05 }}
-                                        className="p-6 md:p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-[#0158e6]/50 transition-all cursor-pointer group h-full"
+                                        className="p-6 md:p-8 rounded-3xl bg-ink/5 border border-ink/5 hover:border-[#0158e6]/50 transition-all cursor-pointer group h-full"
                                     >
                                         <Calendar className="w-10 h-10 text-[#0158e6] mb-6 group-hover:rotate-12 transition-transform" />
                                         <h4 className="text-xl font-bold mb-2">Book a Meeting</h4>
-                                        <p className="text-sm text-neutral-500">Pick a slot in our live calendar.</p>
-                                        <ArrowUpRight className="w-5 h-5 mt-6 text-[#efef39]" />
+                                        <p className="text-sm text-ink/50">Pick a slot in our live calendar.</p>
+                                        <ArrowUpRight className="w-5 h-5 mt-6 text-brand-yellow" />
                                     </motion.div>
                                 </a>
 
@@ -286,11 +286,11 @@ export default function ContactPage() {
                                 >
                                     <motion.div
                                         whileHover={{ scale: 1.05 }}
-                                        className="p-6 md:p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-[#efef39]/50 transition-all cursor-pointer group h-full"
+                                        className="p-6 md:p-8 rounded-3xl bg-ink/5 border border-ink/5 hover:border-[#efef39]/50 transition-all cursor-pointer group h-full"
                                     >
-                                        <MessageSquare className="w-10 h-10 text-[#efef39] mb-6 group-hover:-translate-y-1 transition-transform" />
+                                        <MessageSquare className="w-10 h-10 text-brand-yellow mb-6 group-hover:-translate-y-1 transition-transform" />
                                         <h4 className="text-xl font-bold mb-2">Instant Chat</h4>
-                                        <p className="text-sm text-neutral-500">Real-time signal verification.</p>
+                                        <p className="text-sm text-ink/50">Real-time signal verification.</p>
                                         <ArrowUpRight className="w-5 h-5 mt-6 text-[#0158e6]" />
                                     </motion.div>
                                 </a>
@@ -302,7 +302,7 @@ export default function ContactPage() {
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="bg-[#0a0a0a] border border-white/10 p-6 md:p-10 rounded-[2rem] shadow-2xl relative z-10 mx-4 lg:mx-0"
+                                className="bg-page border border-ink/10 p-6 md:p-10 rounded-[2rem] shadow-2xl relative z-10 mx-4 lg:mx-0"
                             >
                                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0158e6]/20 blur-[100px] pointer-events-none" />
 
@@ -316,7 +316,7 @@ export default function ContactPage() {
                                                 onChange={handleChange}
                                                 required
                                                 placeholder="Name *"
-                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
+                                                className="w-full bg-ink/5 border border-ink/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
                                             />
                                         </div>
                                         <div className="space-y-1">
@@ -326,7 +326,7 @@ export default function ContactPage() {
                                                 value={formData.company}
                                                 onChange={handleChange}
                                                 placeholder="Company"
-                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
+                                                className="w-full bg-ink/5 border border-ink/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
                                             />
                                         </div>
                                     </div>
@@ -339,7 +339,7 @@ export default function ContactPage() {
                                                 onChange={handleChange}
                                                 required
                                                 placeholder="Phone *"
-                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
+                                                className="w-full bg-ink/5 border border-ink/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
                                             />
                                         </div>
                                         <div className="space-y-1">
@@ -350,7 +350,7 @@ export default function ContactPage() {
                                                 onChange={handleChange}
                                                 required
                                                 placeholder="Email *"
-                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
+                                                className="w-full bg-ink/5 border border-ink/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
                                             />
                                         </div>
                                     </div>
@@ -361,7 +361,7 @@ export default function ContactPage() {
                                         onChange={handleChange}
                                         required
                                         placeholder="Subject *"
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
+                                        className="w-full bg-ink/5 border border-ink/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors"
                                     />
                                     <textarea
                                         name="message"
@@ -370,14 +370,14 @@ export default function ContactPage() {
                                         required
                                         rows={4}
                                         placeholder="Message *"
-                                        className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors resize-none"
+                                        className="w-full bg-ink/5 border border-ink/10 rounded-xl px-5 py-4 focus:border-[#efef39] outline-none transition-colors resize-none"
                                     />
 
                                     <Button
                                         disabled={status === 'loading' || status === 'success'}
                                         className={cn(
                                             "w-full h-16 rounded-2xl font-black text-lg transition-all transform hover:scale-[1.02] active:scale-95",
-                                            status === 'success' ? "bg-green-500 text-white" : "bg-white text-black hover:bg-[#efef39]"
+                                            status === 'success' ? "bg-green-500 text-white" : "bg-ink text-page hover:bg-[#efef39]"
                                         )}
                                     >
                                         {status === 'loading' ? 'PROCESSING...' :
@@ -388,7 +388,7 @@ export default function ContactPage() {
                             </motion.div>
 
                             {/* Decorative Form Label */}
-                            <div className="absolute -right-4 top-1/2 -rotate-90 text-[10px] uppercase font-black tracking-[1em] text-white/10 pointer-events-none hidden xl:block">
+                            <div className="absolute -right-4 top-1/2 -rotate-90 text-[10px] uppercase font-black tracking-[1em] text-ink/10 pointer-events-none hidden xl:block">
                                 Input Sequence 01
                             </div>
                         </div>
@@ -403,7 +403,7 @@ export default function ContactPage() {
                     <div className="text-center space-y-12">
                         <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none px-4">
                             Ready to Scale? <br />
-                            <span className="text-[#efef39]">Launch Now.</span>
+                            <span className="text-brand-yellow">Launch Now.</span>
                         </h2>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                             <Link href="/">

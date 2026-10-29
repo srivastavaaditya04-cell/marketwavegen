@@ -11,7 +11,7 @@ export function CategoryBar({ categories, activeSlug }: CategoryBarProps) {
         `shrink-0 px-4 py-2 rounded-full border text-sm font-medium transition-colors ${
             active
                 ? 'bg-[#0158e6] border-[#0158e6] text-white'
-                : 'bg-white/5 border-white/10 text-neutral-300 hover:border-[#0158e6]/60 hover:text-white'
+                : 'bg-ink/5 border-ink/10 text-ink/75 hover:border-[#0158e6]/60 hover:text-ink'
         }`;
 
     return (

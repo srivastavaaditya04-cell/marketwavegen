@@ -13,14 +13,14 @@ interface ResourceListingProps {
 
 export function ResourceListing({ posts, label, hero, emptyTitle, emptyText }: ResourceListingProps) {
     return (
-        <div className="min-h-screen bg-[#0A0A0A] text-white">
+        <div className="min-h-screen bg-page text-ink">
             <BlogHero compact {...hero} />
             <section className="pb-20 md:pb-28 relative">
                 <Container>
                     {posts.length === 0 ? (
-                        <div className="p-12 rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-md text-center">
+                        <div className="p-12 rounded-[40px] border border-ink/10 bg-ink/5 backdrop-blur-md text-center">
                             <h2 className="text-2xl font-bold mb-4">{emptyTitle}</h2>
-                            <p className="text-neutral-400">{emptyText}</p>
+                            <p className="text-ink/60">{emptyText}</p>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

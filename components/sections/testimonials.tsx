@@ -39,12 +39,12 @@ export function Testimonials() {
     };
 
     return (
-        <Section className="relative overflow-hidden bg-black py-24 lg:py-32">
+        <Section className="relative overflow-hidden bg-page py-24 lg:py-32">
             {/* Background Signal Accents */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(1,88,230,0.05)_0%,transparent_50%)]" />
                 <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_70%,rgba(239,239,57,0.05)_0%,transparent_50%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(#ffffff04_1px,transparent_1px)] [background-size:40px_40px]" />
+                <div className="absolute inset-0 bg-[radial-gradient(var(--dot)_1px,transparent_1px)] [background-size:40px_40px]" />
             </div>
 
             <Container className="relative z-10">
@@ -58,30 +58,30 @@ export function Testimonials() {
                             transition={{ duration: 0.6 }}
                             className="space-y-6"
                         >
-                            <div className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-white/5 border border-white/10">
+                            <div className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-ink/5 border border-ink/10">
                                 <span className="w-2 h-2 rounded-full bg-[#33b5ff] animate-pulse" />
-                                <span className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest">Feedback Lab // 04</span>
+                                <span className="text-[10px] font-mono font-bold text-ink/40 uppercase tracking-widest">Feedback Lab // 04</span>
                             </div>
 
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none uppercase tracking-tighter">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-ink leading-none uppercase tracking-tighter">
                                 What Our <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#33b5ff] to-[#0158e6]">Partners Say</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-[#0158e6]">Partners Say</span>
                             </h2>
 
-                            <p className="text-neutral-400 text-lg font-medium leading-relaxed max-w-md">
+                            <p className="text-ink/60 text-lg font-medium leading-relaxed max-w-md">
                                 Real intelligence from the front lines of demand generation. See how we transform signal into revenue.
                             </p>
 
                             <div className=" hidden md:flex gap-3 pt-4">
                                 <button
                                     onClick={prev}
-                                    className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-white/60 hover:text-[#33b5ff] hover:bg-white/5 hover:border-[#33b5ff]/30 transition-all duration-300 active:scale-95"
+                                    className="w-12 h-12 rounded-xl border border-ink/10 flex items-center justify-center text-ink/60 hover:text-brand-cyan hover:bg-ink/5 hover:border-[#33b5ff]/30 transition-all duration-300 active:scale-95"
                                 >
                                     <ArrowLeft size={20} />
                                 </button>
                                 <button
                                     onClick={next}
-                                    className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-white/60 hover:text-[#33b5ff] hover:bg-white/5 hover:border-[#33b5ff]/30 transition-all duration-300 active:scale-95"
+                                    className="w-12 h-12 rounded-xl border border-ink/10 flex items-center justify-center text-ink/60 hover:text-brand-cyan hover:bg-ink/5 hover:border-[#33b5ff]/30 transition-all duration-300 active:scale-95"
                                 >
                                     <ArrowRight size={20} />
                                 </button>
@@ -98,7 +98,7 @@ export function Testimonials() {
                                         }}
                                         className={cn(
                                             "h-1 transition-all duration-500 rounded-full",
-                                            idx === i ? "w-8 bg-[#33b5ff]" : "w-4 bg-white/10"
+                                            idx === i ? "w-8 bg-[#33b5ff]" : "w-4 bg-ink/10"
                                         )}
                                     />
                                 ))}
@@ -110,7 +110,7 @@ export function Testimonials() {
                     <div className="w-full lg:w-2/3">
                         <div className="relative">
                             {/* Decorative Quote Icon - Only on Desktop */}
-                            <Quote className="hidden lg:block absolute -top-10 -left-6 w-20 h-20 text-[#33b5ff] opacity-10 rotate-12" />
+                            <Quote className="hidden lg:block absolute -top-10 -left-6 w-20 h-20 text-brand-cyan opacity-10 rotate-12" />
 
                             <div className={cn(
                                 "relative w-full",
@@ -148,7 +148,7 @@ export function Testimonials() {
                                                         if (info.offset.x > 80) prev();
                                                         else if (info.offset.x < -80) next();
                                                     }}
-                                                    className="absolute w-[92%] h-[480px] bg-[#0a0a0a] border border-white/10 rounded-[32px] p-6 shadow-2xl flex flex-col justify-between overflow-hidden cursor-grab active:cursor-grabbing"
+                                                    className="absolute w-[92%] h-[480px] bg-page border border-ink/10 rounded-[32px] p-6 shadow-2xl flex flex-col justify-between overflow-hidden cursor-grab active:cursor-grabbing"
                                                 >
                                                     <Spotlight
                                                         gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(200, 100%, 85%, .08) 0, hsla(200, 100%, 55%, .03) 50%, hsla(200, 100%, 45%, 0) 80%)"
@@ -166,24 +166,24 @@ export function Testimonials() {
                                                         <div className="flex justify-between items-center">
                                                             <div className="flex gap-1">
                                                                 {[...Array(5)].map((_, starIdx) => (
-                                                                    <Star key={starIdx} size={10} className="fill-[#efef39] text-[#efef39]" />
+                                                                    <Star key={starIdx} size={10} className="fill-[#efef39] text-brand-yellow" />
                                                                 ))}
                                                             </div>
-                                                            <Quote className="w-5 h-5 text-[#33b5ff] opacity-40 shrink-0" />
+                                                            <Quote className="w-5 h-5 text-brand-cyan opacity-40 shrink-0" />
                                                         </div>
 
-                                                        <p className="text-lg font-light text-white leading-relaxed italic tracking-tight">
+                                                        <p className="text-lg font-light text-ink leading-relaxed italic tracking-tight">
                                                             "{t.quote}"
                                                         </p>
                                                     </div>
 
-                                                    <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-                                                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center p-2 mt-auto">
-                                                            <User2 className="w-full h-full text-white/40" />
+                                                    <div className="flex items-center gap-3 pt-4 border-t border-ink/5">
+                                                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-ink/10 to-transparent border border-ink/10 flex items-center justify-center p-2 mt-auto">
+                                                            <User2 className="w-full h-full text-ink/40" />
                                                         </div>
                                                         <div className="flex-1 min-w-0">
-                                                            <div className="text-sm font-bold text-white tracking-tight uppercase truncate">{t.author}</div>
-                                                            <div className="text-[#33b5ff] font-bold uppercase tracking-widest text-[8px] mt-0.5 break-words">{t.role}</div>
+                                                            <div className="text-sm font-bold text-ink tracking-tight uppercase truncate">{t.author}</div>
+                                                            <div className="text-brand-cyan font-bold uppercase tracking-widest text-[8px] mt-0.5 break-words">{t.role}</div>
                                                         </div>
                                                     </div>
 
@@ -207,7 +207,7 @@ export function Testimonials() {
                                                 if (info.offset.x > 100) prev();
                                                 else if (info.offset.x < -100) next();
                                             }}
-                                            className="group relative bg-[#0a0a0a] border border-white/5 rounded-[40px] p-14 lg:p-16 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] overflow-hidden cursor-grab active:cursor-grabbing"
+                                            className="group relative bg-page border border-ink/5 rounded-[40px] p-14 lg:p-16 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.3)] overflow-hidden cursor-grab active:cursor-grabbing"
                                         >
                                             <Spotlight
                                                 gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(200, 100%, 85%, .12) 0, hsla(200, 100%, 55%, .04) 50%, hsla(200, 100%, 45%, 0) 80%)"
@@ -225,25 +225,25 @@ export function Testimonials() {
                                                 <div className="flex justify-between items-center">
                                                     <div className="flex gap-1">
                                                         {[...Array(5)].map((_, starIdx) => (
-                                                            <Star key={starIdx} size={14} className="fill-[#efef39] text-[#efef39]" />
+                                                            <Star key={starIdx} size={14} className="fill-[#efef39] text-brand-yellow" />
                                                         ))}
                                                     </div>
-                                                    <div className="text-[10px] font-mono text-white/30 uppercase tracking-[0.2em]">Verified Partnership Outcome</div>
+                                                    <div className="text-[10px] font-mono text-ink/30 uppercase tracking-[0.2em]">Verified Partnership Outcome</div>
                                                 </div>
 
                                                 <blockquote className="relative">
-                                                    <p className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-tight md:leading-snug italic tracking-tight">
+                                                    <p className="text-2xl md:text-3xl lg:text-4xl font-light text-ink leading-tight md:leading-snug italic tracking-tight">
                                                         "{testimonials[idx].quote}"
                                                     </p>
                                                 </blockquote>
 
-                                                <div className="flex items-center gap-6 pt-8 border-t border-white/5">
-                                                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center p-3">
-                                                        <User2 className="w-full h-full text-white/40" />
+                                                <div className="flex items-center gap-6 pt-8 border-t border-ink/5">
+                                                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-ink/10 to-transparent border border-ink/10 flex items-center justify-center p-3">
+                                                        <User2 className="w-full h-full text-ink/40" />
                                                     </div>
                                                     <div>
-                                                        <div className="text-xl font-bold text-white tracking-tight uppercase">{testimonials[idx].author}</div>
-                                                        <div className="text-neutral-500 font-bold uppercase tracking-widest text-xs mt-1">{testimonials[idx].role}</div>
+                                                        <div className="text-xl font-bold text-ink tracking-tight uppercase">{testimonials[idx].author}</div>
+                                                        <div className="text-ink/50 font-bold uppercase tracking-widest text-xs mt-1">{testimonials[idx].role}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -263,12 +263,12 @@ export function Testimonials() {
                                                 key={i}
                                                 className={cn(
                                                     "h-1.5 transition-all duration-500 rounded-full",
-                                                    idx === i ? "w-10 bg-[#33b5ff]" : "w-4 bg-white/10"
+                                                    idx === i ? "w-10 bg-[#33b5ff]" : "w-4 bg-ink/10"
                                                 )}
                                             />
                                         ))}
                                     </div>
-                                    <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-white/20">Swipe to Explore</p>
+                                    <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-ink/20">Swipe to Explore</p>
                                 </div>
                             )}
 

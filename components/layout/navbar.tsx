@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown, BookOpen, FileText, Newspaper } from "lucide-reac
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -44,7 +45,7 @@ export function Navbar() {
     return (
         <nav className={cn(
             "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-            isScrolled ? "bg-black/80 backdrop-blur-md border-white/10 py-4" : "bg-transparent border-transparent py-6"
+            isScrolled ? "bg-page/80 backdrop-blur-md border-ink/10 py-4" : "bg-transparent border-transparent py-6"
         )}>
             <Container>
                 <div className="flex items-center justify-between">
@@ -72,7 +73,7 @@ export function Navbar() {
                                 href={link.href}
                                 className={cn(
                                     "text-sm font-bold uppercase tracking-widest transition-colors",
-                                    pathname === link.href ? "text-[#33b5ff]" : "text-white/70 hover:text-[#33b5ff]"
+                                    pathname === link.href ? "text-brand-cyan" : "text-ink/70 hover:text-brand-cyan"
                                 )}
                             >
                                 {link.name}
@@ -87,7 +88,7 @@ export function Navbar() {
                         >
                             <button className={cn(
                                 "flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors h-full py-2",
-                                resourceLinks.some(link => pathname.startsWith(link.href)) ? "text-[#33b5ff]" : "text-white/70 hover:text-[#33b5ff]"
+                                resourceLinks.some(link => pathname.startsWith(link.href)) ? "text-brand-cyan" : "text-ink/70 hover:text-brand-cyan"
                             )}>
                                 Resources
                                 <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", isResourcesOpen ? "rotate-180" : "")} />
@@ -98,20 +99,20 @@ export function Navbar() {
                                 "absolute top-full left-1/2 -translate-x-1/2 pt-4 w-72 transition-all duration-300 ease-out",
                                 isResourcesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                             )}>
-                                <div className="bg-neutral-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl">
+                                <div className="bg-page/95 backdrop-blur-xl border border-ink/10 rounded-2xl p-4 shadow-2xl">
                                     <div className="flex flex-col gap-2">
                                         {resourceLinks.map((link) => (
                                             <Link
                                                 key={link.name}
                                                 href={link.href}
-                                                className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group/item"
+                                                className="flex items-center gap-4 p-3 rounded-xl hover:bg-ink/5 transition-colors group/item"
                                             >
-                                                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center group-hover/item:bg-[#0158e6]/20 group-hover/item:text-[#33b5ff] transition-colors">
+                                                <div className="w-10 h-10 rounded-lg bg-ink/5 flex items-center justify-center group-hover/item:bg-[#0158e6]/20 group-hover/item:text-brand-cyan transition-colors">
                                                     <link.icon size={20} />
                                                 </div>
                                                 <div>
-                                                    <div className="text-sm font-bold text-white uppercase tracking-wider">{link.name}</div>
-                                                    <div className="text-xs text-neutral-500">{link.desc}</div>
+                                                    <div className="text-sm font-bold text-ink uppercase tracking-wider">{link.name}</div>
+                                                    <div className="text-xs text-ink/50">{link.desc}</div>
                                                 </div>
                                             </Link>
                                         ))}
@@ -119,6 +120,8 @@ export function Navbar() {
                                 </div>
                             </div>
                         </div>
+
+                        <ThemeToggle />
 
                         <Link href="/contact-us">
                             <Button className="bg-[#0158e6] hover:bg-[#0046b8] text-white rounded-full px-8 h-12 font-bold uppercase tracking-wider shadow-[0_0_30px_-10px_rgba(1,88,230,0.5)]">
@@ -128,18 +131,22 @@ export function Navbar() {
                     </div>
 
                     {/* Mobile Toggle */}
-                    <button
-                        className="md:hidden text-white"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >
-                        {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
+                    <div className="md:hidden flex items-center gap-3">
+                        <ThemeToggle />
+                        <button
+                            className="text-ink"
+                            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                        </button>
+                    </div>
                 </div>
             </Container>
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="absolute top-full left-0 right-0 bg-black border-b border-white/10 p-6 md:hidden max-h-[80vh] overflow-y-auto">
+                <div className="absolute top-full left-0 right-0 bg-page border-b border-ink/10 p-6 md:hidden max-h-[80vh] overflow-y-auto">
                     <div className="flex flex-col gap-6">
                         {navLinks.map((link) => (
                             <Link
@@ -147,7 +154,7 @@ export function Navbar() {
                                 href={link.href}
                                 className={cn(
                                     "text-xl font-bold uppercase transition-colors",
-                                    pathname === link.href ? "text-[#33b5ff]" : "text-white"
+                                    pathname === link.href ? "text-brand-cyan" : "text-ink"
                                 )}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
@@ -159,26 +166,26 @@ export function Navbar() {
                         <div className="flex flex-col gap-4">
                             <button
                                 onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
-                                className="flex items-center justify-between text-xl font-bold uppercase text-white"
+                                className="flex items-center justify-between text-xl font-bold uppercase text-ink"
                             >
                                 Resources
                                 <ChevronDown className={cn("transition-transform duration-300", isMobileResourcesOpen ? "rotate-180" : "")} />
                             </button>
 
                             {isMobileResourcesOpen && (
-                                <div className="flex flex-col gap-4 pl-4 border-l border-white/10">
+                                <div className="flex flex-col gap-4 pl-4 border-l border-ink/10">
                                     {resourceLinks.map((link) => (
                                         <Link
                                             key={link.name}
                                             href={link.href}
                                             className={cn(
                                                 "flex items-center gap-3 text-lg font-bold uppercase transition-colors",
-                                                pathname.startsWith(link.href) ? "text-[#33b5ff]" : "text-white/70"
+                                                pathname.startsWith(link.href) ? "text-brand-cyan" : "text-ink/70"
                                             )}
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
                                             <link.icon size={20} className={cn(
-                                                pathname.startsWith(link.href) ? "text-[#33b5ff]" : "text-[#33b5ff]/70"
+                                                pathname.startsWith(link.href) ? "text-brand-cyan" : "text-brand-cyan/70"
                                             )} />
                                             {link.name}
                                         </Link>

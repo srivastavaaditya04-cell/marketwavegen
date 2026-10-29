@@ -37,7 +37,7 @@ export const BentoGridItem = ({
     return (
         <div
             className={cn(
-                "row-span-1 rounded-[2.5rem] group/bento transition duration-500 p-6 md:p-8 bg-[#0a0a0a] border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#33b5ff]/50 hover:bg-[#0d0d0d] relative overflow-hidden",
+                "row-span-1 rounded-[2.5rem] group/bento transition duration-500 p-6 md:p-8 bg-page border border-ink/10 flex flex-col justify-between space-y-6 hover:border-[#33b5ff]/50 hover:bg-page relative overflow-hidden",
                 className
             )}
         >
@@ -47,13 +47,13 @@ export const BentoGridItem = ({
             <div className="relative z-10 flex flex-col flex-1 h-full">
                 {header}
                 <div className="mt-8 group-hover/bento:translate-x-1 transition duration-300">
-                    <div className="mb-4 inline-flex p-3 rounded-2xl bg-white/5 border border-white/10 text-[#33b5ff]">
+                    <div className="mb-4 inline-flex p-3 rounded-2xl bg-ink/5 border border-ink/10 text-brand-cyan">
                         {icon}
                     </div>
-                    <div className="font-sans font-bold text-white mb-3 text-xl md:text-2xl tracking-tight leading-none">
+                    <div className="font-sans font-bold text-ink mb-3 text-xl md:text-2xl tracking-tight leading-none">
                         {title}
                     </div>
-                    <div className="font-sans font-normal text-neutral-400 text-sm md:text-base leading-relaxed w-full">
+                    <div className="font-sans font-normal text-ink/60 text-sm md:text-base leading-relaxed w-full">
                         {description}
                     </div>
                 </div>

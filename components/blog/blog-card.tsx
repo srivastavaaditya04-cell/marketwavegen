@@ -25,7 +25,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
 
     return (
         <article
-            className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#0158e6]/50 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+            className="group relative bg-ink/5 border border-ink/10 rounded-2xl overflow-hidden hover:border-[#0158e6]/50 transition-all duration-300 backdrop-blur-sm cursor-pointer"
             style={{
                 animationDelay: `${index * 50}ms`,
             }}
@@ -35,7 +35,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0158e6]/0 via-transparent to-[#efef39]/0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
 
                 {/* Featured Image */}
-                <div className="relative h-56 overflow-hidden bg-black/40">
+                <div className="relative h-56 overflow-hidden bg-page/40">
                     {featuredImage ? (
                         <img
                             src={featuredImage}
@@ -44,7 +44,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
                         />
                     ) : (
                         <div className="w-full h-full bg-gradient-to-br from-[#0158e6]/20 to-[#33b5ff]/10 flex items-center justify-center">
-                            <TrendingUp className="w-16 h-16 text-white/10" />
+                            <TrendingUp className="w-16 h-16 text-ink/10" />
                         </div>
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
@@ -53,7 +53,7 @@ export function BlogCard({ post, index }: BlogCardProps) {
                 {/* Content */}
                 <div className="p-6 relative">
                     {/* Meta Info */}
-                    <div className="flex items-center gap-4 text-xs text-neutral-500 mb-3">
+                    <div className="flex items-center gap-4 text-xs text-ink/50 mb-3">
                         <div className="flex items-center gap-1.5">
                             <Calendar className="w-3.5 h-3.5" />
                             <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -65,19 +65,19 @@ export function BlogCard({ post, index }: BlogCardProps) {
                     </div>
 
                     {category && (
-                        <span className="inline-block mb-2 text-[11px] font-semibold uppercase tracking-widest text-[#33b5ff]">
+                        <span className="inline-block mb-2 text-[11px] font-semibold uppercase tracking-widest text-brand-cyan">
                             {category.name}
                         </span>
                     )}
 
                     {/* Title */}
                     <h2
-                        className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#33b5ff] transition-colors"
+                        className="text-xl font-bold text-ink mb-3 line-clamp-2 group-hover:text-brand-cyan transition-colors"
                         dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                     />
 
                     {/* Excerpt */}
-                    <p className="text-neutral-400 mb-5 line-clamp-3 text-sm leading-relaxed">
+                    <p className="text-ink/60 mb-5 line-clamp-3 text-sm leading-relaxed">
                         {excerpt}
                     </p>
 

@@ -25,24 +25,24 @@ export function FlipSignals() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
-                            <span className="text-xs md:text-sm font-bold text-[#33b5ff] tracking-[0.2em] uppercase">Proprietary Intelligence</span>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ink/5 border border-ink/10 mb-8 backdrop-blur-md">
+                            <span className="text-xs md:text-sm font-bold text-brand-cyan tracking-[0.2em] uppercase">Proprietary Intelligence</span>
                         </div>
-                        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter mb-8 leading-[1.1]">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">Flip Signals :</span> <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#33b5ff] via-[#33b5ff]/80 to-[#efef39]">Emotional Buyer Intent Intelligence</span>
+                        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-ink tracking-tighter mb-8 leading-[1.1]">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-ink to-ink/60">Flip Signals :</span> <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-cyan/80 to-brand-yellow">Emotional Buyer Intent Intelligence</span>
                         </h2>
 
                         <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
                             <div className="space-y-4 max-w-2xl">
-                                <p className="text-2xl md:text-3xl font-light text-white leading-tight">
-                                    Know Who Is Ready. <span className="text-[#efef39] font-medium italic underline decoration-[#efef39]/30 underline-offset-8">Know Why.</span>
+                                <p className="text-2xl md:text-3xl font-light text-ink leading-tight">
+                                    Know Who Is Ready. <span className="text-brand-yellow font-medium italic underline decoration-[#efef39]/30 underline-offset-8">Know Why.</span>
                                 </p>
-                                <p className="text-lg md:text-xl text-neutral-400 leading-relaxed font-light">
+                                <p className="text-lg md:text-xl text-ink/60 leading-relaxed font-light">
                                     Flip Signals™ reveals buyer motivation, urgency, and readiness by analyzing emotional context behind behavior.
                                 </p>
                             </div>
-                            <div className="hidden lg:block w-px h-24 bg-gradient-to-b from-transparent via-white/10 to-transparent shrink-0" />
+                            <div className="hidden lg:block w-px h-24 bg-gradient-to-b from-transparent via-ink/10 to-transparent shrink-0" />
                         </div>
                     </motion.div>
                 </div>
@@ -58,35 +58,35 @@ export function FlipSignals() {
                         }}
                         transition={{ duration: 0.6 }}
                         className={cn(
-                            "group relative p-8 md:p-12 rounded-[48px] border transition-all duration-700 bg-black/40 backdrop-blur-md flex flex-col",
+                            "group relative p-8 md:p-12 rounded-[48px] border transition-all duration-700 bg-page/40 backdrop-blur-md flex flex-col",
                             activeBox === 0
-                                ? "border-white/20 shadow-xl shadow-blue-500/10"
-                                : "border-white/10 lg:opacity-60 lg:grayscale-[0.5] hover:opacity-100 hover:grayscale-0"
+                                ? "border-ink/20 shadow-xl shadow-blue-500/10"
+                                : "border-ink/10 lg:opacity-60 lg:grayscale-[0.5] hover:opacity-100 hover:grayscale-0"
                         )}
                         onMouseEnter={() => setActiveBox(0)}
                     >
                         <div className={cn(
                             "w-16 h-16 rounded-3xl border flex items-center justify-center mb-10 transition-all duration-500",
-                            activeBox === 0 ? "bg-[#33b5ff]/10 border-[#33b5ff]/40 shadow-[0_0_20px_rgba(51,181,255,0.2)]" : "bg-white/5 border-white/10"
+                            activeBox === 0 ? "bg-[#33b5ff]/10 border-[#33b5ff]/40 shadow-[0_0_20px_rgba(51,181,255,0.2)]" : "bg-ink/5 border-ink/10"
                         )}>
-                            <Search className={cn("w-8 h-8 transition-colors duration-500", activeBox === 0 ? "text-[#33b5ff]" : "text-white/30")} />
+                            <Search className={cn("w-8 h-8 transition-colors duration-500", activeBox === 0 ? "text-brand-cyan" : "text-ink/30")} />
                         </div>
 
                         <div className="mb-10">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">What Flip Signals Captures</h3>
-                            <div className="text-xs md:text-sm font-black text-[#33b5ff] uppercase tracking-[0.3em] opacity-80">Signal Sources</div>
+                            <h3 className="text-2xl md:text-3xl font-bold text-ink mb-3">What Flip Signals Captures</h3>
+                            <div className="text-xs md:text-sm font-black text-brand-cyan uppercase tracking-[0.3em] opacity-80">Signal Sources</div>
                         </div>
 
                         <div className="space-y-8">
                             {signalSources.map((item, i) => (
                                 <div key={i} className="flex items-start gap-6 group/item">
                                     <div className={cn(
-                                        "w-12 h-12 rounded-2xl bg-white/5 border flex items-center justify-center shrink-0 transition-all duration-500",
-                                        activeBox === 0 ? "border-[#33b5ff]/30 group-hover/item:bg-[#33b5ff]/5" : "border-white/10"
+                                        "w-12 h-12 rounded-2xl bg-ink/5 border flex items-center justify-center shrink-0 transition-all duration-500",
+                                        activeBox === 0 ? "border-[#33b5ff]/30 group-hover/item:bg-[#33b5ff]/5" : "border-ink/10"
                                     )}>
-                                        <item.icon size={22} className={cn("transition-all duration-500", activeBox === 0 ? "text-[#33b5ff]" : "text-white/20")} />
+                                        <item.icon size={22} className={cn("transition-all duration-500", activeBox === 0 ? "text-brand-cyan" : "text-ink/20")} />
                                     </div>
-                                    <span className={cn("text-lg md:text-xl font-light transition-all duration-500", activeBox === 0 ? "text-white" : "text-neutral-500")}>{item.text}</span>
+                                    <span className={cn("text-lg md:text-xl font-light transition-all duration-500", activeBox === 0 ? "text-ink" : "text-ink/50")}>{item.text}</span>
                                 </div>
                             ))}
                         </div>
@@ -102,35 +102,35 @@ export function FlipSignals() {
                         }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className={cn(
-                            "group relative p-8 md:p-12 rounded-[48px] border transition-all duration-700 bg-black/40 backdrop-blur-md flex flex-col",
+                            "group relative p-8 md:p-12 rounded-[48px] border transition-all duration-700 bg-page/40 backdrop-blur-md flex flex-col",
                             activeBox === 1
                                 ? "border-[#0158e6]/40 shadow-xl shadow-blue-500/20"
-                                : "border-white/10 lg:opacity-60 lg:grayscale-[0.5] hover:opacity-100 hover:grayscale-0"
+                                : "border-ink/10 lg:opacity-60 lg:grayscale-[0.5] hover:opacity-100 hover:grayscale-0"
                         )}
                         onMouseEnter={() => setActiveBox(1)}
                     >
                         <div className={cn(
                             "w-16 h-16 rounded-3xl border flex items-center justify-center mb-10 transition-all duration-500",
-                            activeBox === 1 ? "bg-[#0158e6]/20 border-[#0158e6]/50 shadow-[0_0_20px_rgba(1,88,230,0.2)]" : "bg-white/5 border-white/10"
+                            activeBox === 1 ? "bg-[#0158e6]/20 border-[#0158e6]/50 shadow-[0_0_20px_rgba(1,88,230,0.2)]" : "bg-ink/5 border-ink/10"
                         )}>
-                            <UserCheck className={cn("w-8 h-8 transition-colors duration-500", activeBox === 1 ? "text-white" : "text-[#33b5ff]/40")} />
+                            <UserCheck className={cn("w-8 h-8 transition-colors duration-500", activeBox === 1 ? "text-ink" : "text-brand-cyan/40")} />
                         </div>
 
                         <div className="mb-10">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Emotional Context Identified</h3>
-                            <div className="text-xs md:text-sm font-black text-[#efef39] uppercase tracking-[0.3em] opacity-80">Market Wavegen Analysis</div>
+                            <h3 className="text-2xl md:text-3xl font-bold text-ink mb-3">Emotional Context Identified</h3>
+                            <div className="text-xs md:text-sm font-black text-brand-yellow uppercase tracking-[0.3em] opacity-80">Market Wavegen Analysis</div>
                         </div>
 
                         <div className="space-y-8">
                             {emotionalContext.map((item, i) => (
                                 <div key={i} className="flex items-start gap-6 group/item">
                                     <div className={cn(
-                                        "w-12 h-12 rounded-2xl bg-white/5 border flex items-center justify-center shrink-0 transition-all duration-500",
-                                        activeBox === 1 ? "border-[#efef39]/30 group-hover/item:bg-[#efef39]/5" : "border-white/10"
+                                        "w-12 h-12 rounded-2xl bg-ink/5 border flex items-center justify-center shrink-0 transition-all duration-500",
+                                        activeBox === 1 ? "border-[#efef39]/30 group-hover/item:bg-[#efef39]/5" : "border-ink/10"
                                     )}>
-                                        <item.icon size={22} className={cn("transition-all duration-500", activeBox === 1 ? "text-[#efef39]" : "text-white/20")} />
+                                        <item.icon size={22} className={cn("transition-all duration-500", activeBox === 1 ? "text-brand-yellow" : "text-ink/20")} />
                                     </div>
-                                    <span className={cn("text-lg md:text-xl font-light transition-all duration-500", activeBox === 1 ? "text-white" : "text-neutral-500")}>{item.text}</span>
+                                    <span className={cn("text-lg md:text-xl font-light transition-all duration-500", activeBox === 1 ? "text-ink" : "text-ink/50")}>{item.text}</span>
                                 </div>
                             ))}
                         </div>
@@ -145,16 +145,16 @@ export function FlipSignals() {
                     className="mt-16 md:mt-24 relative"
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-[#efef39]/5 via-[#33b5ff]/5 to-transparent rounded-[40px] blur-[80px]" />
-                    <div className="relative p-10 md:p-16 rounded-[40px] bg-black/40 backdrop-blur-md border border-white/10 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                    <div className="relative p-10 md:p-16 rounded-[40px] bg-page/40 backdrop-blur-md border border-ink/10 flex flex-col md:flex-row items-center gap-10 md:gap-16">
                         <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#efef39] to-[#33b5ff] p-0.5 shrink-0 flex items-center justify-center animate-pulse shadow-xl shadow-yellow-500/10">
-                            <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                                <Zap size={40} className="text-[#efef39] fill-[#efef39]/20" />
+                            <div className="w-full h-full rounded-full bg-page flex items-center justify-center">
+                                <Zap size={40} className="text-brand-yellow fill-[#efef39]/20" />
                             </div>
                         </div>
                         <div className="space-y-4 text-center md:text-left">
-                            <h4 className="text-2xl md:text-4xl font-bold text-white tracking-tight">Why This Converts Better</h4>
-                            <p className="text-lg md:text-2xl text-neutral-400 leading-relaxed font-light">
-                                Buyer emotion fades quickly. <span className="text-white font-medium">Teams that respond first convert a higher share of motivated buyers.</span>
+                            <h4 className="text-2xl md:text-4xl font-bold text-ink tracking-tight">Why This Converts Better</h4>
+                            <p className="text-lg md:text-2xl text-ink/60 leading-relaxed font-light">
+                                Buyer emotion fades quickly. <span className="text-ink font-medium">Teams that respond first convert a higher share of motivated buyers.</span>
                             </p>
                         </div>
                     </div>

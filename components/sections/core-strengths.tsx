@@ -8,7 +8,7 @@ import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 export function CoreStrengths() {
     return (
-        <Section className="relative overflow-hidden py-32 bg-black">
+        <Section className="relative overflow-hidden py-32 bg-page">
             <Container>
                 <div className="flex flex-col items-center text-center">
                     <motion.div
@@ -17,8 +17,8 @@ export function CoreStrengths() {
                         transition={{ duration: 0.6 }}
                         className="mb-8"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-wider mb-2">
-                            Core <span className="text-[#33b5ff]">Strengths</span>
+                        <h2 className="text-3xl md:text-5xl font-bold text-ink uppercase tracking-wider mb-2">
+                            Core <span className="text-brand-cyan">Strengths</span>
                         </h2>
                     </motion.div>
 

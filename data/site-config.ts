@@ -1,6 +1,6 @@
 export const siteConfig = {
     theme: {
-        backgroundColor: "#0A0A0A", 
+        backgroundColor: "var(--page)", 
         accentBlue: "#0158e6",
         accentYellow: "#efef39",
         lightBlue: "#33b5ff",

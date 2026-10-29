@@ -10,7 +10,7 @@ interface BlogSidebarProps {
 }
 
 export function BlogSidebar({ categories, recent, activeSlug, query }: BlogSidebarProps) {
-    const heading = 'mb-4 text-xs font-bold uppercase tracking-widest text-neutral-400';
+    const heading = 'mb-4 text-xs font-bold uppercase tracking-widest text-ink/60';
 
     return (
         <aside className="space-y-8 lg:sticky lg:top-28 self-start">
@@ -24,7 +24,7 @@ export function BlogSidebar({ categories, recent, activeSlug, query }: BlogSideb
                     type="search"
                     defaultValue={query}
                     placeholder="Search articles"
-                    className="w-full rounded-full bg-white/5 border border-white/10 pl-5 pr-12 py-3 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-[#0158e6]"
+                    className="w-full rounded-full bg-ink/5 border border-ink/10 pl-5 pr-12 py-3 text-sm text-ink placeholder:text-ink/50 focus:outline-none focus:border-[#0158e6]"
                 />
                 <button
                     type="submit"
@@ -38,17 +38,17 @@ export function BlogSidebar({ categories, recent, activeSlug, query }: BlogSideb
             {categories.length > 0 && (
                 <section>
                     <h3 className={heading}>Categories</h3>
-                    <ul className="divide-y divide-white/10 border-y border-white/10">
+                    <ul className="divide-y divide-ink/10 border-y border-ink/10">
                         {categories.map((c) => (
                             <li key={c.slug}>
                                 <Link
                                     href={`/blogs/category/${c.slug}`}
                                     className={`flex items-center justify-between py-3 text-sm transition-colors ${
-                                        activeSlug === c.slug ? 'text-[#33b5ff]' : 'text-neutral-300 hover:text-white'
+                                        activeSlug === c.slug ? 'text-brand-cyan' : 'text-ink/75 hover:text-ink'
                                     }`}
                                 >
                                     <span>{c.name}</span>
-                                    <span className="text-neutral-500 text-xs">{c.count}</span>
+                                    <span className="text-ink/50 text-xs">{c.count}</span>
                                 </Link>
                             </li>
                         ))}
@@ -64,10 +64,10 @@ export function BlogSidebar({ categories, recent, activeSlug, query }: BlogSideb
                             <li key={post.id}>
                                 <Link href={`/blogs/${post.slug}`} className="group block">
                                     <span
-                                        className="block text-sm font-medium text-neutral-200 group-hover:text-[#33b5ff] transition-colors line-clamp-2"
+                                        className="block text-sm font-medium text-ink/85 group-hover:text-brand-cyan transition-colors line-clamp-2"
                                         dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                                     />
-                                    <time className="text-xs text-neutral-500" dateTime={post.date}>
+                                    <time className="text-xs text-ink/50" dateTime={post.date}>
                                         {formatDate(post.date)}
                                     </time>
                                 </Link>
@@ -78,11 +78,11 @@ export function BlogSidebar({ categories, recent, activeSlug, query }: BlogSideb
             )}
 
             <section className="rounded-2xl bg-[#0158e6] p-5">
-                <h3 className="text-lg font-bold text-white">See how we do it</h3>
+                <h3 className="text-lg font-bold text-ink">See how we do it</h3>
                 <p className="mt-1 text-sm text-blue-100">Real results from B2B teams we work with.</p>
                 <Link
                     href="/case-study"
-                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#efef39] px-4 py-2 text-sm font-bold text-[#2c2c2a] hover:bg-white transition-colors"
+                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#efef39] px-4 py-2 text-sm font-bold text-[#2c2c2a] hover:bg-ink transition-colors"
                 >
                     View case studies <ArrowRight className="w-4 h-4" />
                 </Link>

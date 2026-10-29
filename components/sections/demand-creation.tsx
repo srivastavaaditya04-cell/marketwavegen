@@ -46,12 +46,12 @@ export function DemandCreation() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter mb-8 leading-none">
+                        <h2 className="text-4xl md:text-7xl font-bold text-ink uppercase tracking-tighter mb-8 leading-none">
                             How We Create <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#efef39] to-[#33b5ff]">Demand</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">Demand</span>
                         </h2>
                         <div className="flex flex-wrap gap-4 items-center">
-                            <span className="px-4 py-1.5 rounded-full border border-[#0158e6]/30 bg-[#0158e6]/10 text-[#33b5ff] text-xs font-bold uppercase tracking-widest">The Laboratory</span>
+                            <span className="px-4 py-1.5 rounded-full border border-[#0158e6]/30 bg-[#0158e6]/10 text-brand-cyan text-xs font-bold uppercase tracking-widest">The Laboratory</span>
                             <div className="h-[1px] w-24 bg-gradient-to-r from-[#0158e6] to-transparent" />
                         </div>
                     </motion.div>
@@ -61,17 +61,17 @@ export function DemandCreation() {
                     {/* Visual Side: Sticky for both */}
                     <div className="sticky top-16 md:top-20 lg:top-40 z-30 w-full lg:w-1/2 lg:self-start h-fit flex items-center justify-center lg:py-10 order-1">
                         {/* Mobile Compact Visual Header - Snappy & Contained */}
-                        <div className="lg:hidden flex items-center justify-between w-[94%] mx-auto bg-black/98 backdrop-blur-3xl border border-white/10 py-4 px-6 mt-2 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden">
+                        <div className="lg:hidden flex items-center justify-between w-[94%] mx-auto bg-page/98 backdrop-blur-3xl border border-ink/10 py-4 px-6 mt-2 rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden">
                             <div className="flex flex-col gap-1">
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-1.5 h-1.5 rounded-full bg-[#33b5ff] shadow-[0_0_8px_#33b5ff]" />
-                                    <span className="text-[9px] uppercase font-black tracking-[0.2em] text-white/40">Laboratory Phase</span>
+                                    <span className="text-[9px] uppercase font-black tracking-[0.2em] text-ink/40">Laboratory Phase</span>
                                 </div>
-                                <span className="text-sm font-bold text-white uppercase tracking-tight leading-none truncate max-w-[180px]">{demandSteps[activeStep].title}</span>
+                                <span className="text-sm font-bold text-ink uppercase tracking-tight leading-none truncate max-w-[180px]">{demandSteps[activeStep].title}</span>
                             </div>
                             <div className="relative shrink-0">
                                 <DemandVisualV2 activeStep={activeStep} isCompact />
-                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#0158e6] rounded-full shadow-[0_0_12px_#0158e6] z-20 border-2 border-black" />
+                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#0158e6] rounded-full shadow-[0_0_12px_#0158e6] z-20 border-2 border-page" />
                             </div>
                         </div>
 
@@ -101,25 +101,25 @@ export function DemandCreation() {
                                             "w-12 h-12 lg:w-16 lg:h-16 rounded-lg lg:rounded-2xl border flex items-center justify-center transition-all duration-500",
                                             activeStep === i
                                                 ? "bg-[#efef39] border-[#efef39] text-black shadow-[0_0_30px_rgba(239,239,57,0.3)]"
-                                                : "bg-white/5 border-white/10 text-white/30"
+                                                : "bg-ink/5 border-ink/10 text-ink/30"
                                         )}>
                                             <span className="text-xl lg:text-2xl font-black font-mono">{step.num}</span>
                                         </div>
                                         {/* Connecting Line between numbers */}
                                         {i < demandSteps.length - 1 && (
-                                            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[1px] h-24 bg-gradient-to-b from-white/10 to-transparent" />
+                                            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[1px] h-24 bg-gradient-to-b from-ink/10 to-transparent" />
                                         )}
                                     </div>
                                     <div className="pt-2">
                                         <h4 className={cn(
                                             "text-xl lg:text-3xl font-bold mb-4 lg:mb-6 transition-colors duration-500",
-                                            activeStep === i ? "text-white" : "text-white/20"
+                                            activeStep === i ? "text-ink" : "text-ink/20"
                                         )}>
                                             {step.title}
                                         </h4>
                                         <p className={cn(
                                             "text-base lg:text-xl leading-relaxed font-light transition-colors duration-500",
-                                            activeStep === i ? "text-neutral-400" : "text-neutral-700"
+                                            activeStep === i ? "text-ink/60" : "text-ink/35"
                                         )}>
                                             {step.desc}
                                         </p>
@@ -129,7 +129,7 @@ export function DemandCreation() {
                                             {["Automated", "Verified", "High-Velocity"].map((tag, tIdx) => (
                                                 <span key={tIdx} className={cn(
                                                     "px-3 py-1 rounded-md text-[10px] uppercase font-bold tracking-tighter transition-all duration-500",
-                                                    activeStep === i ? "bg-white/10 text-white/60 border border-white/10" : "bg-transparent text-transparent border-transparent"
+                                                    activeStep === i ? "bg-ink/10 text-ink/60 border border-ink/10" : "bg-transparent text-transparent border-transparent"
                                                 )}>
                                                     {tag}
                                                 </span>

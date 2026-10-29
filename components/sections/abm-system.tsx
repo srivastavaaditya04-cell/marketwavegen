@@ -29,7 +29,7 @@ export function AbmSystem() {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Background Blueprint Lines */}
                 <div className="absolute inset-0 opacity-[0.03]"
-                    style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '100px 100px' }}
+                    style={{ backgroundImage: 'linear-gradient(var(--ink) 1px, transparent 1px), linear-gradient(90deg, var(--ink) 1px, transparent 1px)', backgroundSize: '100px 100px' }}
                 />
 
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#0158e6]/5 rounded-full blur-[120px]" />
@@ -42,14 +42,14 @@ export function AbmSystem() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter mb-4 leading-[1.1] md:leading-[0.9]">
+                        <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-ink uppercase tracking-tighter mb-4 leading-[1.1] md:leading-[0.9]">
                             ABM and Intent as the <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] to-[#33b5ff]">Operating System</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] to-brand-cyan">Operating System</span>
                         </h2>
-                        <h3 className="text-2xl text-white font-medium mb-6">
+                        <h3 className="text-2xl text-ink font-medium mb-6">
                             One System That Keeps Sales and Marketing Aligned.
                         </h3>
-                        <p className="text-xl text-neutral-400 max-w-2xl leading-relaxed border-l-2 border-[#0158e6] pl-8">
+                        <p className="text-xl text-ink/60 max-w-2xl leading-relaxed border-l-2 border-[#0158e6] pl-8">
                             Intelligent Database ABM™ unifies firmographics, technographics, and live intent signals.
                         </p>
                     </motion.div>
@@ -90,25 +90,25 @@ export function AbmSystem() {
                                 className={cn(
                                     "group relative p-8 sm:p-10 rounded-[24px] md:rounded-[40px] border transition-all duration-300 cursor-default",
                                     currentStep === i
-                                        ? "bg-white/10 border-white/20 shadow-2xl"
-                                        : "bg-white/5 border-white/5"
+                                        ? "bg-ink/10 border-ink/20 shadow-2xl"
+                                        : "bg-ink/5 border-ink/5"
                                 )}
                             >
                                 <div className="flex gap-6 md:gap-8 items-start">
                                     <div className={cn(
                                         "w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300",
-                                        currentStep === i ? "bg-[#0158e6] border-[#0158e6] text-white" : "bg-white/5 border-white/10 text-neutral-500"
+                                        currentStep === i ? "bg-[#0158e6] border-[#0158e6] text-white" : "bg-ink/5 border-ink/10 text-ink/50"
                                     )}>
                                         <span className="text-base md:text-lg font-bold font-mono">{i + 1}</span>
                                     </div>
                                     <div>
                                         <h4 className={cn(
                                             "text-xl md:text-2xl font-bold mb-3 transition-colors",
-                                            currentStep === i ? "text-white" : "text-neutral-300"
+                                            currentStep === i ? "text-ink" : "text-ink/75"
                                         )}>
                                             {item.title}
                                         </h4>
-                                        <p className="text-neutral-500 text-sm md:text-base leading-relaxed font-light group-hover:text-neutral-400 transition-colors">
+                                        <p className="text-ink/50 text-sm md:text-base leading-relaxed font-light group-hover:text-ink/60 transition-colors">
                                             {item.desc}
                                         </p>
                                     </div>
@@ -118,10 +118,10 @@ export function AbmSystem() {
                     </div>
                 </div>
 
-                <div className="mt-16 md:mt-24 border-t border-white/10 pt-8 md:pt-12">
-                    <h3 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Result</h3>
-                    <p className="text-xl md:text-3xl text-white font-light leading-relaxed max-w-4xl">
-                        Dynamic account lists update continuously. <span className="text-[#33b5ff]">Sales and marketing operate from the same priority universe.</span>
+                <div className="mt-16 md:mt-24 border-t border-ink/10 pt-8 md:pt-12">
+                    <h3 className="text-ink font-bold uppercase tracking-widest text-xs mb-4">Result</h3>
+                    <p className="text-xl md:text-3xl text-ink font-light leading-relaxed max-w-4xl">
+                        Dynamic account lists update continuously. <span className="text-brand-cyan">Sales and marketing operate from the same priority universe.</span>
                     </p>
                 </div>
             </Container>

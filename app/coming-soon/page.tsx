@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function ComingSoonPage() {
     return (
-        <div className="min-h-screen bg-[#050505] text-white selection:bg-[#efef39] selection:text-black flex flex-col justify-center relative overflow-hidden">
+        <div className="min-h-screen bg-page text-ink selection:bg-[#efef39] selection:text-black flex flex-col justify-center relative overflow-hidden">
             <Spotlight />
 
             {/* Background Texture */}
@@ -29,9 +29,9 @@ export default function ComingSoonPage() {
                     >
                         <h1 className="text-6xl md:text-9xl font-black uppercase tracking-tighter leading-none mt-20 mb-4">
                             Feature <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20 uppercase">Incoming</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-ink to-ink/20 uppercase">Incoming</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-neutral-400 font-light max-w-2xl mx-auto">
+                        <p className="text-xl md:text-2xl text-ink/60 font-light max-w-2xl mx-auto">
                             Our team is currently engineering this module. We&apos;re building the next generation of revenue operations infrastructure.
                         </p>
                     </motion.div>
@@ -57,13 +57,13 @@ export default function ComingSoonPage() {
                         className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
                     >
                         <Link href="/">
-                            <Button className="h-16 px-10 rounded-2xl bg-white text-black font-black text-lg hover:bg-[#efef39] transition-all transform hover:scale-[1.02] active:scale-95 group">
+                            <Button className="h-16 px-10 rounded-2xl bg-ink text-page font-black text-lg hover:bg-[#efef39] transition-all transform hover:scale-[1.02] active:scale-95 group">
                                 <ArrowLeft className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                                 BACK TO BASE
                             </Button>
                         </Link>
 
-                        <Button variant="outline" className="h-16 px-10 rounded-2xl border-white/10 bg-transparent text-white font-bold text-lg hover:border-[#33b5ff] transition-all backdrop-blur-sm group">
+                        <Button variant="outline" className="h-16 px-10 rounded-2xl border-ink/10 bg-transparent text-ink font-bold text-lg hover:border-[#33b5ff] transition-all backdrop-blur-sm group">
                             <Bell className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
                             NOTIFY ME
                         </Button>
@@ -72,8 +72,8 @@ export default function ComingSoonPage() {
             </Container>
 
             {/* Matrix-like decorative elements */}
-            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-y-1/2 pointer-events-none" />
-            <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent -translate-x-1/2 pointer-events-none" />
+            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-ink/5 to-transparent -translate-y-1/2 pointer-events-none" />
+            <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-ink/5 to-transparent -translate-x-1/2 pointer-events-none" />
         </div>
     );
 }

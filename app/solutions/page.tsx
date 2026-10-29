@@ -29,7 +29,7 @@ const visuals = [
 
 export default function SolutionsPage() {
     return (
-        <div className="relative min-h-screen w-full bg-[#0A0A0A] overflow-hidden antialiased pt-28 md:pt-40 pb-12 md:pb-24">
+        <div className="relative min-h-screen w-full bg-page overflow-hidden antialiased pt-28 md:pt-40 pb-12 md:pb-24">
             {/* Background Texture */}
             <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(1,88,230,0.05),transparent_40%)]" />
 
@@ -42,12 +42,12 @@ export default function SolutionsPage() {
                         transition={{ duration: 0.8 }}
                         className="max-w-6xl"
                     >
-                        <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 tracking-normal leading-none">
+                        <h1 className="text-3xl md:text-6xl font-bold text-ink mb-6 tracking-normal leading-none">
                             Intelligence, Localization, and<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] to-[#33b5ff]">Execution Working as One System</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] to-brand-cyan">Execution Working as One System</span>
                         </h1>
                        
-                         <h2 className="text-xl md:text-2xl font-light text-white/90 border-l-4 border-[#efef39] pl-4 italic mb-8">
+                         <h2 className="text-xl md:text-2xl font-light text-ink/90 border-l-4 border-[#efef39] pl-4 italic mb-8">
                             Your data, content, signals, and outreach connected end-to-end.
                             </h2>
                     </motion.div>
@@ -76,23 +76,23 @@ export default function SolutionsPage() {
                                     className="flex-1 space-y-8"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <span className="text-4xl md:text-5xl font-bold text-white/10">{solution.id}</span>
-                                        <div className="h-px bg-white/10 flex-1" />
+                                        <span className="text-4xl md:text-5xl font-bold text-ink/10">{solution.id}</span>
+                                        <div className="h-px bg-ink/10 flex-1" />
                                     </div>
 
                                     <div>
-                                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">{solution.title}</h2>
-                                        <p className="text-lg text-[#33b5ff] mb-6">{solution.subtitle}</p>
+                                        <h2 className="text-3xl md:text-4xl font-bold text-ink mb-2">{solution.title}</h2>
+                                        <p className="text-lg text-brand-cyan mb-6">{solution.subtitle}</p>
                                     </div>
 
                                     {/* Details List */}
-                                    <div className="bg-white/5 border border-white/5 rounded-2xl p-6">
-                                        <h4 className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-4">
+                                    <div className="bg-ink/5 border border-ink/5 rounded-2xl p-6">
+                                        <h4 className="text-xs font-bold uppercase tracking-widest text-ink/50 mb-4">
                                             {solution.details.title}
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
                                             {solution.details.items.map((item, i) => (
-                                                <span key={i} className="px-3 py-1 bg-black/40 border border-white/10 rounded-full text-sm text-neutral-300">
+                                                <span key={i} className="px-3 py-1 bg-page/40 border border-ink/10 rounded-full text-sm text-ink/75">
                                                     {item}
                                                 </span>
                                             ))}
@@ -108,7 +108,7 @@ export default function SolutionsPage() {
                                             <h4 className="text-xs font-bold uppercase tracking-widest text-[#0158e6] mb-1">
                                                 You Get
                                             </h4>
-                                            <p className="text-white font-medium">
+                                            <p className="text-ink font-medium">
                                                 {solution.outcome}
                                             </p>
                                         </div>

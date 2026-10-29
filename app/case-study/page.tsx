@@ -19,7 +19,7 @@ export default async function CaseStudiesPage() {
                 badge: "Success Stories",
                 title: (
                     <>
-                        Case <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#efef39] to-[#33b5ff]">Studies</span>
+                        Case <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">Studies</span>
                     </>
                 ),
                 subtitle: "A showcase of how we transform raw buyer signals into predictable revenue for global B2B organizations.",

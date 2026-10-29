@@ -15,7 +15,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
             case 0: // Raw Data - Floating Dust
                 return (
                     <div className="relative w-full h-full flex items-center justify-center">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_0%,transparent_70%)]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--dot)_0%,transparent_70%)]" />
                         {[...Array(40)].map((_, i) => (
                             <motion.div
                                 key={i}
@@ -27,7 +27,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
                                     scale: Math.random() * 0.5 + 0.5
                                 }}
                                 transition={{ duration: Math.random() * 2 + 2, repeat: Infinity, delay: i * 0.05 }}
-                                className="absolute w-0.5 h-0.5 bg-white rounded-full"
+                                className="absolute w-0.5 h-0.5 bg-ink rounded-full"
                             />
                         ))}
                     </div>
@@ -59,8 +59,8 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
             case 2: // Sequencing - Orbital Alignment
                 return (
                     <div className="relative w-full h-full flex items-center justify-center">
-                        <div className="absolute inset-0 border border-white/[0.03] rounded-full scale-[0.6]" />
-                        <div className="absolute inset-0 border border-white/[0.03] rounded-full scale-[0.8]" />
+                        <div className="absolute inset-0 border border-ink/[0.03] rounded-full scale-[0.6]" />
+                        <div className="absolute inset-0 border border-ink/[0.03] rounded-full scale-[0.8]" />
                         <svg className="absolute inset-0 w-full h-full rotate-45" viewBox="0 0 400 400">
                             {[...Array(12)].map((_, i) => (
                                 <motion.circle
@@ -81,7 +81,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
                             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                             className="w-40 h-40 border border-[#33b5ff]/20 rounded-full flex items-center justify-center relative"
                         >
-                            <div className="w-6 h-6 bg-white rounded-full shadow-[0_0_30px_#fff]" />
+                            <div className="w-6 h-6 bg-ink rounded-full shadow-[0_0_30px_#fff]" />
                             <div className="absolute top-0 w-2 h-2 bg-[#33b5ff] rounded-full" />
                         </motion.div>
                     </div>
@@ -107,7 +107,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
                                 >
                                     <div className="w-5 h-5 border-2 border-black/20 rounded-full animate-spin-slow" />
                                 </motion.div>
-                                <span className="mt-4 text-[10px] font-black text-[#efef39] uppercase tracking-widest">Verified</span>
+                                <span className="mt-4 text-[10px] font-black text-brand-yellow uppercase tracking-widest">Verified</span>
                             </div>
                         </motion.div>
                     </div>
@@ -123,7 +123,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
                             transition={{ duration: 0.8, repeat: Infinity }}
                             className="w-32 h-32 bg-gradient-to-br from-[#0158e6] to-[#33b5ff] rounded-3xl flex items-center justify-center"
                         >
-                            <svg className="w-12 h-12 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <svg className="w-12 h-12 text-ink" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </motion.div>
@@ -144,7 +144,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
                         <motion.div
                             animate={{ rotate: 360 }}
                             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                            className="relative w-72 h-72 border border-white/5 rounded-full"
+                            className="relative w-72 h-72 border border-ink/5 rounded-full"
                         >
                             {[...Array(6)].map((_, i) => (
                                 <motion.div
@@ -152,7 +152,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
                                     style={{ rotate: `${i * 60}deg` }}
                                     className="absolute inset-0 flex justify-center"
                                 >
-                                    <div className="w-3 h-3 bg-white rounded-full -mt-1.5 shadow-[0_0_15px_#fff]" />
+                                    <div className="w-3 h-3 bg-ink rounded-full -mt-1.5 shadow-[0_0_15px_#fff]" />
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -160,9 +160,9 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
                             <motion.div
                                 animate={{ scale: [1, 1.1, 1] }}
                                 transition={{ duration: 3, repeat: Infinity }}
-                                className="text-white font-black text-4xl tracking-tighter uppercase leading-none text-center"
+                                className="text-ink font-black text-4xl tracking-tighter uppercase leading-none text-center"
                             >
-                                Revenue<br /><span className="text-[#efef39]">Ready</span>
+                                Revenue<br /><span className="text-brand-yellow">Ready</span>
                             </motion.div>
                             <div className="mt-4 h-[2px] w-20 bg-gradient-to-r from-transparent via-[#0158e6] to-transparent" />
                         </div>
@@ -178,7 +178,7 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
             "relative aspect-square transition-all duration-500",
             isCompact
                 ? "w-24 h-24 lg:w-32 lg:h-32"
-                : "w-full max-w-[300px] lg:max-w-[500px] bg-black/40 rounded-[24px] lg:rounded-[40px] border border-white/5 overflow-hidden backdrop-blur-sm group shadow-2xl"
+                : "w-full max-w-[300px] lg:max-w-[500px] bg-page/40 rounded-[24px] lg:rounded-[40px] border border-ink/5 overflow-hidden backdrop-blur-sm group shadow-2xl"
         )}>
             {/* Background Atmosphere */}
             <div className={cn(
@@ -207,15 +207,15 @@ export function DemandVisual({ activeStep, isCompact }: DemandVisualProps) {
             {!isCompact && (
                 <>
                     {/* Corner Accents */}
-                    <div className="absolute top-8 left-8 w-4 h-4 border-t border-l border-white/20 rounded-tl-lg" />
-                    <div className="absolute top-8 right-8 w-4 h-4 border-t border-r border-white/20 rounded-tr-lg" />
-                    <div className="absolute bottom-8 left-8 w-4 h-4 border-b border-l border-white/20 rounded-bl-lg" />
-                    <div className="absolute bottom-8 right-8 w-4 h-4 border-b border-r border-white/20 rounded-br-lg" />
+                    <div className="absolute top-8 left-8 w-4 h-4 border-t border-l border-ink/20 rounded-tl-lg" />
+                    <div className="absolute top-8 right-8 w-4 h-4 border-t border-r border-ink/20 rounded-tr-lg" />
+                    <div className="absolute bottom-8 left-8 w-4 h-4 border-b border-l border-ink/20 rounded-bl-lg" />
+                    <div className="absolute bottom-8 right-8 w-4 h-4 border-b border-r border-ink/20 rounded-br-lg" />
 
                     {/* Stage Label */}
-                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full border border-white/10 backdrop-blur-md">
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-ink/5 px-4 py-2 rounded-full border border-ink/10 backdrop-blur-md">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#0158e6] animate-pulse" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40">
                             Phase 0{activeStep + 1}
                         </span>
                     </div>

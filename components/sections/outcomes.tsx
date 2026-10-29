@@ -14,7 +14,7 @@ export function Outcomes() {
         <Section id="outcomes" className="relative w-full overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#0158e6]/5 blur-[100px] pointer-events-none" />
-            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-[#050505] to-transparent z-0 pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-page to-transparent z-0 pointer-events-none" />
 
             <Container className="relative z-10">
                 {/* Header Section */}
@@ -24,9 +24,9 @@ export function Outcomes() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter">
+                        <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-ink mb-6 uppercase tracking-tighter">
                             From Signals to <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#efef39] via-white to-[#33b5ff]">Revenue Outcomes</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-ink to-brand-cyan">Revenue Outcomes</span>
                         </h2>
                         <div className="w-24 h-1 bg-[#0158e6]" />
                     </motion.div>
@@ -40,10 +40,10 @@ export function Outcomes() {
                     className="mb-16 md:mb-20"
                 >
                     <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
-                        <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight">
-                            We Optimize for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#efef39] to-[#33b5ff]">Revenue</span>, Not Lead Volume.
+                        <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-ink leading-tight">
+                            We Optimize for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">Revenue</span>, Not Lead Volume.
                         </h3>
-                        <p className="text-base md:text-xl text-neutral-300 leading-relaxed max-w-3xl mx-auto">
+                        <p className="text-base md:text-xl text-ink/75 leading-relaxed max-w-3xl mx-auto">
                             Market Wavegen connects buyer signals directly to business outcomes leadership tracks.
                         </p>
                     </div>
@@ -71,7 +71,7 @@ export function Outcomes() {
                     transition={{ duration: 0.6 }}
                     className="max-w-5xl mx-auto"
                 >
-                    <div className="relative p-8 md:p-12 lg:p-16 rounded-3xl md:rounded-[48px] bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10 backdrop-blur-md overflow-hidden">
+                    <div className="relative p-8 md:p-12 lg:p-16 rounded-3xl md:rounded-[48px] bg-gradient-to-br from-ink/10 via-ink/5 to-transparent border border-ink/10 backdrop-blur-md overflow-hidden">
                         {/* Decorative Elements */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-[#0158e6]/10 blur-[80px] pointer-events-none" />
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#efef39]/5 blur-[80px] pointer-events-none" />
@@ -85,19 +85,19 @@ export function Outcomes() {
 
                             {/* Proof Content */}
                             <div className="space-y-4">
-                                <p className="text-lg md:text-2xl lg:text-3xl text-white font-medium leading-relaxed">
-                                    Teams consistently report <span className="text-[#efef39] font-bold">stronger meeting quality</span> and <span className="text-[#33b5ff] font-bold">higher pipeline velocity</span> compared to volume-based demand programs.
+                                <p className="text-lg md:text-2xl lg:text-3xl text-ink font-medium leading-relaxed">
+                                    Teams consistently report <span className="text-brand-yellow font-bold">stronger meeting quality</span> and <span className="text-brand-cyan font-bold">higher pipeline velocity</span> compared to volume-based demand programs.
                                 </p>
 
                                 {/* Stats Row */}
-                                <div className="grid grid-cols-2 gap-4 md:gap-6 pt-6 md:pt-8 border-t border-white/10">
+                                <div className="grid grid-cols-2 gap-4 md:gap-6 pt-6 md:pt-8 border-t border-ink/10">
                                     <div className="space-y-2">
-                                        <div className="text-3xl md:text-4xl lg:text-5xl font-black text-[#efef39]">↑ Quality</div>
-                                        <p className="text-xs md:text-sm text-neutral-400 uppercase tracking-wider">Meeting Quality</p>
+                                        <div className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-yellow">↑ Quality</div>
+                                        <p className="text-xs md:text-sm text-ink/60 uppercase tracking-wider">Meeting Quality</p>
                                     </div>
                                     <div className="space-y-2">
-                                        <div className="text-3xl md:text-4xl lg:text-5xl font-black text-[#33b5ff]">↑ Velocity</div>
-                                        <p className="text-xs md:text-sm text-neutral-400 uppercase tracking-wider">Pipeline Velocity</p>
+                                        <div className="text-3xl md:text-4xl lg:text-5xl font-black text-brand-cyan">↑ Velocity</div>
+                                        <p className="text-xs md:text-sm text-ink/60 uppercase tracking-wider">Pipeline Velocity</p>
                                     </div>
                                 </div>
                             </div>
@@ -120,8 +120,8 @@ function OutcomeCard({ item, index, isActive, onEnter }: { item: any; index: num
             className={cn(
                 "group relative h-full backdrop-blur-md p-8 md:p-10 rounded-[32px] md:rounded-[40px] shadow-xl overflow-hidden transition-all duration-700 border",
                 isActive
-                    ? "bg-white/10 border-white/20 shadow-2xl shadow-blue-500/5"
-                    : "bg-white/5 border-white/10 opacity-70 md:opacity-100"
+                    ? "bg-ink/10 border-ink/20 shadow-2xl shadow-blue-500/5"
+                    : "bg-ink/5 border-ink/10 opacity-70 md:opacity-100"
             )}
         >
             <div className="relative z-10 h-full flex flex-col">
@@ -129,7 +129,7 @@ function OutcomeCard({ item, index, isActive, onEnter }: { item: any; index: num
                     <div className={cn(
                         "p-5 rounded-3xl border shadow-inner transition-all duration-500",
                         isActive || "group-hover:scale-110",
-                        isActive ? "bg-white/10 border-white/20" : "bg-white/5 border-white/10",
+                        isActive ? "bg-ink/10 border-ink/20" : "bg-ink/5 border-ink/10",
                         item.color
                     )}>
                         <item.icon size={36} strokeWidth={1.5} />
@@ -141,14 +141,14 @@ function OutcomeCard({ item, index, isActive, onEnter }: { item: any; index: num
 
                 <h3 className={cn(
                     "text-2xl md:text-3xl font-bold mb-6 leading-tight transition-colors",
-                    isActive ? "text-white" : "text-white/80 group-hover:text-white"
+                    isActive ? "text-ink" : "text-ink/80 group-hover:text-ink"
                 )}>
                     {item.title}
                 </h3>
 
                 <p className={cn(
                     "text-lg leading-relaxed font-light mt-auto transition-colors",
-                    isActive ? "text-neutral-200" : "text-neutral-400 group-hover:text-neutral-200"
+                    isActive ? "text-ink/85" : "text-ink/60 group-hover:text-ink/85"
                 )}>
                     {item.desc}
                 </p>

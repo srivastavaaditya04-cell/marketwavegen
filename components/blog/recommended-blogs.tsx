@@ -55,15 +55,15 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
     }
 
     return (
-        <section className="py-16 md:py-24 bg-[#0A0A0A] border-t border-white/5">
+        <section className="py-16 md:py-24 bg-page border-t border-ink/5">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="flex items-center justify-between mb-8 md:mb-12">
                     <div>
-                        <h2 className="text-3xl md:text-4xl font-black text-white mb-2">
+                        <h2 className="text-3xl md:text-4xl font-black text-ink mb-2">
                             Recommended Reads
                         </h2>
-                        <p className="text-neutral-400 text-sm md:text-base">
+                        <p className="text-ink/60 text-sm md:text-base">
                             Continue exploring our insights
                         </p>
                     </div>
@@ -73,7 +73,7 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                         <button
                             onClick={() => scroll('left')}
                             disabled={!canScrollLeft}
-                            className="p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-[#0158e6] hover:border-[#0158e6] transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white/5 disabled:hover:border-white/10"
+                            className="p-3 rounded-lg bg-ink/5 border border-ink/10 hover:bg-[#0158e6] hover:border-[#0158e6] transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-ink/5 disabled:hover:border-ink/10"
                             aria-label="Scroll left"
                         >
                             <ArrowRight className="w-5 h-5 rotate-180" />
@@ -81,7 +81,7 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                         <button
                             onClick={() => scroll('right')}
                             disabled={!canScrollRight}
-                            className="p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-[#0158e6] hover:border-[#0158e6] transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white/5 disabled:hover:border-white/10"
+                            className="p-3 rounded-lg bg-ink/5 border border-ink/10 hover:bg-[#0158e6] hover:border-[#0158e6] transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-ink/5 disabled:hover:border-ink/10"
                             aria-label="Scroll right"
                         >
                             <ArrowRight className="w-5 h-5" />
@@ -92,8 +92,8 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                 {/* Scrollable Container */}
                 <div className="relative">
                     {/* Gradient Overlays for visual feedback */}
-                    <div className="hidden md:block absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-                    <div className="hidden md:block absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+                    <div className="hidden md:block absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-page to-transparent z-10 pointer-events-none" />
+                    <div className="hidden md:block absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-page to-transparent z-10 pointer-events-none" />
 
                     {/* Scrollable Blog Cards */}
                     <div
@@ -114,10 +114,10 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                                     href={`/blogs/${post.slug}`}
                                     className="flex-shrink-0 w-[280px] md:w-[350px] snap-start group"
                                 >
-                                    <article className="h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-[#0158e6] transition-all duration-300 hover:shadow-[0_0_40px_rgba(1,88,230,0.3)] hover:transform hover:scale-[1.02]">
+                                    <article className="h-full bg-ink/5 backdrop-blur-md border border-ink/10 rounded-2xl overflow-hidden hover:border-[#0158e6] transition-all duration-300 hover:shadow-[0_0_40px_rgba(1,88,230,0.3)] hover:transform hover:scale-[1.02]">
                                         {/* Image */}
                                         {featuredImage && (
-                                            <div className="relative h-48 md:h-56 overflow-hidden bg-neutral-900">
+                                            <div className="relative h-48 md:h-56 overflow-hidden bg-ink/5">
                                                 <img
                                                     src={featuredImage}
                                                     alt={post.title.rendered}
@@ -130,7 +130,7 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
                                         {/* Content */}
                                         <div className="p-5 md:p-6">
                                             {/* Meta */}
-                                            <div className="flex items-center gap-4 text-xs text-neutral-500 mb-3">
+                                            <div className="flex items-center gap-4 text-xs text-ink/50 mb-3">
                                                 <div className="flex items-center gap-1.5">
                                                     <Calendar className="w-3.5 h-3.5" />
                                                     <time dateTime={post.date}>
@@ -145,14 +145,14 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
 
                                             {/* Title */}
                                             <h3
-                                                className="text-lg md:text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#33b5ff] transition-colors"
+                                                className="text-lg md:text-xl font-bold text-ink mb-3 line-clamp-2 group-hover:text-brand-cyan transition-colors"
                                                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                                             />
 
                                             {/* Excerpt */}
                                             {post.excerpt && (
                                                 <div
-                                                    className="text-sm text-neutral-400 line-clamp-3 mb-4"
+                                                    className="text-sm text-ink/60 line-clamp-3 mb-4"
                                                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                                                 />
                                             )}
@@ -172,7 +172,7 @@ export function RecommendedBlogs({ posts, currentPostId }: RecommendedBlogsProps
 
                 {/* Mobile Swipe Indicator */}
                 <div className="md:hidden mt-6 text-center">
-                    <p className="text-xs text-neutral-500">
+                    <p className="text-xs text-ink/50">
                         ← Swipe to explore more →
                     </p>
                 </div>

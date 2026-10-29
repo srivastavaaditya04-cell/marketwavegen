@@ -23,6 +23,6 @@ export const aiOrchestrationCards = [
         title: "Continuous Optimization Loop",
         desc: "AI-driven feedback cycles that refine targeting and messaging based on performance data.",
         icon: ShieldCheck,
-        color: "from-white to-white/50"
+        color: "from-ink to-ink/50"
     }
 ];

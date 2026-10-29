@@ -40,7 +40,7 @@ export function BlogListing({
     emptyText = 'No articles found.',
 }: BlogListingProps) {
     return (
-        <div className="min-h-screen bg-[#0A0A0A] text-white">
+        <div className="min-h-screen bg-page text-ink">
             <BlogHero compact {...hero} />
 
             <section className="pb-20 md:pb-28 relative">
@@ -53,11 +53,11 @@ export function BlogListing({
 
                     <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-10 xl:gap-14">
                         <div>
-                            <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-neutral-400">
+                            <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-ink/60">
                                 {heading}
                             </h2>
                             {posts.length === 0 ? (
-                                <div className="rounded-2xl border border-white/10 bg-white/5 p-12 text-center text-neutral-400">
+                                <div className="rounded-2xl border border-ink/10 bg-ink/5 p-12 text-center text-ink/60">
                                     {emptyText}
                                 </div>
                             ) : (
