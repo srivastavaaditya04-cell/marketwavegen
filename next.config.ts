@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Offline fallback data for lib/wordpress-backup.ts
+  outputFileTracingIncludes: {
+    "/**/*": ["./cms-backup/posts.json", "./cms-backup/categories.json"],
+  },
 };
 
 export default nextConfig;

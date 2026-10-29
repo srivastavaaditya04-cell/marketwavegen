@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { WordPressPost } from '@/lib/wordpress';
+import { WordPressPost } from '@/lib/wordpress-utils';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { formatDate, calculateReadingTime } from '@/lib/wordpress';
+import { formatDate, calculateReadingTime } from '@/lib/wordpress-utils';
 import { useRef, useState, useEffect } from 'react';
 
 interface RecommendedBlogsProps {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { WordPressPost, formatDate, extractTextFromHTML, calculateReadingTime } from '@/lib/wordpress';
+import { WordPressPost, formatDate, extractTextFromHTML, calculateReadingTime } from '@/lib/wordpress-utils';
 import { Calendar, Clock, ArrowRight, TrendingUp } from 'lucide-react';
 import NProgress from 'nprogress';
 

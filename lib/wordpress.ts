@@ -1,46 +1,16 @@
 // WordPress API Configuration and Utilities
+import {
+    getBackupCategories,
+    getBackupPostBySlug,
+    getBackupPostsByCategoryId,
+    getBackupPostsExcludingCategoryIds,
+    getBackupPosts,
+    paginateBackupPosts,
+} from './wordpress-backup';
+import type { WordPressPost, WordPressCategory, PaginatedResponse } from './wordpress-utils';
+
 const WORDPRESS_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://blog.yourcompany.com';
 const WP_API_URL = `${WORDPRESS_URL}/wp-json/wp/v2`;
-
-export interface WordPressPost {
-    id: number;
-    slug: string;
-    title: {
-        rendered: string;
-    };
-    content: {
-        rendered: string;
-    };
-    excerpt?: {
-        rendered: string;
-    };
-    date: string;
-    modified?: string;
-    featured_media: number;
-    _embedded?: {
-        'wp:featuredmedia'?: Array<{
-            source_url: string;
-            alt_text: string;
-            media_details?: {
-                width: number;
-                height: number;
-            };
-        }>;
-        author?: Array<{
-            name: string;
-            avatar_urls?: {
-                96?: string;
-            };
-        }>;
-    };
-}
-
-export interface PaginatedResponse {
-    posts: WordPressPost[];
-    totalPosts: number;
-    totalPages: number;
-    currentPage: number;
-}
 
 /**
  * Fetch blog posts from WordPress with pagination
@@ -76,13 +46,8 @@ export async function getAllPosts(
             currentPage: page,
         };
     } catch (error) {
-        console.error('Error fetching WordPress posts:', error);
-        return {
-            posts: [],
-            totalPosts: 0,
-            totalPages: 1,
-            currentPage: page,
-        };
+        console.error('Error fetching WordPress posts, using backup:', error);
+        return paginateBackupPosts(getBackupPosts(), perPage, page);
     }
 }
 
@@ -108,20 +73,9 @@ export async function getPostBySlug(
         const posts: WordPressPost[] = await response.json();
         return posts[0] || null;
     } catch (error) {
-        console.error(`Error fetching post with slug "${slug}":`, error);
-        return null;
+        console.error(`Error fetching post with slug "${slug}", using backup:`, error);
+        return getBackupPostBySlug(slug);
     }
-}
-
-export interface WordPressCategory {
-    id: number;
-    count: number;
-    description: string;
-    link: string;
-    name: string;
-    slug: string;
-    taxonomy: string;
-    parent: number;
 }
 
 /**
@@ -143,8 +97,8 @@ export async function getCategories(): Promise<WordPressCategory[]> {
         const categories: WordPressCategory[] = await response.json();
         return categories;
     } catch (error) {
-        console.error('Error fetching WordPress categories:', error);
-        return [];
+        console.error('Error fetching WordPress categories, using backup:', error);
+        return getBackupCategories();
     }
 }
 
@@ -205,13 +159,9 @@ export async function getPostsByCategory(
             currentPage: page,
         };
     } catch (error) {
-        console.error(`Error fetching posts for category "${categorySlug}":`, error);
-        return {
-            posts: [],
-            totalPosts: 0,
-            totalPages: 0,
-            currentPage: page,
-        };
+        console.error(`Error fetching posts for category "${categorySlug}", using backup:`, error);
+        const categoryId = (await getCategoryIdBySlug(categorySlug)) ?? -1;
+        return paginateBackupPosts(getBackupPostsByCategoryId(categoryId), perPage, page);
     }
 }
 
@@ -245,70 +195,12 @@ export async function getPostsExcludingCategories(
             currentPage: page,
         };
     } catch (error) {
-        console.error('Error fetching posts excluding categories:', error);
-        return {
-            posts: [],
-            totalPosts: 0,
-            totalPages: 0,
-            currentPage: page,
-        };
+        console.error('Error fetching posts excluding categories, using backup:', error);
+        const excludeIds = getBackupCategories()
+            .filter((c) => categorySlugs.includes(c.slug))
+            .map((c) => c.id);
+        return paginateBackupPosts(getBackupPostsExcludingCategoryIds(excludeIds), perPage, page);
     }
 }
-/**
- * Clean WordPress shortcodes from content
- * Removes [metform], [elementor-template], etc. that won't work headlessly
- */
-export function cleanShortcodes(html: string): string {
-    return html
-        // Remove metform shortcodes
-        .replace(/\[metform[^\]]*\]/g, '')
-        // Remove elementor-template shortcodes
-        .replace(/\[elementor-template[^\]]*\]/g, '')
-        // Remove contact-form-7 shortcodes
-        .replace(/\[contact-form-7[^\]]*\]/g, '')
-        // Remove any other common shortcodes
-        .replace(/\[\/?[a-z_-]+[^\]]*\]/gi, '');
-}
 
-/**
- * Extract plain text from HTML for meta descriptions
- */
-export function extractTextFromHTML(html: string, maxLength: number = 160): string {
-    const text = html
-        .replace(/<[^>]*>/g, '') // Remove HTML tags
-        .replace(/\s+/g, ' ') // Normalize whitespace
-        .trim();
-
-    return text.length > maxLength
-        ? text.substring(0, maxLength) + '...'
-        : text;
-}
-
-/**
- * Calculate reading time from content
- */
-export function calculateReadingTime(content: string): number {
-    const wordsPerMinute = 200;
-    const text = extractTextFromHTML(content, Infinity);
-    const wordCount = text.split(/\s+/).length;
-    return Math.ceil(wordCount / wordsPerMinute);
-}
-
-/**
- * Format date for display
- */
-export function formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    });
-}
-
-/**
- * Get Elementor CSS URL for a specific post
- */
-export function getElementorCSSUrl(postId: number): string {
-    return `${WORDPRESS_URL}/wp-content/uploads/elementor/css/post-${postId}.css`;
-}
+export * from './wordpress-utils';
