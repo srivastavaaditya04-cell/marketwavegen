@@ -25,8 +25,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-# .env
-# .env*.local
+.env
+.env*.local
 
 # vercel
 .vercel
@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local copy of the full CMS export (videos/zips included); the trimmed version lives in cms-backup/
+/marketwavegen-cms-backup-2026-10-29/
