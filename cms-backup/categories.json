@@ -1,0 +1,812 @@
+[
+ {
+  "id": 222,
+  "count": 0,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/bandar-togel-online-pasaran-terlengkap/",
+  "name": "BANDAR TOGEL ONLINE PASARAN TERLENGKAP",
+  "slug": "bandar-togel-online-pasaran-terlengkap",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/222",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=222"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 223,
+  "count": 0,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/bandar-togel-online-terpercaya/",
+  "name": "BANDAR TOGEL ONLINE TERPERCAYA",
+  "slug": "bandar-togel-online-terpercaya",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/223",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=223"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 204,
+  "count": 21,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/blogs/",
+  "name": "Blogs",
+  "slug": "blogs",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/204",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=204"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 27,
+  "count": 57,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/business/",
+  "name": "Business",
+  "slug": "business",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/27",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=27"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 151,
+  "count": 14,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/case-study/",
+  "name": "Case Study",
+  "slug": "case-study",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/151",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=151"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 219,
+  "count": 0,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/daftar-pwktoto/",
+  "name": "Daftar PWKTOTO",
+  "slug": "daftar-pwktoto",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/219",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=219"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 41,
+  "count": 74,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/digital/",
+  "name": "Digital",
+  "slug": "digital",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/41",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=41"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 1,
+  "count": 38,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/lead-generation/",
+  "name": "Lead Generation",
+  "slug": "lead-generation",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/1",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=1"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 221,
+  "count": 0,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/link-alternatif-pwktoto/",
+  "name": "Link Alternatif PWKTOTO",
+  "slug": "link-alternatif-pwktoto",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/221",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=221"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 220,
+  "count": 0,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/login-pwktoto/",
+  "name": "Login PWKTOTO",
+  "slug": "login-pwktoto",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/220",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=220"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 87,
+  "count": 81,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/marketing/",
+  "name": "Marketing",
+  "slug": "marketing",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/87",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=87"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 218,
+  "count": 0,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/pwktoto/",
+  "name": "PWKTOTO",
+  "slug": "pwktoto",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/218",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=218"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 88,
+  "count": 12,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/sales/",
+  "name": "Sales",
+  "slug": "sales",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/88",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=88"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 183,
+  "count": 14,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/stratus/",
+  "name": "Stratus",
+  "slug": "stratus",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/183",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=183"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 31,
+  "count": 37,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/technology/",
+  "name": "Technology",
+  "slug": "technology",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/31",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=31"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 216,
+  "count": 0,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/torpedo4d/",
+  "name": "Torpedo4d",
+  "slug": "torpedo4d",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/216",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=216"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 194,
+  "count": 1,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/uncategorized/",
+  "name": "Uncategorized",
+  "slug": "uncategorized",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/194",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=194"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 235,
+  "count": 1,
+  "description": "",
+  "link": "https://finalstaging.marketwavegen.com/category/whitepaper/",
+  "name": "Whitepaper",
+  "slug": "whitepaper",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+   "self": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories/235",
+     "targetHints": {
+      "allow": [
+       "GET"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/categories"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/taxonomies/category"
+    }
+   ],
+   "wp:post_type": [
+    {
+     "href": "https://finalstaging.marketwavegen.com/wp-json/wp/v2/posts?categories=235"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ }
+]
