@@ -30,7 +30,7 @@ export function FlipSignals() {
                         </div>
                         <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-ink tracking-tighter mb-8 leading-[1.1]">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-ink to-ink/60">Flip Signals :</span> <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-cyan/80 to-brand-yellow">Emotional Buyer Intent Intelligence</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-cyan/80 to-brand-yellow-vivid">Emotional Buyer Intent Intelligence</span>
                         </h2>
 
                         <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">

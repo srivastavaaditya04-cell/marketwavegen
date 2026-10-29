@@ -48,7 +48,7 @@ export function DemandCreation() {
                     >
                         <h2 className="text-4xl md:text-7xl font-bold text-ink uppercase tracking-tighter mb-8 leading-none">
                             How We Create <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">Demand</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-vivid to-brand-cyan">Demand</span>
                         </h2>
                         <div className="flex flex-wrap gap-4 items-center">
                             <span className="px-4 py-1.5 rounded-full border border-[#0158e6]/30 bg-[#0158e6]/10 text-brand-cyan text-xs font-bold uppercase tracking-widest">The Laboratory</span>

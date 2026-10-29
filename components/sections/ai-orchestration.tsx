@@ -24,7 +24,7 @@ export function AiOrchestration() {
                     >
                         <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-ink uppercase mb-6 tracking-tighter leading-tight">
                             AI-Orchestrated <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-ink to-brand-cyan">Demand Execution</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-vivid via-ink to-brand-cyan">Demand Execution</span>
                         </h2>
                         <div className="space-y-6">
                             <h3 className="text-2xl md:text-4xl font-bold text-ink/90">

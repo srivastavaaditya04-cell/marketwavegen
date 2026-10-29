@@ -26,7 +26,7 @@ export function Outcomes() {
                     >
                         <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold text-ink mb-6 uppercase tracking-tighter">
                             From Signals to <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow via-ink to-brand-cyan">Revenue Outcomes</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-vivid via-ink to-brand-cyan">Revenue Outcomes</span>
                         </h2>
                         <div className="w-24 h-1 bg-[#0158e6]" />
                     </motion.div>
@@ -41,7 +41,7 @@ export function Outcomes() {
                 >
                     <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
                         <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-ink leading-tight">
-                            We Optimize for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">Revenue</span>, Not Lead Volume.
+                            We Optimize for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-vivid to-brand-cyan">Revenue</span>, Not Lead Volume.
                         </h3>
                         <p className="text-base md:text-xl text-ink/75 leading-relaxed max-w-3xl mx-auto">
                             Market Wavegen connects buyer signals directly to business outcomes leadership tracks.

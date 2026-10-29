@@ -34,7 +34,7 @@ export default async function WatchPage({ params }: PageProps) {
             <BlogHero
                 badge={video.badge ?? "Video"}
                 title={
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-vivid to-brand-cyan">
                         {video.title}
                     </span>
                 }

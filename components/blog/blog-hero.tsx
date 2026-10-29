@@ -16,7 +16,7 @@ export function BlogHero({
     title = (
         <>
             Insights & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] via-brand-cyan to-brand-yellow">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0158e6] via-brand-cyan to-brand-yellow-vivid">
                 Intelligence
             </span>
         </>

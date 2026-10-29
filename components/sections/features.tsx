@@ -26,7 +26,7 @@ export function Features() {
                         className="text-3xl sm:text-4xl md:text-6xl font-bold text-ink mb-6 leading-tight max-w-4xl"
                     >
                         Why Global B2B Teams Choose <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-ink">Market Wavegen</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-vivid to-ink">Market Wavegen</span>
                     </motion.h2>
                     <div className="w-24 h-1 bg-[#0158e6]" />
                 </div>

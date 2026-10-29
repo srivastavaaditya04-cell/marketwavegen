@@ -110,7 +110,7 @@ export default function AboutPage() {
                             className="text-3xl md:text-5xl font-black text-ink uppercase tracking-tighter"
                         >
                             Why Market Wavegen <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-brand-cyan">Wins</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow-vivid to-brand-cyan">Wins</span>
                         </motion.h2>
                     </div>
 

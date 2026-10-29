@@ -27,7 +27,7 @@ export async function getAllPosts(
         const response = await fetch(
             `${WP_API_URL}/posts?per_page=${perPage}&page=${page}&_embed`,
             {
-                next: { revalidate: 60 }, // ISR: Revalidate every 60 seconds
+                next: { revalidate: 300 }, // ISR: Revalidate every 5 minutes
             }
         );
 
@@ -64,7 +64,7 @@ export async function getPostBySlug(
         const response = await fetch(
             `${WP_API_URL}/posts?slug=${slug}&_embed`,
             {
-                next: { revalidate: 60 }, // ISR: Revalidate every 60 seconds
+                next: { revalidate: 300 }, // ISR: Revalidate every 5 minutes
             }
         );
 
@@ -142,7 +142,7 @@ export async function getPostsByCategory(
         const response = await fetch(
             `${WP_API_URL}/posts?categories=${categoryId}&per_page=${perPage}&page=${page}&_embed`,
             {
-                next: { revalidate: 60 },
+                next: { revalidate: 300 },
             }
         );
 
@@ -182,7 +182,7 @@ export async function getPostsExcludingCategories(
         const response = await fetch(
             `${WP_API_URL}/posts?per_page=${perPage}&page=${page}&_embed${excludeParam ? `&categories_exclude=${excludeParam}` : ''}${excludePostIds.length ? `&exclude=${excludePostIds.join(',')}` : ''}`,
             {
-                next: { revalidate: 60 },
+                next: { revalidate: 300 },
             }
         );
         if (!response.ok) {
@@ -217,14 +217,14 @@ export async function getFeaturedPosts(count: number = 3): Promise<WordPressPost
         const exclude = excludeIds.length ? `&categories_exclude=${excludeIds.join(',')}` : '';
         const sticky = await fetch(
             `${WP_API_URL}/posts?sticky=true&per_page=${count}&_embed${exclude}`,
-            { next: { revalidate: 60 } }
+            { next: { revalidate: 300 } }
         );
         if (!sticky.ok) throw new Error(`WordPress API error: ${sticky.status}`);
         picked.push(...((await sticky.json()) as WordPressPost[]));
         if (picked.length < count) {
             const latest = await fetch(
                 `${WP_API_URL}/posts?per_page=${count + picked.length}&_embed${exclude}`,
-                { next: { revalidate: 60 } }
+                { next: { revalidate: 300 } }
             );
             if (!latest.ok) throw new Error(`WordPress API error: ${latest.status}`);
             for (const p of (await latest.json()) as WordPressPost[]) {
@@ -268,7 +268,7 @@ export async function searchPosts(
         const excludeIds = categories.filter((c) => NON_BLOG_CATEGORY_SLUGS.includes(c.slug)).map((c) => c.id);
         const response = await fetch(
             `${WP_API_URL}/posts?search=${encodeURIComponent(q)}&per_page=${perPage}&page=${page}&_embed${excludeIds.length ? `&categories_exclude=${excludeIds.join(',')}` : ''}`,
-            { next: { revalidate: 60 } }
+            { next: { revalidate: 300 } }
         );
         if (!response.ok) throw new Error(`WordPress API error: ${response.status}`);
         const posts: WordPressPost[] = await response.json();

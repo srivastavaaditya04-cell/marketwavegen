@@ -78,7 +78,7 @@ export function BlogSidebar({ categories, recent, activeSlug, query }: BlogSideb
             )}
 
             <section className="rounded-2xl bg-[#0158e6] p-5">
-                <h3 className="text-lg font-bold text-ink">See how we do it</h3>
+                <h3 className="text-lg font-bold text-white">See how we do it</h3>
                 <p className="mt-1 text-sm text-blue-100">Real results from B2B teams we work with.</p>
                 <Link
                     href="/case-study"

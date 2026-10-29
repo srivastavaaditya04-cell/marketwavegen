@@ -19,7 +19,7 @@ export default async function WhitePapersPage() {
                 badge: "Deep Dives",
                 title: (
                     <>
-                        White <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-yellow">Papers</span>
+                        White <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-yellow-vivid">Papers</span>
                     </>
                 ),
                 subtitle: "In-depth research and strategic insights on the future of B2B demand generation.",

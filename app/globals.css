@@ -8,6 +8,7 @@
   --color-page: var(--page);
   --color-ink: var(--ink);
   --color-brand-yellow: var(--brand-yellow);
+  --color-brand-yellow-vivid: var(--brand-yellow-vivid);
   --color-brand-cyan: var(--brand-cyan);
 
   /* Colors */
@@ -550,6 +551,7 @@ body {
   --page: #0a0a0a;
   --ink: #ffffff;
   --brand-yellow: #efef39;
+  --brand-yellow-vivid: #efef39;
   --brand-cyan: #33b5ff;
   --grid-line: rgba(255, 255, 255, 0.1);
   --dot: rgba(255, 255, 255, 0.03);
@@ -558,13 +560,14 @@ body {
 
 html[data-theme="light"] {
   color-scheme: light;
-  --page: #f6f8fc;
+  --page: #ffffff;
   --ink: #0b1220;
-  --brand-yellow: #7a6a00;
-  --brand-cyan: #0a73b0;
-  --grid-line: rgba(11, 18, 32, 0.08);
-  --dot: rgba(11, 18, 32, 0.06);
-  --step-amber: #a16207;
+  --brand-yellow: #b85c00;
+  --brand-yellow-vivid: #f59e0b;
+  --brand-cyan: #0277b5;
+  --grid-line: rgba(1, 88, 230, 0.07);
+  --dot: rgba(1, 88, 230, 0.09);
+  --step-amber: #c2670a;
 }
 
 body {
@@ -582,4 +585,52 @@ html[data-theme="light"] .bg-dot-white {
 
 html[data-theme="light"] ::selection {
   background: rgba(1, 88, 230, 0.2);
+}
+
+/* ============================================
+   Light mode polish: colour, depth and rhythm
+   (dark mode is untouched; everything below is scoped to light)
+   ============================================ */
+
+/* Blue-tinted surfaces and borders instead of flat gray */
+html[data-theme="light"] .bg-ink\/5 { background-color: rgba(1, 88, 230, 0.05); }
+html[data-theme="light"] .bg-ink\/10 { background-color: rgba(1, 88, 230, 0.08); }
+html[data-theme="light"] .bg-ink\/20 { background-color: rgba(1, 88, 230, 0.14); }
+html[data-theme="light"] .hover\:bg-ink\/5:hover { background-color: rgba(1, 88, 230, 0.09); }
+html[data-theme="light"] .hover\:bg-ink\/10:hover { background-color: rgba(1, 88, 230, 0.13); }
+html[data-theme="light"] .border-ink\/5 { border-color: rgba(1, 88, 230, 0.08); }
+html[data-theme="light"] .border-ink\/10 { border-color: rgba(1, 88, 230, 0.14); }
+html[data-theme="light"] .border-ink\/15,
+html[data-theme="light"] .border-ink\/20 { border-color: rgba(1, 88, 230, 0.24); }
+
+/* Cards: white with a soft blue shadow so they lift off the page */
+html[data-theme="light"] .bg-ink\/5[class*="rounded-2xl"],
+html[data-theme="light"] .bg-ink\/5[class*="rounded-3xl"],
+html[data-theme="light"] .bg-ink\/5[class*="rounded-[2rem]"],
+html[data-theme="light"] .bg-ink\/5[class*="rounded-[40px]"],
+html[data-theme="light"] .bg-ink\/5[class*="rounded-[48px]"],
+html[data-theme="light"] .bg-page\/40[class*="rounded-"],
+html[data-theme="light"] .bg-page\/60[class*="rounded-"] {
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(11, 18, 32, 0.04), 0 14px 34px -14px rgba(1, 88, 230, 0.22);
+}
+
+/* Brighter decorative glows (they are almost invisible on white at dark-mode strength) */
+html[data-theme="light"] .bg-\[\#0158e6\]\/5 { background-color: rgba(1, 88, 230, 0.12); }
+html[data-theme="light"] .bg-\[\#0158e6\]\/10 { background-color: rgba(1, 88, 230, 0.16); }
+html[data-theme="light"] .bg-\[\#0158e6\]\/20 { background-color: rgba(1, 88, 230, 0.22); }
+html[data-theme="light"] .bg-\[\#33b5ff\]\/5 { background-color: rgba(51, 181, 255, 0.16); }
+html[data-theme="light"] .bg-\[\#33b5ff\]\/10 { background-color: rgba(51, 181, 255, 0.2); }
+html[data-theme="light"] .bg-\[\#33b5ff\]\/20 { background-color: rgba(51, 181, 255, 0.28); }
+html[data-theme="light"] .bg-\[\#efef39\]\/5 { background-color: rgba(245, 158, 11, 0.12); }
+html[data-theme="light"] .bg-\[\#efef39\]\/10 { background-color: rgba(245, 158, 11, 0.18); }
+
+/* Alternate section tint so long pages have rhythm instead of one flat white block */
+html[data-theme="light"] section:nth-of-type(even) {
+  background-color: #f3f7ff !important;
+}
+
+/* Header: crisp white glass with a hairline shadow once you scroll */
+html[data-theme="light"] nav.fixed[class*="backdrop-blur"] {
+  box-shadow: 0 6px 24px -12px rgba(1, 88, 230, 0.25);
 }
