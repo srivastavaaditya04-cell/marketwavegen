@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none">
+  <circle cx="80" cy="60" r="30" stroke="#038ad2" stroke-width="3" fill="none"></circle>
+  <path d="M50 60 H110" stroke="#038ad2" stroke-width="3"></path>
+  <path d="M80 30 V90" stroke="#038ad2" stroke-width="3"></path>
+  <ellipse cx="80" cy="60" rx="14" ry="30" stroke="#038ad2" stroke-width="3" fill="none"></ellipse>
+  <circle cx="120" cy="40" r="12" stroke="#038ad2" stroke-width="3" fill="none"></circle>
+  <path d="M129 49 L142 62" stroke="#038ad2" stroke-width="3"></path>
+  <rect x="20" y="100" width="24" height="18" stroke="#038ad2" stroke-width="3"></rect>
+  <rect x="68" y="110" width="24" height="18" stroke="#038ad2" stroke-width="3"></rect>
+  <rect x="116" y="100" width="24" height="18" stroke="#038ad2" stroke-width="3"></rect>
+  <path d="M80 90 L32 100" stroke="#038ad2" stroke-width="3"></path>
+  <path d="M80 90 L80 110" stroke="#038ad2" stroke-width="3"></path>
+  <path d="M80 90 L128 100" stroke="#038ad2" stroke-width="3"></path>
+  <path d="M80 130 V150" stroke="#038ad2" stroke-width="3"></path>
+  <path d="M74 144 L80 150 L86 144" stroke="#038ad2" stroke-width="3" fill="none"></path>
+</svg>
