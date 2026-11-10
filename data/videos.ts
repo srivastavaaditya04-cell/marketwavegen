@@ -23,6 +23,15 @@ export const gatedVideos: GatedVideo[] = [
         duration: "1:39",
         badge: "Exclusive Video",
     },
+    {
+        slug: "partner-offerings",
+        title: "Three Offerings for Your Next Pitch",
+        description: "Enter your email to watch the full briefing.",
+        src: "/videos/partner-offerings.mp4",
+        poster: "/videos/partner-offerings-poster.jpg",
+        duration: "1:14",
+        badge: "Partner Briefing",
+    },
 ];
 
 export function getGatedVideo(slug: string): GatedVideo | undefined {
