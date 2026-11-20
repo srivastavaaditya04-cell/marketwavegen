@@ -34,6 +34,7 @@ export function Navbar() {
          { name: "About", href: "/about" },
         { name: "Services", href: "/our-services" },
         { name: "Solutions", href: "/solutions" },
+        { name: "Careers", href: "/careers" },
     ];
 
     const resourceLinks = [
@@ -51,7 +52,7 @@ export function Navbar() {
                 <div className="flex items-center justify-between">
                     <Link
                         href="/"
-                        className="flex items-center group"
+                        className="flex items-center group shrink-0 mr-6"
                         onClick={(e) => {
                             setIsMobileMenuOpen(false);
                             if (pathname === "/") {
@@ -66,13 +67,13 @@ export function Navbar() {
                         />
                     </Link>
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-8 lg:gap-10">
+                    <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-10">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
                                 className={cn(
-                                    "text-sm font-bold uppercase tracking-widest transition-colors",
+                                    "text-sm font-bold uppercase tracking-wider xl:tracking-widest whitespace-nowrap transition-colors",
                                     pathname === link.href ? "text-brand-cyan" : "text-ink/70 hover:text-brand-cyan"
                                 )}
                             >
@@ -87,7 +88,7 @@ export function Navbar() {
                             onMouseLeave={() => setIsResourcesOpen(false)}
                         >
                             <button className={cn(
-                                "flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors h-full py-2",
+                                "flex items-center gap-1 text-sm font-bold uppercase tracking-wider xl:tracking-widest whitespace-nowrap transition-colors h-full py-2",
                                 resourceLinks.some(link => pathname.startsWith(link.href)) ? "text-brand-cyan" : "text-ink/70 hover:text-brand-cyan"
                             )}>
                                 Resources
@@ -124,7 +125,7 @@ export function Navbar() {
                         <ThemeToggle />
 
                         <Link href="/contact-us">
-                            <Button className="bg-[#0158e6] hover:bg-[#0046b8] text-white rounded-full px-8 h-12 font-bold uppercase tracking-wider shadow-[0_0_30px_-10px_rgba(1,88,230,0.5)]">
+                            <Button className="bg-[#0158e6] hover:bg-[#0046b8] text-white rounded-full px-5 xl:px-8 h-12 font-bold uppercase tracking-wider whitespace-nowrap shadow-[0_0_30px_-10px_rgba(1,88,230,0.5)]">
                                 Contact Us
                             </Button>
                         </Link>
