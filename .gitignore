@@ -37,8 +37,3 @@ next-env.d.ts
 
 # local copy of the full CMS export (videos/zips included); the trimmed version lives in cms-backup/
 /marketwavegen-cms-backup-2026-10-29/
-
-# resume receiver (hosting/resume-receiver): settings and uploaded resumes must never be committed
-hosting/resume-receiver/config.php
-hosting/resume-receiver/files/*
-!hosting/resume-receiver/files/.htaccess
