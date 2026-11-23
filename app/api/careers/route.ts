@@ -2,10 +2,15 @@ import { google } from 'googleapis';
 import { NextResponse } from 'next/server';
 import { isValidEmail } from '@/lib/work-email';
 import { sheetTimestampIST } from '@/lib/sheet-time';
-import { acknowledgments, b2bExperienceOptions, experienceAreas, getJob, preferredContactOptions, WORK_HISTORY_ROWS } from '@/data/careers';
+import { verifyResumeUrl } from '@/lib/resume-slip';
+import {
+    acknowledgments, b2bExperienceOptions, experienceAreas, getJob, preferredContactOptions, WORK_HISTORY_ROWS, RESUME_REQUIRED,
+} from '@/data/careers';
 
 // Careers applications (all positions, with a Position column) go to a 'Careers' tab in the same Google Sheet as the contact form.
 // The tab (with its header row) is created automatically the first time if it does not exist.
+// The resume is NOT sent here: the applicant's browser uploads it to the hosting and sends this route only the link and
+// the receiver's signature of that link (see lib/resume-slip.ts and hosting/resume-receiver/upload.php).
 const TAB = 'Careers';
 
 const HEADERS = [
@@ -16,6 +21,7 @@ const HEADERS = [
         `Role ${i + 1} company`, `Role ${i + 1} title`, `Role ${i + 1} dates`, `Role ${i + 1} key results`,
     ]).flat(),
     'All acknowledgments agreed', 'Background check consent', 'Signature (typed name)', 'Signature date', 'Page URL',
+    'Resume link',
 ];
 
 const MAX = 2000;
@@ -38,7 +44,10 @@ function columnLetter(n: number): string {
 
 export async function POST(request: Request) {
     try {
-        const body = await request.json();
+        const body = await request.json().catch(() => null);
+        if (!body || typeof body !== 'object') {
+            return NextResponse.json({ error: 'Your application could not be read. Please try again.' }, { status: 400 });
+        }
 
         // Honeypot: real users never fill this hidden field.
         if (body.website) {
@@ -70,6 +79,17 @@ export async function POST(request: Request) {
         const acks = Array.isArray(body.acknowledgments) ? body.acknowledgments : [];
         if (acks.length !== acknowledgments.length || !acks.every((a: unknown) => a === true)) {
             return NextResponse.json({ error: 'Please check every box in section 4 to confirm.' }, { status: 400 });
+        }
+
+        // Resume: only a link the receiver on the hosting signed is accepted.
+        const resumeUrl = typeof body.resumeUrl === 'string' ? body.resumeUrl : '';
+        if (resumeUrl) {
+            const secret = process.env.RESUME_UPLOAD_SECRET;
+            if (!secret || !verifyResumeUrl(secret, resumeUrl, String(body.resumeSig || ''))) {
+                return NextResponse.json({ error: 'Your resume could not be verified. Please upload it again.' }, { status: 400 });
+            }
+        } else if (RESUME_REQUIRED) {
+            return NextResponse.json({ error: 'Please upload your resume.' }, { status: 400 });
         }
 
         const pick = (v: unknown, allowed: readonly string[]) => (typeof v === 'string' && allowed.includes(v) ? v : '');
@@ -104,6 +124,7 @@ export async function POST(request: Request) {
             clean(body.signatureName, 200),
             clean(body.signatureDate, 20),
             clean(body.pageUrl, 500),
+            resumeUrl ? `=HYPERLINK("${resumeUrl}","Open resume")` : '',
         ];
 
         const auth = new google.auth.GoogleAuth({
@@ -131,6 +152,17 @@ export async function POST(request: Request) {
                 valueInputOption: 'RAW',
                 requestBody: { values: [HEADERS] },
             });
+        } else {
+            // Tab created by an earlier version: add any new header columns (only row 1 is written).
+            const head = await sheets.spreadsheets.values.get({ spreadsheetId, range: `'${TAB}'!1:1` });
+            if ((head.data.values?.[0]?.length ?? 0) < HEADERS.length) {
+                await sheets.spreadsheets.values.update({
+                    spreadsheetId,
+                    range: `'${TAB}'!A1`,
+                    valueInputOption: 'RAW',
+                    requestBody: { values: [HEADERS] },
+                });
+            }
         }
 
         await sheets.spreadsheets.values.append({

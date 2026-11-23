@@ -100,3 +100,17 @@ export const backgroundConsent =
 // The document's last sentence ("contact the person who sent you this application") is replaced by a Contact Us link in the page.
 export const privacyNotice =
     "Market Wavegen uses the information in this application only to evaluate your suitability for an independent contractor sales engagement, to contact you and your references, and to prepare an agreement if you are selected. Your information is stored securely, is accessible only to personnel involved in the selection process, and is not sold or shared for marketing purposes. It is kept only as long as needed for these purposes or as required by law.";
+
+// ---------------------------------------------------------------------------
+// Resume upload (used by the form, the slip route and the API route).
+// The applicant's browser uploads the file straight to the hosting (files.marketwavegen.com); the website only
+// hands out a short-lived signed upload slip and later checks the receiver's signed reply.
+// The 4 MB limit is also enforced by the receiver (hosting/resume-receiver/upload.php), keep both in step.
+// ---------------------------------------------------------------------------
+export const RESUME_MAX_BYTES = 4 * 1024 * 1024;
+export const RESUME_EXTENSIONS = [".pdf", ".doc", ".docx"] as const;
+export const RESUME_ACCEPT = RESUME_EXTENSIONS.join(",");
+export const RESUME_HELP = "PDF, DOC or DOCX, up to 4 MB";
+
+/** When true the API refuses applications without a verified resume link. Switched on together with the form's resume field. */
+export const RESUME_REQUIRED = false;

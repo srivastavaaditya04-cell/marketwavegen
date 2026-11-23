@@ -1,0 +1,9 @@
+# Resumes live here. No folder listing, nothing can run as a script, files always download.
+Options -Indexes
+<FilesMatch "\.(php|phtml|php[0-9]|phar|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Content-Disposition "attachment"
+</IfModule>
