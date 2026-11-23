@@ -15,6 +15,10 @@ import {
     equalOpportunityStatement,
     backgroundConsent,
     privacyNotice,
+    RESUME_MAX_BYTES,
+    RESUME_EXTENSIONS,
+    RESUME_ACCEPT,
+    RESUME_HELP,
 } from "@/data/careers";
 
 type Role = { company: string; title: string; dates: string; results: string };
@@ -73,6 +77,30 @@ export function ApplicationForm({ jobSlug }: { jobSlug: string }) {
     const [form, setForm] = useState(initialForm);
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
+    const [resume, setResume] = useState<File | null>(null);
+    const [resumeError, setResumeError] = useState("");
+    const [fileInputKey, setFileInputKey] = useState(0);
+
+    const onResume = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0] ?? null;
+        setResumeError("");
+        if (!file) {
+            setResume(null);
+            return;
+        }
+        const ext = file.name.slice(file.name.lastIndexOf(".")).toLowerCase();
+        let problem = "";
+        if (!(RESUME_EXTENSIONS as readonly string[]).includes(ext)) problem = "Please upload a PDF, DOC or DOCX file.";
+        else if (file.size > RESUME_MAX_BYTES) problem = "That file is too large. The limit is 4 MB.";
+        else if (file.size === 0) problem = "That file is empty.";
+        if (problem) {
+            setResume(null);
+            setResumeError(problem);
+            setFileInputKey((k) => k + 1); // clears the chosen file
+            return;
+        }
+        setResume(file);
+    };
 
     const set = <K extends keyof typeof initialForm>(key: K, value: (typeof initialForm)[K]) =>
         setForm((prev) => ({ ...prev, [key]: value }));
@@ -104,18 +132,23 @@ export function ApplicationForm({ jobSlug }: { jobSlug: string }) {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!resume) {
+            setResumeError("Please upload your resume.");
+            document.getElementById("resume")?.focus();
+            return;
+        }
         setStatus("loading");
         setErrorMessage("");
         try {
-            const res = await fetch("/api/careers", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...form, jobSlug, pageUrl: window.location.href }),
-            });
+            const body = new FormData();
+            body.append("payload", JSON.stringify({ ...form, jobSlug, pageUrl: window.location.href }));
+            body.append("resume", resume);
+            const res = await fetch("/api/careers", { method: "POST", body });
             const data = await res.json().catch(() => ({}));
             if (res.ok) {
                 setStatus("success");
                 setForm(initialForm);
+                setResume(null);
                 window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
                 setStatus("error");
@@ -248,6 +281,27 @@ export function ApplicationForm({ jobSlug }: { jobSlug: string }) {
                             </Field>
                         </fieldset>
                     ))}
+                </div>
+                <div>
+                    <label htmlFor="resume" className={labelClass}>
+                        Resume<span className="text-brand-cyan"> *</span>
+                    </label>
+                    <input
+                        key={fileInputKey}
+                        id="resume"
+                        type="file"
+                        accept={RESUME_ACCEPT}
+                        required
+                        aria-describedby="resume-help"
+                        onChange={onResume}
+                        className={cn(
+                            inputClass,
+                            "cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-[#0158e6] file:px-4 file:py-2 file:text-sm file:font-bold file:text-white hover:file:bg-[#33b5ff]"
+                        )}
+                    />
+                    <p id="resume-help" className="mt-2 text-sm text-ink/50">{RESUME_HELP}</p>
+                    {resume && <p className="mt-1 text-sm text-ink/70">Selected: {resume.name}</p>}
+                    {resumeError && <p className="mt-1 text-sm font-medium text-red-500" role="alert">{resumeError}</p>}
                 </div>
             </section>
 

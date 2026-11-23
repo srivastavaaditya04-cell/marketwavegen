@@ -1,0 +1,7 @@
+# Nobody should open the settings file directly.
+<Files "config.php">
+    Require all denied
+</Files>
+<Files "config.sample.php">
+    Require all denied
+</Files>
