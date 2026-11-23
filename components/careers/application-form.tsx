@@ -15,6 +15,10 @@ import {
     equalOpportunityStatement,
     backgroundConsent,
     privacyNotice,
+    RESUME_MAX_BYTES,
+    RESUME_EXTENSIONS,
+    RESUME_ACCEPT,
+    RESUME_HELP,
 } from "@/data/careers";
 
 type Role = { company: string; title: string; dates: string; results: string };
@@ -73,6 +77,30 @@ export function ApplicationForm({ jobSlug }: { jobSlug: string }) {
     const [form, setForm] = useState(initialForm);
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
+    const [resume, setResume] = useState<File | null>(null);
+    const [resumeError, setResumeError] = useState("");
+    const [fileInputKey, setFileInputKey] = useState(0);
+
+    const onResume = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0] ?? null;
+        setResumeError("");
+        if (!file) {
+            setResume(null);
+            return;
+        }
+        const ext = file.name.slice(file.name.lastIndexOf(".")).toLowerCase();
+        let problem = "";
+        if (!(RESUME_EXTENSIONS as readonly string[]).includes(ext)) problem = "Please upload a PDF, DOC or DOCX file.";
+        else if (file.size > RESUME_MAX_BYTES) problem = "That file is too large. The limit is 4 MB.";
+        else if (file.size === 0) problem = "That file is empty.";
+        if (problem) {
+            setResume(null);
+            setResumeError(problem);
+            setFileInputKey((k) => k + 1); // clears the chosen file
+            return;
+        }
+        setResume(file);
+    };
 
     const set = <K extends keyof typeof initialForm>(key: K, value: (typeof initialForm)[K]) =>
         setForm((prev) => ({ ...prev, [key]: value }));
@@ -104,26 +132,69 @@ export function ApplicationForm({ jobSlug }: { jobSlug: string }) {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!resume) {
+            setResumeError("Please upload your resume.");
+            document.getElementById("resume")?.focus();
+            return;
+        }
         setStatus("loading");
         setErrorMessage("");
+        const fail = (message: string) => {
+            setStatus("error");
+            setErrorMessage(message);
+        };
+        const json = { "Content-Type": "application/json" };
         try {
+            // 1. Ask the website for a short-lived, signed upload slip.
+            const slipRes = await fetch("/api/careers/slip", {
+                method: "POST",
+                headers: json,
+                body: JSON.stringify({ jobSlug, fileName: resume.name, size: resume.size }),
+            });
+            const slip = await slipRes.json().catch(() => ({}));
+            if (!slipRes.ok || !slip.token || !slip.uploadUrl) {
+                return fail(slip.error || "Your resume could not be uploaded. Please try again in a moment.");
+            }
+
+            // 2. Upload the file straight to the company's file hosting.
+            let up: { url?: string; sig?: string; error?: string } = {};
+            let upStatus = 0;
+            try {
+                const body = new FormData();
+                body.append("token", slip.token);
+                body.append("resume", resume);
+                const upRes = await fetch(slip.uploadUrl, { method: "POST", body, signal: AbortSignal.timeout(90000) });
+                upStatus = upRes.status;
+                up = await upRes.json().catch(() => ({}));
+            } catch {
+                return fail("Your resume could not be uploaded. Check your connection and try again.");
+            }
+            if (upStatus !== 200 || !up.url || !up.sig) {
+                // 413 / 415 carry a message meant for the applicant (too large, wrong file type).
+                return fail(
+                    (upStatus === 413 || upStatus === 415) && up.error
+                        ? up.error
+                        : "Your resume could not be uploaded. Please try again in a moment."
+                );
+            }
+
+            // 3. Send the application with the link and the signature the hosting gave back.
             const res = await fetch("/api/careers", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...form, jobSlug, pageUrl: window.location.href }),
+                headers: json,
+                body: JSON.stringify({ ...form, jobSlug, pageUrl: window.location.href, resumeUrl: up.url, resumeSig: up.sig }),
             });
             const data = await res.json().catch(() => ({}));
             if (res.ok) {
                 setStatus("success");
                 setForm(initialForm);
+                setResume(null);
                 window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
-                setStatus("error");
-                setErrorMessage(data.error || "Your application could not be sent. Please try again.");
+                fail(data.error || "Your application could not be sent. Please try again.");
             }
         } catch {
-            setStatus("error");
-            setErrorMessage("Your application could not be sent. Check your connection and try again.");
+            fail("Your application could not be sent. Check your connection and try again.");
         }
     };
 
@@ -249,6 +320,27 @@ export function ApplicationForm({ jobSlug }: { jobSlug: string }) {
                         </fieldset>
                     ))}
                 </div>
+                <div>
+                    <label htmlFor="resume" className={labelClass}>
+                        Resume<span className="text-brand-cyan"> *</span>
+                    </label>
+                    <input
+                        key={fileInputKey}
+                        id="resume"
+                        type="file"
+                        accept={RESUME_ACCEPT}
+                        required
+                        aria-describedby="resume-help"
+                        onChange={onResume}
+                        className={cn(
+                            inputClass,
+                            "cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-[#0158e6] file:px-4 file:py-2 file:text-sm file:font-bold file:text-white hover:file:bg-[#33b5ff]"
+                        )}
+                    />
+                    <p id="resume-help" className="mt-2 text-sm text-ink/50">{RESUME_HELP}</p>
+                    {resume && <p className="mt-1 text-sm text-ink/70">Selected: {resume.name}</p>}
+                    {resumeError && <p className="mt-1 text-sm font-medium text-red-500" role="alert">{resumeError}</p>}
+                </div>
             </section>
 
             {/* 4. Independent Contractor Acknowledgments */}
@@ -322,7 +414,7 @@ export function ApplicationForm({ jobSlug }: { jobSlug: string }) {
                     disabled={status === "loading"}
                     className="w-full h-16 rounded-2xl font-black text-lg bg-ink text-page hover:bg-[#efef39] hover:text-black transition-all"
                 >
-                    {status === "loading" ? "SUBMITTING…" : "SUBMIT APPLICATION"}
+                    {status === "loading" ? "UPLOADING AND SUBMITTING…" : "SUBMIT APPLICATION"}
                 </Button>
             </div>
         </form>

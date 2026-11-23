@@ -113,4 +113,4 @@ export const RESUME_ACCEPT = RESUME_EXTENSIONS.join(",");
 export const RESUME_HELP = "PDF, DOC or DOCX, up to 4 MB";
 
 /** When true the API refuses applications without a verified resume link. Switched on together with the form's resume field. */
-export const RESUME_REQUIRED = false;
+export const RESUME_REQUIRED = true;
